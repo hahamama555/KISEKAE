@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport"
 content="width=device-width,
 initial-scale=1.0,
@@ -42,38 +43,30 @@ body{
   width:100%;
   max-width:500px;
   height:100dvh;
-
   display:flex;
   flex-direction:column;
-
   background:
     linear-gradient(
       180deg,
       #fff9ff,
       #f7edfa
     );
-
   overflow:hidden;
 }
 
 
 /* =========================
-   HEADER
+ HEADER
 ========================= */
 
 .header{
   flex:0 0 58px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   padding:7px 10px;
-
   background:#fff;
-
   border-bottom:1px solid #eaddea;
-
   z-index:50;
 }
 
@@ -81,30 +74,21 @@ body{
   font-size:19px;
   font-weight:900;
   color:#743d7c;
-
   text-align:center;
-
   flex:1;
 }
 
 .coinBox{
   min-width:95px;
-
   display:flex;
   align-items:center;
   justify-content:center;
   gap:4px;
-
   padding:7px 8px;
-
   background:#fff8d9;
-
   border:2px solid #f0ce54;
-
   border-radius:20px;
-
   color:#755b00;
-
   font-size:12px;
   font-weight:900;
 }
@@ -116,14 +100,12 @@ body{
 
 
 /* =========================
-   CHARACTER
+ CHARACTER
 ========================= */
 
 .characterArea{
   position:relative;
-
   flex:1 1 auto;
-
   min-height:0;
 
   display:flex;
@@ -142,29 +124,17 @@ body{
 }
 
 .characterStage{
-
   position:relative;
-
   width:min(72vw,360px);
-
   height:calc(100% - 8px);
-
   max-height:100%;
 
   display:flex;
-
   align-items:center;
   justify-content:center;
-
 }
 
-
-/*
- 全レイヤーを完全に同じ位置に重ねる
-*/
-
 .layer{
-
   position:absolute;
 
   left:50%;
@@ -184,18 +154,13 @@ body{
   display:none;
 }
 
-
-/*
- 本体
-*/
-
 #baseLayer{
   display:block;
 }
 
 
 /* =========================
-   ワンピース・ドレス
+ ワンピース・ドレス
 ========================= */
 
 .onepieceOn .topLayer,
@@ -210,13 +175,11 @@ body{
 
 
 /* =========================
-   現在のアイテム
+ CURRENT
 ========================= */
 
 .currentItem{
-
   position:absolute;
-
   top:8px;
   left:8px;
 
@@ -225,15 +188,13 @@ body{
   background:
     rgba(255,255,255,.9);
 
-  border:
-    1px solid #e6d5e9;
+  border:1px solid #e6d5e9;
 
   border-radius:15px;
 
   color:#714c77;
 
   font-size:10px;
-
   font-weight:800;
 
   z-index:20;
@@ -241,15 +202,13 @@ body{
 
 
 /* =========================
-   GIFT AREA
+ GIFT
 ========================= */
 
 .giftArea{
-
   flex:0 0 42px;
 
   display:flex;
-
   gap:5px;
 
   padding:5px 7px;
@@ -261,7 +220,6 @@ body{
 }
 
 .giftBtn{
-
   flex:1;
 
   border:2px solid #eadb64;
@@ -273,9 +231,7 @@ body{
   color:#775e00;
 
   font-size:10px;
-
   font-weight:900;
-
 }
 
 .giftBtn:active{
@@ -284,11 +240,10 @@ body{
 
 
 /* =========================
-   BOTTOM PANEL
+ BOTTOM PANEL
 ========================= */
 
 .bottomPanel{
-
   flex:0 0 39%;
 
   min-height:230px;
@@ -303,11 +258,10 @@ body{
 
 
 /* =========================
-   TABS
+ TABS
 ========================= */
 
 .tabs{
-
   flex:0 0 43px;
 
   display:flex;
@@ -324,7 +278,6 @@ body{
 }
 
 .tab{
-
   flex:0 0 auto;
 
   min-width:78px;
@@ -343,21 +296,17 @@ body{
 }
 
 .tab.active{
-
   color:#9b4eaa;
-
   border-bottom-color:#c968d7;
 }
 
 
 /* =========================
-   ITEMS
+ ITEMS
 ========================= */
 
 .itemArea{
-
   flex:1;
-
   min-height:0;
 
   overflow-y:auto;
@@ -368,7 +317,6 @@ body{
 }
 
 .items{
-
   display:grid;
 
   grid-template-columns:
@@ -377,13 +325,7 @@ body{
   gap:7px;
 }
 
-
-/* =========================
-   ITEM CARD
-========================= */
-
 .item{
-
   position:relative;
 
   min-width:0;
@@ -392,13 +334,11 @@ body{
 
   background:#fff;
 
-  border:
-    2px solid #eaddea;
+  border:2px solid #eaddea;
 
   border-radius:13px;
 
   cursor:pointer;
-
 }
 
 .item:active{
@@ -406,13 +346,11 @@ body{
 }
 
 .item.selected{
-
   border-color:#c35bcf;
 
   box-shadow:
     0 0 0 2px
     rgba(195,91,207,.15);
-
 }
 
 .item.locked{
@@ -420,7 +358,6 @@ body{
 }
 
 .itemImage{
-
   width:100%;
   height:60px;
 
@@ -431,11 +368,9 @@ body{
   border-radius:8px;
 
   display:block;
-
 }
 
 .itemName{
-
   margin-top:3px;
 
   text-align:center;
@@ -451,11 +386,9 @@ body{
   overflow:hidden;
 
   text-overflow:ellipsis;
-
 }
 
 .price{
-
   margin-top:2px;
 
   text-align:center;
@@ -465,16 +398,14 @@ body{
   font-weight:900;
 
   color:#946d00;
-
 }
 
 
 /* =========================
-   BASE SETTING
+ BASE SETTING
 ========================= */
 
 .baseSetting{
-
   flex:0 0 39px;
 
   padding:4px 7px;
@@ -483,35 +414,41 @@ body{
 
   border-top:1px solid #eee;
 
+  display:flex;
+  gap:5px;
 }
 
-.baseButton{
-
-  width:100%;
-
+.baseButton,
+.itemSettingButton{
   height:31px;
 
   border:none;
 
   border-radius:17px;
 
-  background:#8f55a0;
-
   color:#fff;
 
   font-size:11px;
 
   font-weight:900;
+}
 
+.baseButton{
+  flex:1;
+  background:#8f55a0;
+}
+
+.itemSettingButton{
+  flex:1;
+  background:#c35bcf;
 }
 
 
 /* =========================
-   UPLOAD MODAL
+ MODAL
 ========================= */
 
 .modal{
-
   position:fixed;
 
   inset:0;
@@ -532,9 +469,7 @@ body{
 }
 
 .modalBox{
-
   width:88%;
-
   max-width:370px;
 
   max-height:90vh;
@@ -550,11 +485,9 @@ body{
   box-shadow:
     0 15px 50px
     rgba(0,0,0,.25);
-
 }
 
 .modalTitle{
-
   text-align:center;
 
   font-size:19px;
@@ -564,11 +497,14 @@ body{
   color:#78427f;
 
   margin-bottom:15px;
-
 }
 
-.uploadRow{
 
+/* =========================
+ FORM
+========================= */
+
+.uploadRow{
   margin-bottom:13px;
 
   padding:11px;
@@ -576,58 +512,168 @@ body{
   background:#f8f0fa;
 
   border-radius:15px;
-
 }
 
 .uploadRow label{
-
   display:block;
 
-  margin-bottom:5px;
+  margin-bottom:6px;
 
   color:#714778;
 
   font-size:12px;
 
   font-weight:900;
-
 }
 
-.uploadRow input{
-
+.uploadRow input,
+.uploadRow select{
   width:100%;
 
-  font-size:11px;
+  min-height:35px;
 
+  padding:6px;
+
+  border:1px solid #ddd;
+
+  border-radius:8px;
+
+  font-size:12px;
+
+  background:#fff;
 }
 
-.closeButton{
+.preview{
+  width:100%;
+  height:120px;
 
+  margin-top:8px;
+
+  object-fit:contain;
+
+  background:#fff;
+
+  border-radius:10px;
+
+  display:none;
+}
+
+.registerButton{
   width:100%;
 
-  height:40px;
-
-  margin-top:5px;
+  height:42px;
 
   border:none;
 
-  border-radius:20px;
+  border-radius:21px;
 
   background:#9c54aa;
 
   color:#fff;
 
-  font-weight:900;
+  font-size:13px;
 
+  font-weight:900;
+}
+
+.closeButton{
+  width:100%;
+
+  height:40px;
+
+  margin-top:7px;
+
+  border:none;
+
+  border-radius:20px;
+
+  background:#eee;
+
+  color:#765f79;
+
+  font-weight:900;
 }
 
 
 /* =========================
-   ITEM GET MODAL
+ SETTING LIST
+========================= */
+
+.settingList{
+  max-height:220px;
+
+  overflow-y:auto;
+
+  margin-bottom:10px;
+}
+
+.settingItem{
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  padding:7px;
+
+  margin-bottom:6px;
+
+  background:#faf6fb;
+
+  border-radius:12px;
+}
+
+.settingItem img{
+  width:48px;
+  height:48px;
+
+  object-fit:contain;
+
+  background:#fff;
+
+  border-radius:8px;
+}
+
+.settingInfo{
+  flex:1;
+  min-width:0;
+}
+
+.settingName{
+  font-size:11px;
+  font-weight:900;
+  color:#654d69;
+}
+
+.settingPrice{
+  font-size:10px;
+  color:#946d00;
+  margin-top:2px;
+}
+
+.deleteButton{
+  width:48px;
+  height:30px;
+
+  border:none;
+
+  border-radius:15px;
+
+  background:#f2d9df;
+
+  color:#9b4053;
+
+  font-size:10px;
+
+  font-weight:900;
+}
+
+
+/* =========================
+ GET MODAL
 ========================= */
 
 .getModal{
-
   position:fixed;
 
   inset:0;
@@ -641,7 +687,6 @@ body{
     rgba(50,20,55,.45);
 
   z-index:300;
-
 }
 
 .getModal.show{
@@ -649,9 +694,7 @@ body{
 }
 
 .getBox{
-
   width:82%;
-
   max-width:330px;
 
   padding:25px 18px;
@@ -661,7 +704,6 @@ body{
   border-radius:25px;
 
   text-align:center;
-
 }
 
 .getEmoji{
@@ -669,7 +711,6 @@ body{
 }
 
 .getTitle{
-
   margin-top:6px;
 
   color:#9b45aa;
@@ -677,11 +718,9 @@ body{
   font-size:22px;
 
   font-weight:900;
-
 }
 
 .getName{
-
   margin-top:7px;
 
   color:#654d69;
@@ -689,11 +728,9 @@ body{
   font-size:13px;
 
   font-weight:800;
-
 }
 
 .getClose{
-
   width:100%;
 
   height:42px;
@@ -709,16 +746,14 @@ body{
   color:#fff;
 
   font-weight:900;
-
 }
 
 
 /* =========================
-   TOAST
+ TOAST
 ========================= */
 
 .toast{
-
   position:fixed;
 
   left:50%;
@@ -749,16 +784,13 @@ body{
   z-index:500;
 
   white-space:nowrap;
-
 }
 
 .toast.show{
-
   opacity:1;
 
   transform:
     translate(-50%,0);
-
 }
 
 </style>
@@ -771,7 +803,7 @@ body{
 
 
 <!-- =========================
-     HEADER
+ HEADER
 ========================= -->
 
 <header class="header">
@@ -790,7 +822,7 @@ body{
 
 
 <!-- =========================
-     CHARACTER
+ CHARACTER
 ========================= -->
 
 <section class="characterArea">
@@ -798,9 +830,7 @@ body{
   <div
     class="currentItem"
     id="currentItem">
-
     ベースキャラクター
-
   </div>
 
 
@@ -809,7 +839,7 @@ body{
     id="characterStage">
 
 
-    <!-- ① 本体 -->
+    <!-- 本体 -->
 
     <img
       id="baseLayer"
@@ -818,7 +848,7 @@ body{
       alt="本体">
 
 
-    <!-- ② 靴 -->
+    <!-- 靴 -->
 
     <img
       id="shoesLayer"
@@ -827,7 +857,7 @@ body{
       alt="靴">
 
 
-    <!-- ③ ボトムス -->
+    <!-- ボトムス -->
 
     <img
       id="bottomLayer"
@@ -836,7 +866,7 @@ body{
       alt="ボトムス">
 
 
-    <!-- ④ ワンピース -->
+    <!-- ワンピース -->
 
     <img
       id="onepieceLayer"
@@ -845,7 +875,7 @@ body{
       alt="ワンピース">
 
 
-    <!-- ⑤ ドレス -->
+    <!-- ドレス -->
 
     <img
       id="dressLayer"
@@ -854,7 +884,7 @@ body{
       alt="ドレス">
 
 
-    <!-- ⑥ トップス -->
+    <!-- トップス -->
 
     <img
       id="topLayer"
@@ -863,7 +893,7 @@ body{
       alt="トップス">
 
 
-    <!-- ⑦ アウター -->
+    <!-- アウター -->
 
     <img
       id="outerLayer"
@@ -872,7 +902,7 @@ body{
       alt="アウター">
 
 
-    <!-- ⑧ 髪 -->
+    <!-- 髪 -->
 
     <img
       id="hairLayer"
@@ -881,7 +911,7 @@ body{
       alt="髪型">
 
 
-    <!-- ⑨ アクセサリー -->
+    <!-- アクセサリー -->
 
     <img
       id="accessoryLayer"
@@ -895,7 +925,7 @@ body{
 
 
 <!-- =========================
-     GIFTS
+ GIFTS
 ========================= -->
 
 <div class="giftArea">
@@ -928,92 +958,94 @@ body{
 
 
 <!-- =========================
-     ITEM PANEL
+ ITEM PANEL
 ========================= -->
 
 <section class="bottomPanel">
 
 
-  <!-- TABS -->
+<nav class="tabs">
 
-  <nav class="tabs">
+  <button
+    class="tab active"
+    onclick="changeCategory('top',this)">
+    👚 トップス
+  </button>
 
-    <button
-      class="tab active"
-      onclick="changeCategory('top',this)">
-      👚 トップス
-    </button>
+  <button
+    class="tab"
+    onclick="changeCategory('onepiece',this)">
+    👗 ワンピース
+  </button>
 
-    <button
-      class="tab"
-      onclick="changeCategory('onepiece',this)">
-      👗 ワンピース
-    </button>
+  <button
+    class="tab"
+    onclick="changeCategory('dress',this)">
+    👑 ドレス
+  </button>
 
-    <button
-      class="tab"
-      onclick="changeCategory('dress',this)">
-      👑 ドレス
-    </button>
+  <button
+    class="tab"
+    onclick="changeCategory('bottom',this)">
+    👖 ボトムス
+  </button>
 
-    <button
-      class="tab"
-      onclick="changeCategory('bottom',this)">
-      👖 ボトムス
-    </button>
+  <button
+    class="tab"
+    onclick="changeCategory('outer',this)">
+    🧥 アウター
+  </button>
 
-    <button
-      class="tab"
-      onclick="changeCategory('outer',this)">
-      🧥 アウター
-    </button>
+  <button
+    class="tab"
+    onclick="changeCategory('hair',this)">
+    💇 髪型
+  </button>
 
-    <button
-      class="tab"
-      onclick="changeCategory('hair',this)">
-      💇 髪型
-    </button>
+  <button
+    class="tab"
+    onclick="changeCategory('accessory',this)">
+    💎 アクセ
+  </button>
 
-    <button
-      class="tab"
-      onclick="changeCategory('accessory',this)">
-      💎 アクセ
-    </button>
+  <button
+    class="tab"
+    onclick="changeCategory('shoes',this)">
+    👟 靴
+  </button>
 
-    <button
-      class="tab"
-      onclick="changeCategory('shoes',this)">
-      👟 靴
-    </button>
-
-  </nav>
+</nav>
 
 
-  <!-- ITEMS -->
+<div class="itemArea">
 
-  <div class="itemArea">
-
-    <div
-      class="items"
-      id="items">
-    </div>
-
+  <div
+    class="items"
+    id="items">
   </div>
 
+</div>
 
-  <!-- BASE -->
 
-  <div class="baseSetting">
+<div class="baseSetting">
 
-    <button
-      class="baseButton"
-      onclick="openBaseSetting()">
+  <button
+    class="baseButton"
+    onclick="openBaseSetting()">
 
-      👤 ベースキャラクターを設定
+    👤 ベースキャラクター
 
-    </button>
+  </button>
 
-  </div>
+  <button
+    class="itemSettingButton"
+    onclick="openItemSetting()">
+
+    ➕ アイテム設定
+
+  </button>
+
+</div>
 
 </section>
 
@@ -1021,7 +1053,7 @@ body{
 
 
 <!-- =========================
-     BASE SETTING MODAL
+ BASE MODAL
 ========================= -->
 
 <div
@@ -1047,6 +1079,10 @@ body{
         accept="image/*"
         onchange="setBaseCharacter(event)">
 
+      <img
+        id="basePreview"
+        class="preview">
+
     </div>
 
 
@@ -1064,7 +1100,144 @@ body{
 
 
 <!-- =========================
-     GET MODAL
+ ITEM SETTING MODAL
+========================= -->
+
+<div
+  class="modal"
+  id="itemModal">
+
+  <div class="modalBox">
+
+    <div class="modalTitle">
+      ➕ アイテム設定
+    </div>
+
+
+    <div class="uploadRow">
+
+      <label>
+        アイテム画像
+      </label>
+
+      <input
+        type="file"
+        id="itemImageInput"
+        accept="image/*"
+        onchange="previewItemImage(event)">
+
+      <img
+        id="itemPreview"
+        class="preview">
+
+    </div>
+
+
+    <div class="uploadRow">
+
+      <label>
+        アイテム名
+      </label>
+
+      <input
+        type="text"
+        id="itemNameInput"
+        placeholder="例：ピンクドレス">
+
+    </div>
+
+
+    <div class="uploadRow">
+
+      <label>
+        必要コイン数
+      </label>
+
+      <input
+        type="number"
+        id="itemPriceInput"
+        min="1"
+        value="100"
+        inputmode="numeric">
+
+    </div>
+
+
+    <div class="uploadRow">
+
+      <label>
+        アイテムの種類
+      </label>
+
+      <select id="itemCategoryInput">
+
+        <option value="top">
+          👚 トップス
+        </option>
+
+        <option value="onepiece">
+          👗 ワンピース
+        </option>
+
+        <option value="dress">
+          👑 ドレス
+        </option>
+
+        <option value="bottom">
+          👖 ボトムス
+        </option>
+
+        <option value="outer">
+          🧥 アウター
+        </option>
+
+        <option value="hair">
+          💇 髪型
+        </option>
+
+        <option value="accessory">
+          💎 アクセサリー
+        </option>
+
+        <option value="shoes">
+          👟 靴
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <button
+      class="registerButton"
+      onclick="registerItem()">
+
+      ✓ アイテムを登録
+
+    </button>
+
+
+    <button
+      class="closeButton"
+      onclick="closeItemSetting()">
+
+      閉じる
+
+    </button>
+
+
+    <div
+      id="settingList"
+      class="settingList">
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+ GET MODAL
 ========================= -->
 
 <div
@@ -1108,315 +1281,64 @@ body{
 <script>
 
 /* =====================================================
-   コイン
+ コイン
 ===================================================== */
 
 let coins = 0;
 
 
 /* =====================================================
-   現在のカテゴリー
+ カテゴリー
 ===================================================== */
 
 let currentCategory = "top";
 
 
 /* =====================================================
-   現在着ているアイテム
+ 選択中アイテム
 ===================================================== */
 
 let selected = {
 
   top:null,
-
   onepiece:null,
-
   dress:null,
-
   bottom:null,
-
   outer:null,
-
   hair:null,
-
   accessory:null,
-
   shoes:null
 
 };
 
 
 /* =====================================================
-   アイテムデータ
-=====================================================
-
-   price が必要コイン数です。
-
-   例：
-   price:100
-
-   → 100コイン必要
+ アイテムデータ
 ===================================================== */
 
 const items = {
 
-
-  /* トップス */
-
-  top:[
-
-    {
-      id:"top1",
-      name:"ハートトップス",
-      price:10,
-      src:""
-    },
-
-    {
-      id:"top2",
-      name:"リボンブラウス",
-      price:100,
-      src:""
-    },
-
-    {
-      id:"top3",
-      name:"パーカー",
-      price:100,
-      src:""
-    },
-
-    {
-      id:"top4",
-      name:"ブラックトップス",
-      price:500,
-      src:""
-    }
-
-  ],
-
-
-  /* ワンピース */
-
-  onepiece:[
-
-    {
-      id:"onepiece1",
-      name:"ピンクワンピース",
-      price:100,
-      src:""
-    },
-
-    {
-      id:"onepiece2",
-      name:"ハートワンピース",
-      price:500,
-      src:""
-    }
-
-  ],
-
-
-  /* ドレス */
-
-  dress:[
-
-    {
-      id:"dress1",
-      name:"ピンクドレス",
-      price:100,
-      src:""
-    },
-
-    {
-      id:"dress2",
-      name:"プリンセスドレス",
-      price:500,
-      src:""
-    },
-
-    {
-      id:"dress3",
-      name:"スペシャルドレス",
-      price:1000,
-      src:""
-    }
-
-  ],
-
-
-  /* ボトムス */
-
-  bottom:[
-
-    {
-      id:"bottom1",
-      name:"ピンクスカート",
-      price:10,
-      src:""
-    },
-
-    {
-      id:"bottom2",
-      name:"ブラックスカート",
-      price:100,
-      src:""
-    },
-
-    {
-      id:"bottom3",
-      name:"デニムショートパンツ",
-      price:100,
-      src:""
-    },
-
-    {
-      id:"bottom4",
-      name:"カーゴパンツ",
-      price:500,
-      src:""
-    }
-
-  ],
-
-
-  /* アウター */
-
-  outer:[
-
-    {
-      id:"outer1",
-      name:"ハートジャケット",
-      price:100,
-      src:""
-    },
-
-    {
-      id:"outer2",
-      name:"ピンクアウター",
-      price:500,
-      src:""
-    },
-
-    {
-      id:"outer3",
-      name:"デニムジャケット",
-      price:100,
-      src:""
-    }
-
-  ],
-
-
-  /* 髪 */
-
-  hair:[
-
-    {
-      id:"hair1",
-      name:"ロングヘア",
-      price:100,
-      src:""
-    },
-
-    {
-      id:"hair2",
-      name:"ハーフアップ",
-      price:100,
-      src:""
-    },
-
-    {
-      id:"hair3",
-      name:"ツインテール",
-      price:500,
-      src:""
-    },
-
-    {
-      id:"hair4",
-      name:"おだんご",
-      price:500,
-      src:""
-    }
-
-  ],
-
-
-  /* アクセサリー */
-
-  accessory:[
-
-    {
-      id:"accessory1",
-      name:"ハートネックレス",
-      price:10,
-      src:""
-    },
-
-    {
-      id:"accessory2",
-      name:"ハートイヤリング",
-      price:100,
-      src:""
-    },
-
-    {
-      id:"accessory3",
-      name:"ハートメガネ",
-      price:500,
-      src:""
-    }
-
-  ],
-
-
-  /* 靴 */
-
-  shoes:[
-
-    {
-      id:"shoes1",
-      name:"ブラックシューズ",
-      price:10,
-      src:""
-    },
-
-    {
-      id:"shoes2",
-      name:"ブラックブーツ",
-      price:100,
-      src:""
-    },
-
-    {
-      id:"shoes3",
-      name:"うさぎシューズ",
-      price:500,
-      src:""
-    },
-
-    {
-      id:"shoes4",
-      name:"リボンブーツ",
-      price:500,
-      src:""
-    }
-
-  ]
+  top:[],
+  onepiece:[],
+  dress:[],
+  bottom:[],
+  outer:[],
+  hair:[],
+  accessory:[],
+  shoes:[]
 
 };
 
 
 /* =====================================================
-   初期表示
+ 初期表示
 ===================================================== */
 
 renderItems();
 
 
 /* =====================================================
-   ベースキャラクター設定
+ ベース設定
 ===================================================== */
 
 function openBaseSetting(){
@@ -1437,10 +1359,6 @@ function closeBaseSetting(){
 }
 
 
-/*
-  選択した画像を本体に設定
-*/
-
 function setBaseCharacter(event){
 
   const file =
@@ -1448,10 +1366,8 @@ function setBaseCharacter(event){
 
   if(!file) return;
 
-
   const reader =
     new FileReader();
-
 
   reader.onload=function(e){
 
@@ -1467,12 +1383,23 @@ function setBaseCharacter(event){
       "block";
 
 
+    const preview =
+      document.getElementById(
+        "basePreview"
+      );
+
+    preview.src =
+      e.target.result;
+
+    preview.style.display =
+      "block";
+
+
     showToast(
       "👤 ベースキャラクターを設定しました"
     );
 
   };
-
 
   reader.readAsDataURL(file);
 
@@ -1480,7 +1407,7 @@ function setBaseCharacter(event){
 
 
 /* =====================================================
-   コイン追加
+ コイン追加
 ===================================================== */
 
 function addCoins(value){
@@ -1502,14 +1429,13 @@ function addCoins(value){
 
 
 /* =====================================================
-   カテゴリー変更
+ カテゴリー
 ===================================================== */
 
 function changeCategory(category,button){
 
   currentCategory =
     category;
-
 
   document
     .querySelectorAll(".tab")
@@ -1521,11 +1447,9 @@ function changeCategory(category,button){
 
     });
 
-
   button.classList.add(
     "active"
   );
-
 
   renderItems();
 
@@ -1533,7 +1457,419 @@ function changeCategory(category,button){
 
 
 /* =====================================================
-   アイテム表示
+ アイテム設定
+===================================================== */
+
+function openItemSetting(){
+
+  document
+    .getElementById("itemModal")
+    .classList.add("show");
+
+  document
+    .getElementById("itemCategoryInput")
+    .value =
+    currentCategory;
+
+  renderSettingList();
+
+}
+
+
+function closeItemSetting(){
+
+  document
+    .getElementById("itemModal")
+    .classList.remove("show");
+
+}
+
+
+/* =====================================================
+ アイテム画像プレビュー
+===================================================== */
+
+function previewItemImage(event){
+
+  const file =
+    event.target.files[0];
+
+  if(!file) return;
+
+  const reader =
+    new FileReader();
+
+  reader.onload=function(e){
+
+    const preview =
+      document.getElementById(
+        "itemPreview"
+      );
+
+    preview.src =
+      e.target.result;
+
+    preview.style.display =
+      "block";
+
+  };
+
+  reader.readAsDataURL(file);
+
+}
+
+
+/* =====================================================
+ アイテム登録
+===================================================== */
+
+function registerItem(){
+
+  const fileInput =
+    document.getElementById(
+      "itemImageInput"
+    );
+
+  const nameInput =
+    document.getElementById(
+      "itemNameInput"
+    );
+
+  const priceInput =
+    document.getElementById(
+      "itemPriceInput"
+    );
+
+  const categoryInput =
+    document.getElementById(
+      "itemCategoryInput"
+    );
+
+
+  const file =
+    fileInput.files[0];
+
+  const name =
+    nameInput.value.trim();
+
+  const price =
+    Number(
+      priceInput.value
+    );
+
+  const category =
+    categoryInput.value;
+
+
+  if(!file){
+
+    showToast(
+      "📷 アイテム画像を選んでください"
+    );
+
+    return;
+
+  }
+
+
+  if(!name){
+
+    showToast(
+      "✏️ アイテム名を入力してください"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !price ||
+    price < 1
+  ){
+
+    showToast(
+      "🪙 コイン数を入力してください"
+    );
+
+    return;
+
+  }
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload=function(e){
+
+    const newItem = {
+
+      id:
+        "item_" +
+        Date.now() +
+        "_" +
+        Math.random()
+          .toString(36)
+          .slice(2),
+
+      name:name,
+
+      price:price,
+
+      src:e.target.result
+
+    };
+
+
+    items[category].push(
+      newItem
+    );
+
+
+    showToast(
+      "✨ アイテムを登録しました！"
+    );
+
+
+    /* 入力欄リセット */
+
+    fileInput.value = "";
+
+    nameInput.value = "";
+
+    priceInput.value = 100;
+
+    document
+      .getElementById(
+        "itemPreview"
+      ).style.display =
+      "none";
+
+
+    renderSettingList();
+
+
+    /* 登録したカテゴリーへ */
+
+    currentCategory =
+      category;
+
+
+    document
+      .querySelectorAll(".tab")
+      .forEach(tab=>{
+
+        tab.classList.remove(
+          "active"
+        );
+
+      });
+
+
+    const tabs =
+      document.querySelectorAll(
+        ".tab"
+      );
+
+    const categoryIndex = {
+
+      top:0,
+      onepiece:1,
+      dress:2,
+      bottom:3,
+      outer:4,
+      hair:5,
+      accessory:6,
+      shoes:7
+
+    };
+
+
+    if(
+      tabs[categoryIndex[category]]
+    ){
+
+      tabs[
+        categoryIndex[category]
+      ].classList.add(
+        "active"
+      );
+
+    }
+
+
+    renderItems();
+
+  };
+
+
+  reader.readAsDataURL(file);
+
+}
+
+
+/* =====================================================
+ アイテム一覧
+===================================================== */
+
+function renderSettingList(){
+
+  const container =
+    document.getElementById(
+      "settingList"
+    );
+
+  container.innerHTML = "";
+
+
+  Object.keys(items)
+    .forEach(category=>{
+
+      items[category]
+        .forEach(item=>{
+
+          const row =
+            document.createElement(
+              "div"
+            );
+
+          row.className =
+            "settingItem";
+
+
+          row.innerHTML = `
+
+            <img
+              src="${item.src}"
+              alt=""
+            >
+
+            <div
+              class="settingInfo">
+
+              <div
+                class="settingName">
+
+                ${escapeHTML(item.name)}
+
+              </div>
+
+              <div
+                class="settingPrice">
+
+                🪙 ${item.price}
+
+              </div>
+
+            </div>
+
+            <button
+              class="deleteButton">
+
+              削除
+
+            </button>
+
+          `;
+
+
+          row
+            .querySelector(
+              ".deleteButton"
+            )
+            .onclick =
+            function(){
+
+              deleteItem(
+                category,
+                item.id
+              );
+
+            };
+
+
+          container.appendChild(
+            row
+          );
+
+        });
+
+    });
+
+}
+
+
+/* =====================================================
+ アイテム削除
+===================================================== */
+
+function deleteItem(
+  category,
+  id
+){
+
+  const index =
+    items[category]
+      .findIndex(
+        item =>
+          item.id === id
+      );
+
+
+  if(index === -1)
+    return;
+
+
+  const item =
+    items[category][index];
+
+
+  items[category]
+    .splice(index,1);
+
+
+  if(
+    selected[category] &&
+    selected[category].id === id
+  ){
+
+    selected[category] =
+      null;
+
+    const layerMap = {
+
+      top:"topLayer",
+      onepiece:"onepieceLayer",
+      dress:"dressLayer",
+      bottom:"bottomLayer",
+      outer:"outerLayer",
+      hair:"hairLayer",
+      accessory:"accessoryLayer",
+      shoes:"shoesLayer"
+
+    };
+
+
+    hideLayer(
+      layerMap[category]
+    );
+
+  }
+
+
+  renderSettingList();
+  renderItems();
+
+  showToast(
+    `${item.name}を削除しました`
+  );
+
+}
+
+
+/* =====================================================
+ アイテム表示
 ===================================================== */
 
 function renderItems(){
@@ -1543,12 +1879,38 @@ function renderItems(){
       "items"
     );
 
-
   container.innerHTML = "";
 
 
   const list =
     items[currentCategory] || [];
+
+
+  if(list.length === 0){
+
+    container.innerHTML = `
+
+      <div
+        style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:25px 10px;
+        color:#9b849f;
+        font-size:12px;
+        font-weight:800;
+        "
+      >
+
+        まだアイテムがありません<br>
+        下の「➕ アイテム設定」から追加してください
+
+      </div>
+
+    `;
+
+    return;
+
+  }
 
 
   list.forEach(item=>{
@@ -1557,7 +1919,6 @@ function renderItems(){
       document.createElement(
         "div"
       );
-
 
     card.className =
       "item";
@@ -1588,48 +1949,34 @@ function renderItems(){
 
     card.innerHTML = `
 
-      ${
-        item.src
+      <img
+        class="itemImage"
+        src="${item.src}"
+        alt=""
+      >
 
-        ?
+      <div
+        class="itemName">
 
-        `<img
-          class="itemImage"
-          src="${item.src}"
-          alt=""
-        >`
-
-        :
-
-        `<div
-          class="itemImage"
-          style="
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          font-size:25px;
-          "
-        >
-          🖼️
-        </div>`
-      }
-
-
-      <div class="itemName">
         ${escapeHTML(item.name)}
+
       </div>
 
+      <div
+        class="price">
 
-      <div class="price">
         🪙 ${item.price}
+
       </div>
 
     `;
 
 
     card.onclick =
-      ()=>{
+      function(){
+
         selectItem(item);
+
       };
 
 
@@ -1643,14 +1990,10 @@ function renderItems(){
 
 
 /* =====================================================
-   アイテム選択
+ アイテム選択
 ===================================================== */
 
 function selectItem(item){
-
-  /*
-    コイン不足
-  */
 
   if(
     coins < item.price
@@ -1668,10 +2011,6 @@ function selectItem(item){
   }
 
 
-  /*
-    コイン消費
-  */
-
   coins -= item.price;
 
 
@@ -1681,27 +2020,15 @@ function selectItem(item){
     coins;
 
 
-  /*
-    選択状態
-  */
-
   selected[currentCategory] =
     item;
 
-
-  /*
-    着せる
-  */
 
   wearItem(
     currentCategory,
     item
   );
 
-
-  /*
-    GET表示
-  */
 
   document.getElementById(
     "getName"
@@ -1720,7 +2047,7 @@ function selectItem(item){
 
 
 /* =====================================================
-   着せる
+ 着せる
 ===================================================== */
 
 function wearItem(
@@ -1758,15 +2085,11 @@ function wearItem(
   if(!layer) return;
 
 
-  if(item.src){
+  layer.src =
+    item.src;
 
-    layer.src =
-      item.src;
-
-    layer.style.display =
-      "block";
-
-  }
+  layer.style.display =
+    "block";
 
 
   const stage =
@@ -1775,11 +2098,9 @@ function wearItem(
     );
 
 
-  /*
-    ワンピース
-  */
-
-  if(category === "onepiece"){
+  if(
+    category === "onepiece"
+  ){
 
     stage.classList.add(
       "onepieceOn"
@@ -1796,11 +2117,9 @@ function wearItem(
   }
 
 
-  /*
-    ドレス
-  */
-
-  if(category === "dress"){
+  if(
+    category === "dress"
+  ){
 
     stage.classList.add(
       "dressOn"
@@ -1816,11 +2135,6 @@ function wearItem(
 
   }
 
-
-  /*
-    トップス・ボトムスを選んだら
-    ワンピースとドレスを解除
-  */
 
   if(
     category === "top" ||
@@ -1846,10 +2160,6 @@ function wearItem(
   }
 
 
-  /*
-    現在の表示
-  */
-
   document.getElementById(
     "currentItem"
   ).textContent =
@@ -1859,13 +2169,15 @@ function wearItem(
 
 
 /* =====================================================
-   レイヤーを非表示
+ 非表示
 ===================================================== */
 
 function hideLayer(id){
 
   const layer =
-    document.getElementById(id);
+    document.getElementById(
+      id
+    );
 
   if(layer){
 
@@ -1878,7 +2190,7 @@ function hideLayer(id){
 
 
 /* =====================================================
-   GETモーダルを閉じる
+ GET閉じる
 ===================================================== */
 
 function closeGetModal(){
@@ -1893,7 +2205,7 @@ function closeGetModal(){
 
 
 /* =====================================================
-   TOAST
+ TOAST
 ===================================================== */
 
 let toastTimer;
@@ -1922,29 +2234,52 @@ function showToast(message){
 
 
   toastTimer =
-    setTimeout(()=>{
+    setTimeout(
+      function(){
 
-      toast.classList.remove(
-        "show"
-      );
+        toast.classList.remove(
+          "show"
+        );
 
-    },1800);
+      },
+      1800
+    );
 
 }
 
 
 /* =====================================================
-   HTMLエスケープ
+ HTMLエスケープ
 ===================================================== */
 
 function escapeHTML(str){
 
   return String(str)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
