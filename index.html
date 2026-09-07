@@ -13,7 +13,6 @@
 
 <title>ギフトで着せ替え</title>
 
-
 <style>
 
 /* =====================================================
@@ -41,12 +40,8 @@ body{
     sans-serif;
 
   background:#eadfea;
+
 }
-
-
-/* =====================================================
-   BODY
-===================================================== */
 
 body{
 
@@ -71,7 +66,6 @@ body{
   height:min(100vh,177.777vw);
 
   max-width:600px;
-
   max-height:1066px;
 
   aspect-ratio:9 / 16;
@@ -86,7 +80,6 @@ body{
     );
 
   display:flex;
-
   flex-direction:column;
 
 }
@@ -103,9 +96,7 @@ body{
   min-height:42px;
 
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
   padding:0 4%;
@@ -119,7 +110,6 @@ body{
 
 }
 
-
 .title{
 
   font-size:
@@ -131,17 +121,14 @@ body{
 
 }
 
-
 .coinBox{
 
   display:flex;
-
   align-items:center;
 
   gap:4px;
 
-  padding:
-    5px 10px;
+  padding:5px 10px;
 
   border-radius:20px;
 
@@ -160,7 +147,7 @@ body{
 
 
 /* =====================================================
-   SCREENS
+   SCREEN
 ===================================================== */
 
 .screen{
@@ -170,13 +157,11 @@ body{
   left:0;
   right:0;
   bottom:0;
-
   top:6%;
 
   display:none;
 
 }
-
 
 .screen.active{
 
@@ -186,7 +171,7 @@ body{
 
 
 /* =====================================================
-   DRESS UP SCREEN
+   DRESS SCREEN
 ===================================================== */
 
 #dressScreen{
@@ -211,13 +196,11 @@ body{
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   overflow:hidden;
 
-  padding:
-    0 2%;
+  padding:0 2%;
 
 }
 
@@ -231,7 +214,6 @@ body{
   position:relative;
 
   width:100%;
-
   height:100%;
 
   max-width:520px;
@@ -325,14 +307,12 @@ body{
 
 }
 
-
 .dressOn #topLayer,
 .dressOn #bottomLayer{
 
   display:none!important;
 
 }
-
 
 .outerOn #topLayer{
 
@@ -388,18 +368,16 @@ body{
   border-top:
     1px solid #eadbe7;
 
-  padding:
-    1.5%;
+  padding:1.5%;
 
   display:flex;
-
   flex-direction:column;
 
 }
 
 
 /* =====================================================
-   TOP BUTTONS
+   MAIN BUTTONS
 ===================================================== */
 
 .mainButtons{
@@ -416,7 +394,6 @@ body{
   margin-bottom:6px;
 
 }
-
 
 .mainBtn{
 
@@ -443,7 +420,7 @@ body{
 
 
 /* =====================================================
-   CATEGORY BUTTONS
+   CATEGORY
 ===================================================== */
 
 .categoryGrid{
@@ -463,7 +440,6 @@ body{
   gap:6px;
 
 }
-
 
 .categoryBtn{
 
@@ -488,7 +464,6 @@ body{
 
 }
 
-
 .categoryBtn:active,
 .mainBtn:active{
 
@@ -498,7 +473,7 @@ body{
 
 
 /* =====================================================
-   ITEM SELECT SCREEN
+   ITEM SCREEN
 ===================================================== */
 
 #itemScreen{
@@ -531,8 +506,7 @@ body{
 
   gap:8px;
 
-  padding:
-    0 3%;
+  padding:0 3%;
 
   background:#fff;
 
@@ -541,15 +515,13 @@ body{
 
 }
 
-
 .backBtn{
 
   flex:0 0 auto;
 
   height:38px;
 
-  padding:
-    0 12px;
+  padding:0 12px;
 
   border:none;
 
@@ -569,7 +541,6 @@ body{
 
 }
 
-
 .itemTitle{
 
   flex:1;
@@ -583,13 +554,11 @@ body{
 
 }
 
-
 .itemHeaderCoin{
 
   flex:0 0 auto;
 
-  padding:
-    6px 9px;
+  padding:6px 9px;
 
   border-radius:20px;
 
@@ -605,7 +574,7 @@ body{
 
 
 /* =====================================================
-   ITEM GRID AREA
+   ITEM LIST
 ===================================================== */
 
 .itemGrid{
@@ -615,27 +584,22 @@ body{
   min-height:0;
 
   overflow-y:auto;
-
   overflow-x:hidden;
 
   padding:
-    10px;
+    12px 10px 18px;
 
-  display:grid;
+  display:flex;
 
-  grid-template-columns:
-    repeat(2,minmax(0,1fr));
+  flex-direction:column;
 
-  align-content:start;
-
-  gap:10px;
+  gap:16px;
 
   -webkit-overflow-scrolling:touch;
 
   scrollbar-width:none;
 
 }
-
 
 .itemGrid::-webkit-scrollbar{
 
@@ -645,27 +609,29 @@ body{
 
 
 /* =====================================================
-   LARGE ITEM CARD
+   ITEM CARD
 ===================================================== */
 
 .itemCard{
 
   position:relative;
 
+  flex:0 0 auto;
+
   width:100%;
 
-  min-height:170px;
+  min-height:360px;
 
   border:
-    3px solid transparent;
+    4px solid transparent;
 
-  border-radius:15px;
+  border-radius:20px;
 
   background:#fff;
 
   box-shadow:
-    0 2px 8px
-    rgba(80,50,80,.08);
+    0 3px 12px
+    rgba(80,50,80,.10);
 
   overflow:hidden;
 
@@ -679,8 +645,22 @@ body{
 
   -webkit-tap-highlight-color:transparent;
 
+  transition:
+    transform .12s ease,
+    border-color .12s ease;
+
 }
 
+.itemCard:active{
+
+  transform:scale(.985);
+
+}
+
+
+/* =====================================================
+   SELECTED CARD
+===================================================== */
 
 .itemCard.selected{
 
@@ -696,7 +676,37 @@ body{
 
 
 /* =====================================================
-   ITEM IMAGE
+   IMAGE AREA
+===================================================== */
+
+.itemImageWrap{
+
+  width:100%;
+
+  height:285px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:10px;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff,
+      #fcf6fb
+    );
+
+}
+
+
+/* =====================================================
+   CROPPED IMAGE
 ===================================================== */
 
 .itemImage{
@@ -705,7 +715,7 @@ body{
 
   width:100%;
 
-  height:125px;
+  height:100%;
 
   object-fit:contain;
 
@@ -721,26 +731,44 @@ body{
 
 
 /* =====================================================
-   ITEM NAME
+   ITEM INFO
+===================================================== */
+
+.itemInfo{
+
+  height:68px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:3px;
+
+  background:#fff;
+
+}
+
+
+/* =====================================================
+   NAME
 ===================================================== */
 
 .itemName{
 
-  width:100%;
-
-  height:25px;
-
-  padding:
-    2px 5px;
+  width:90%;
 
   text-align:center;
 
   font-size:
-    clamp(11px,2.8vw,14px);
+    clamp(13px,3.2vw,17px);
 
   font-weight:900;
 
-  line-height:21px;
+  line-height:22px;
 
   overflow:hidden;
 
@@ -752,23 +780,17 @@ body{
 
 
 /* =====================================================
-   ITEM PRICE
+   PRICE
 ===================================================== */
 
 .itemPrice{
 
-  width:100%;
-
-  height:25px;
-
   text-align:center;
 
   font-size:
-    clamp(10px,2.5vw,13px);
+    clamp(11px,2.8vw,15px);
 
   font-weight:900;
-
-  line-height:25px;
 
   color:#806700;
 
@@ -776,20 +798,46 @@ body{
 
 
 /* =====================================================
-   DELETE BUTTON
+   SELECTED BADGE
+===================================================== */
+
+.selectedBadge{
+
+  position:absolute;
+
+  left:10px;
+  top:10px;
+
+  padding:7px 11px;
+
+  border-radius:20px;
+
+  background:#d85cae;
+
+  color:#fff;
+
+  font-size:11px;
+
+  font-weight:900;
+
+  z-index:10;
+
+}
+
+
+/* =====================================================
+   DELETE
 ===================================================== */
 
 .removeItem{
 
   position:absolute;
 
-  right:6px;
+  right:9px;
+  top:9px;
 
-  top:6px;
-
-  width:30px;
-
-  height:30px;
+  width:36px;
+  height:36px;
 
   border:none;
 
@@ -800,11 +848,11 @@ body{
 
   color:#fff;
 
-  font-size:18px;
+  font-size:21px;
 
   font-weight:900;
 
-  line-height:30px;
+  line-height:36px;
 
   z-index:20;
 
@@ -814,20 +862,18 @@ body{
 
 
 /* =====================================================
-   EMPTY ITEM
+   EMPTY
 ===================================================== */
 
 .noItems{
 
-  grid-column:
-    1 / -1;
+  width:100%;
 
-  min-height:250px;
+  min-height:300px;
 
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   text-align:center;
@@ -844,19 +890,18 @@ body{
 
 
 /* =====================================================
-   ITEM SCREEN BOTTOM
+   BOTTOM
 ===================================================== */
 
 .itemBottom{
 
-  flex:0 0 8%;
+  flex:0 0 7%;
 
-  min-height:42px;
+  min-height:40px;
 
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   background:#fff;
@@ -865,7 +910,6 @@ body{
     1px solid #eadbe7;
 
 }
-
 
 .itemHint{
 
@@ -891,7 +935,6 @@ body{
   display:none;
 
   align-items:center;
-
   justify-content:center;
 
   padding:15px;
@@ -903,17 +946,11 @@ body{
 
 }
 
-
 .modal.show{
 
   display:flex;
 
 }
-
-
-/* =====================================================
-   MODAL BOX
-===================================================== */
 
 .modalBox{
 
@@ -935,7 +972,6 @@ body{
 
 }
 
-
 .modalTitle{
 
   margin-bottom:14px;
@@ -945,7 +981,6 @@ body{
   font-weight:900;
 
 }
-
 
 .info{
 
@@ -965,17 +1000,14 @@ body{
 
 }
 
-
 .preview{
 
   width:100%;
-
   height:140px;
 
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   margin-bottom:11px;
@@ -991,7 +1023,6 @@ body{
 
 }
 
-
 .preview img{
 
   width:100%;
@@ -1001,13 +1032,11 @@ body{
 
 }
 
-
 .formGroup{
 
   margin-bottom:12px;
 
 }
-
 
 .formGroup label{
 
@@ -1021,7 +1050,6 @@ body{
 
 }
 
-
 .formGroup input,
 .formGroup select{
 
@@ -1029,8 +1057,7 @@ body{
 
   height:42px;
 
-  padding:
-    0 10px;
+  padding:0 10px;
 
   border:
     1px solid #ddd;
@@ -1042,7 +1069,6 @@ body{
   font-size:13px;
 
 }
-
 
 .modalButtons{
 
@@ -1056,7 +1082,6 @@ body{
   margin-top:14px;
 
 }
-
 
 .modalBtn{
 
@@ -1074,7 +1099,6 @@ body{
 
 }
 
-
 .cancelBtn{
 
   background:#eee;
@@ -1082,7 +1106,6 @@ body{
   color:#555;
 
 }
-
 
 .saveBtn{
 
@@ -1094,26 +1117,20 @@ body{
 
 
 /* =====================================================
-   SMALL SCREEN
+   SHORT SCREEN
 ===================================================== */
 
-@media(max-height:650px){
-
-  .dressControls{
-
-    flex-basis:32%;
-
-  }
-
-  .itemImage{
-
-    height:105px;
-
-  }
+@media(max-height:700px){
 
   .itemCard{
 
-    min-height:150px;
+    min-height:310px;
+
+  }
+
+  .itemImageWrap{
+
+    height:235px;
 
   }
 
@@ -1121,28 +1138,50 @@ body{
 
 
 /* =====================================================
-   VERY NARROW
+   VERY SHORT SCREEN
+===================================================== */
+
+@media(max-height:620px){
+
+  .itemCard{
+
+    min-height:275px;
+
+  }
+
+  .itemImageWrap{
+
+    height:200px;
+
+  }
+
+}
+
+
+/* =====================================================
+   NARROW
 ===================================================== */
 
 @media(max-width:360px){
 
   .itemGrid{
 
-    padding:7px;
+    padding:
+      8px 7px 14px;
 
-    gap:7px;
-
-  }
-
-  .itemImage{
-
-    height:110px;
+    gap:11px;
 
   }
 
   .itemCard{
 
-    min-height:155px;
+    min-height:300px;
+
+  }
+
+  .itemImageWrap{
+
+    height:225px;
 
   }
 
@@ -1170,10 +1209,13 @@ body{
   </div>
 
   <div class="coinBox">
+
     🪙
+
     <span id="coinCount">
       1000
     </span>
+
   </div>
 
 </div>
@@ -1189,8 +1231,6 @@ body{
 >
 
 
-  <!-- CHARACTER -->
-
   <div class="characterArea">
 
     <div
@@ -1198,14 +1238,16 @@ body{
       class="stage"
     >
 
-
       <div
         id="emptyCharacter"
         class="emptyCharacter"
       >
+
         👤<br>
+
         ベースキャラクターを<br>
         設定してください
+
       </div>
 
 
@@ -1268,8 +1310,6 @@ body{
   </div>
 
 
-  <!-- CONTROLS -->
-
   <div class="dressControls">
 
 
@@ -1305,7 +1345,6 @@ body{
         👕 トップス
       </button>
 
-
       <button
         class="categoryBtn"
         data-category="onepiece"
@@ -1313,7 +1352,6 @@ body{
       >
         👗 ワンピース
       </button>
-
 
       <button
         class="categoryBtn"
@@ -1323,7 +1361,6 @@ body{
         👸 ドレス
       </button>
 
-
       <button
         class="categoryBtn"
         data-category="bottom"
@@ -1331,7 +1368,6 @@ body{
       >
         🩳 ボトムス
       </button>
-
 
       <button
         class="categoryBtn"
@@ -1341,7 +1377,6 @@ body{
         🧥 アウター
       </button>
 
-
       <button
         class="categoryBtn"
         data-category="hair"
@@ -1350,7 +1385,6 @@ body{
         💇 髪型
       </button>
 
-
       <button
         class="categoryBtn"
         data-category="accessory"
@@ -1358,7 +1392,6 @@ body{
       >
         💎 アクセ
       </button>
-
 
       <button
         class="categoryBtn"
@@ -1376,7 +1409,7 @@ body{
 
 
 <!-- =====================================================
-     ITEM SELECT SCREEN
+     ITEM SCREEN
 ===================================================== -->
 
 <div
@@ -1386,7 +1419,6 @@ body{
 
 
   <div class="itemHeader">
-
 
     <button
       id="backButton"
@@ -1408,6 +1440,7 @@ body{
     <div class="itemHeaderCoin">
 
       🪙
+
       <span id="itemCoinCount">
         1000
       </span>
@@ -1416,8 +1449,6 @@ body{
 
   </div>
 
-
-  <!-- ITEM GRID -->
 
   <div
     id="itemGrid"
@@ -1450,16 +1481,13 @@ body{
 
   <div class="modalBox">
 
-
     <div class="modalTitle">
       👤 ベースキャラクター
     </div>
 
-
     <div class="info">
       全身が入った透過PNGがおすすめです。
     </div>
-
 
     <div class="preview">
 
@@ -1469,7 +1497,6 @@ body{
       >
 
     </div>
-
 
     <div class="formGroup">
 
@@ -1485,7 +1512,6 @@ body{
 
     </div>
 
-
     <div class="modalButtons">
 
       <button
@@ -1495,7 +1521,6 @@ body{
       >
         キャンセル
       </button>
-
 
       <button
         id="baseSave"
@@ -1523,11 +1548,9 @@ body{
 
   <div class="modalBox">
 
-
     <div class="modalTitle">
       ➕ アイテム追加
     </div>
-
 
     <div class="preview">
 
@@ -1537,7 +1560,6 @@ body{
       >
 
     </div>
-
 
     <div class="formGroup">
 
@@ -1553,7 +1575,6 @@ body{
 
     </div>
 
-
     <div class="formGroup">
 
       <label>
@@ -1567,7 +1588,6 @@ body{
       >
 
     </div>
-
 
     <div class="formGroup">
 
@@ -1584,16 +1604,13 @@ body{
 
     </div>
 
-
     <div class="formGroup">
 
       <label>
         アイテムカテゴリー
       </label>
 
-      <select
-        id="itemCategory"
-      >
+      <select id="itemCategory">
 
         <option value="top">
           👕 トップス
@@ -1631,7 +1648,6 @@ body{
 
     </div>
 
-
     <div class="modalButtons">
 
       <button
@@ -1641,7 +1657,6 @@ body{
       >
         キャンセル
       </button>
-
 
       <button
         id="itemSave"
@@ -1665,10 +1680,10 @@ body{
 ===================================================== */
 
 const ITEM_STORAGE =
-  "giftDressupItems_select_v1";
+  "giftDressupItems_largeImage_v3";
 
 const BASE_STORAGE =
-  "giftDressupBase_select_v1";
+  "giftDressupBase_largeImage_v3";
 
 
 /* =====================================================
@@ -1685,19 +1700,12 @@ let coins = 1000;
 let items = {
 
   top:[],
-
   onepiece:[],
-
   dress:[],
-
   bottom:[],
-
   outer:[],
-
   hair:[],
-
   accessory:[],
-
   shoes:[]
 
 };
@@ -1710,19 +1718,12 @@ let items = {
 let selected = {
 
   top:null,
-
   onepiece:null,
-
   dress:null,
-
   bottom:null,
-
   outer:null,
-
   hair:null,
-
   accessory:null,
-
   shoes:null
 
 };
@@ -1740,20 +1741,15 @@ let baseCharacter = null;
 ===================================================== */
 
 let temporaryBase = "";
-
 let temporaryItem = "";
 
 
 /* =====================================================
-   CURRENT CATEGORY
+   CATEGORY
 ===================================================== */
 
 let currentCategory = "top";
 
-
-/* =====================================================
-   CATEGORY NAMES
-===================================================== */
 
 const categoryNames = {
 
@@ -1817,7 +1813,7 @@ const stage =
 
 
 /* =====================================================
-   UPDATE COINS
+   COINS
 ===================================================== */
 
 function updateCoins(){
@@ -1843,11 +1839,8 @@ document
     "click",
     function(){
 
-      const category =
-        this.dataset.category;
-
       openItemScreen(
-        category
+        this.dataset.category
       );
 
     }
@@ -1860,9 +1853,7 @@ document
    OPEN ITEM SCREEN
 ===================================================== */
 
-function openItemScreen(
-  category
-){
+function openItemScreen(category){
 
   currentCategory =
     category;
@@ -1878,6 +1869,8 @@ function openItemScreen(
     "active"
   );
 
+  itemGrid.scrollTop = 0;
+
   renderItemGrid();
 
 }
@@ -1888,9 +1881,7 @@ function openItemScreen(
 ===================================================== */
 
 document
-.getElementById(
-  "backButton"
-)
+.getElementById("backButton")
 .addEventListener(
   "click",
   function(){
@@ -1905,6 +1896,279 @@ document
 
   }
 );
+
+
+/* =====================================================
+   TRANSPARENT IMAGE CROP
+===================================================== */
+
+/*
+  透明PNGの場合、
+  実際に絵が存在する部分だけを検出。
+
+  チョイス画面では、
+  この範囲を使って画像を大きく表示する。
+*/
+
+function createTrimmedImage(
+  src,
+  callback
+){
+
+  const img =
+    new Image();
+
+
+  img.onload =
+    function(){
+
+      try{
+
+        const canvas =
+          document.createElement(
+            "canvas"
+          );
+
+        const ctx =
+          canvas.getContext(
+            "2d",
+            {
+              willReadFrequently:true
+            }
+          );
+
+
+        canvas.width =
+          img.naturalWidth;
+
+        canvas.height =
+          img.naturalHeight;
+
+
+        ctx.clearRect(
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+
+
+        ctx.drawImage(
+          img,
+          0,
+          0
+        );
+
+
+        const data =
+          ctx.getImageData(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+          ).data;
+
+
+        let minX =
+          canvas.width;
+
+        let minY =
+          canvas.height;
+
+        let maxX =
+          -1;
+
+        let maxY =
+          -1;
+
+
+        /*
+          透明度が一定以上ある
+          ピクセルを探す
+        */
+
+        const alphaThreshold =
+          12;
+
+
+        for(
+          let y = 0;
+          y < canvas.height;
+          y++
+        ){
+
+          for(
+            let x = 0;
+            x < canvas.width;
+            x++
+          ){
+
+            const index =
+              (
+                y *
+                canvas.width +
+                x
+              ) * 4;
+
+
+            const alpha =
+              data[index + 3];
+
+
+            if(
+              alpha >
+              alphaThreshold
+            ){
+
+              if(x < minX)
+                minX = x;
+
+              if(y < minY)
+                minY = y;
+
+              if(x > maxX)
+                maxX = x;
+
+              if(y > maxY)
+                maxY = y;
+
+            }
+
+          }
+
+        }
+
+
+        /*
+          全透明などの場合
+        */
+
+        if(
+          maxX < 0 ||
+          maxY < 0
+        ){
+
+          callback(src);
+
+          return;
+
+        }
+
+
+        /*
+          少しだけ余白を残す
+        */
+
+        const padding =
+          Math.max(
+            4,
+            Math.round(
+              Math.min(
+                canvas.width,
+                canvas.height
+              ) * .015
+            )
+          );
+
+
+        minX =
+          Math.max(
+            0,
+            minX - padding
+          );
+
+        minY =
+          Math.max(
+            0,
+            minY - padding
+          );
+
+        maxX =
+          Math.min(
+            canvas.width - 1,
+            maxX + padding
+          );
+
+        maxY =
+          Math.min(
+            canvas.height - 1,
+            maxY + padding
+          );
+
+
+        const cropWidth =
+          maxX - minX + 1;
+
+        const cropHeight =
+          maxY - minY + 1;
+
+
+        const cropCanvas =
+          document.createElement(
+            "canvas"
+          );
+
+
+        cropCanvas.width =
+          cropWidth;
+
+        cropCanvas.height =
+          cropHeight;
+
+
+        const cropCtx =
+          cropCanvas.getContext(
+            "2d"
+          );
+
+
+        cropCtx.drawImage(
+          img,
+
+          minX,
+          minY,
+
+          cropWidth,
+          cropHeight,
+
+          0,
+          0,
+
+          cropWidth,
+          cropHeight
+        );
+
+
+        callback(
+          cropCanvas.toDataURL(
+            "image/png"
+          )
+        );
+
+
+      }catch(error){
+
+        console.log(error);
+
+        callback(src);
+
+      }
+
+    };
+
+
+  img.onerror =
+    function(){
+
+      callback(src);
+
+    };
+
+
+  img.src =
+    src;
+
+}
 
 
 /* =====================================================
@@ -1935,8 +2199,9 @@ function renderItemGrid(){
     empty.innerHTML =
       categoryNames[currentCategory] +
       "<br><br>" +
-      "まだアイテムがありません<br>" +
-      "「➕ アイテム追加」から登録してください";
+      "まだアイテムがありません<br><br>" +
+      "「➕ アイテム追加」から<br>" +
+      "登録してください";
 
     itemGrid.appendChild(
       empty
@@ -1947,160 +2212,248 @@ function renderItemGrid(){
   }
 
 
-  list.forEach(
-    item => {
+  list.forEach(item => {
 
-      const card =
+    const card =
+      document.createElement(
+        "div"
+      );
+
+    card.className =
+      "itemCard";
+
+
+    /* -------------------------------------
+       SELECTED
+    ------------------------------------- */
+
+    if(
+      selected[currentCategory] &&
+      selected[currentCategory].id ===
+      item.id
+    ){
+
+      card.classList.add(
+        "selected"
+      );
+
+
+      const badge =
         document.createElement(
           "div"
         );
 
-      card.className =
-        "itemCard";
+      badge.className =
+        "selectedBadge";
 
-
-      /* 選択中 */
-
-      if(
-        selected[currentCategory] &&
-        selected[currentCategory].id ===
-        item.id
-      ){
-
-        card.classList.add(
-          "selected"
-        );
-
-      }
-
-
-      /* IMAGE */
-
-      const image =
-        document.createElement(
-          "img"
-        );
-
-      image.className =
-        "itemImage";
-
-      image.src =
-        item.src;
-
-      image.alt =
-        item.name;
-
-      image.draggable =
-        false;
-
-
-      /* NAME */
-
-      const name =
-        document.createElement(
-          "div"
-        );
-
-      name.className =
-        "itemName";
-
-      name.textContent =
-        item.name;
-
-
-      /* PRICE */
-
-      const price =
-        document.createElement(
-          "div"
-        );
-
-      price.className =
-        "itemPrice";
-
-      price.textContent =
-        "🪙 " +
-        Number(
-          item.price
-        ).toLocaleString();
-
-
-      /* DELETE */
-
-      const remove =
-        document.createElement(
-          "button"
-        );
-
-      remove.className =
-        "removeItem";
-
-      remove.type =
-        "button";
-
-      remove.textContent =
-        "×";
-
-
-      remove.addEventListener(
-        "click",
-        function(event){
-
-          event.preventDefault();
-
-          event.stopPropagation();
-
-          deleteItem(
-            currentCategory,
-            item.id
-          );
-
-        }
-      );
-
-
-      /* ADD */
+      badge.textContent =
+        "✓ 着用中";
 
       card.appendChild(
-        image
-      );
-
-      card.appendChild(
-        name
-      );
-
-      card.appendChild(
-        price
-      );
-
-      card.appendChild(
-        remove
-      );
-
-
-      /* =========================================
-         ITEM TAP
-      ========================================= */
-
-      card.addEventListener(
-        "click",
-        function(){
-
-          wearItem(
-            currentCategory,
-            item
-          );
-
-        }
-      );
-
-
-      itemGrid.appendChild(
-        card
+        badge
       );
 
     }
-  );
+
+
+    /* -------------------------------------
+       IMAGE WRAP
+    ------------------------------------- */
+
+    const imageWrap =
+      document.createElement(
+        "div"
+      );
+
+    imageWrap.className =
+      "itemImageWrap";
+
+
+    /* -------------------------------------
+       IMAGE
+    ------------------------------------- */
+
+    const image =
+      document.createElement(
+        "img"
+      );
+
+    image.className =
+      "itemImage";
+
+    image.alt =
+      item.name;
+
+    image.draggable =
+      false;
+
+
+    /*
+      最初は元画像を表示
+    */
+
+    image.src =
+      item.src;
+
+
+    /*
+      透明部分を検出して
+      実際の絵だけを大きくする
+    */
+
+    createTrimmedImage(
+      item.src,
+      function(trimmedSrc){
+
+        /*
+          カードがまだ存在する場合だけ更新
+        */
+
+        if(
+          document.body.contains(
+            image
+          )
+        ){
+
+          image.src =
+            trimmedSrc;
+
+        }
+
+      }
+    );
+
+
+    imageWrap.appendChild(
+      image
+    );
+
+
+    /* -------------------------------------
+       INFO
+    ------------------------------------- */
+
+    const info =
+      document.createElement(
+        "div"
+      );
+
+    info.className =
+      "itemInfo";
+
+
+    const name =
+      document.createElement(
+        "div"
+      );
+
+    name.className =
+      "itemName";
+
+    name.textContent =
+      item.name;
+
+
+    const price =
+      document.createElement(
+        "div"
+      );
+
+    price.className =
+      "itemPrice";
+
+    price.textContent =
+      "🪙 " +
+      Number(
+        item.price
+      ).toLocaleString() +
+      "コイン";
+
+
+    info.appendChild(
+      name
+    );
+
+    info.appendChild(
+      price
+    );
+
+
+    /* -------------------------------------
+       DELETE
+    ------------------------------------- */
+
+    const remove =
+      document.createElement(
+        "button"
+      );
+
+    remove.className =
+      "removeItem";
+
+    remove.type =
+      "button";
+
+    remove.textContent =
+      "×";
+
+
+    remove.addEventListener(
+      "click",
+      function(event){
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        deleteItem(
+          currentCategory,
+          item.id
+        );
+
+      }
+    );
+
+
+    /* -------------------------------------
+       CARD
+    ------------------------------------- */
+
+    card.appendChild(
+      imageWrap
+    );
+
+    card.appendChild(
+      info
+    );
+
+    card.appendChild(
+      remove
+    );
+
+
+    /* -------------------------------------
+       TAP
+    ------------------------------------- */
+
+    card.addEventListener(
+      "click",
+      function(){
+
+        wearItem(
+          currentCategory,
+          item
+        );
+
+      }
+    );
+
+
+    itemGrid.appendChild(
+      card
+    );
+
+  });
 
 }
 
@@ -2114,10 +2467,9 @@ function wearItem(
   item
 ){
 
-  /* =========================================
-     同じアイテム
-     → 脱ぐ
-  ========================================= */
+  /* -------------------------------------
+     SAME ITEM = UNEQUIP
+  ------------------------------------- */
 
   if(
     selected[category] &&
@@ -2134,17 +2486,13 @@ function wearItem(
   }
 
 
-  /* =========================================
-     PRICE
-  ========================================= */
-
   const price =
     Number(item.price) || 0;
 
 
-  /* =========================================
+  /* -------------------------------------
      COIN CHECK
-  ========================================= */
+  ------------------------------------- */
 
   if(
     coins < price
@@ -2165,26 +2513,26 @@ function wearItem(
   }
 
 
-  /* =========================================
+  /* -------------------------------------
      PAYMENT
-  ========================================= */
+  ------------------------------------- */
 
   coins -= price;
 
   updateCoins();
 
 
-  /* =========================================
+  /* -------------------------------------
      SELECT
-  ========================================= */
+  ------------------------------------- */
 
   selected[category] =
     item;
 
 
-  /* =========================================
+  /* -------------------------------------
      LAYER
-  ========================================= */
+  ------------------------------------- */
 
   const layer =
     getLayer(category);
@@ -2201,18 +2549,16 @@ function wearItem(
   }
 
 
-  /* =========================================
-     ONE PIECE
-  ========================================= */
+  /* -------------------------------------
+     ONEPIECE
+  ------------------------------------- */
 
   if(
     category === "onepiece"
   ){
 
     clearCategory("top");
-
     clearCategory("bottom");
-
     clearCategory("dress");
 
     stage.classList.remove(
@@ -2226,18 +2572,16 @@ function wearItem(
   }
 
 
-  /* =========================================
+  /* -------------------------------------
      DRESS
-  ========================================= */
+  ------------------------------------- */
 
   if(
     category === "dress"
   ){
 
     clearCategory("top");
-
     clearCategory("bottom");
-
     clearCategory("onepiece");
 
     stage.classList.remove(
@@ -2251,21 +2595,16 @@ function wearItem(
   }
 
 
-  /* =========================================
+  /* -------------------------------------
      TOP
-  ========================================= */
+  ------------------------------------- */
 
   if(
     category === "top"
   ){
 
-    clearCategory(
-      "onepiece"
-    );
-
-    clearCategory(
-      "dress"
-    );
+    clearCategory("onepiece");
+    clearCategory("dress");
 
     stage.classList.remove(
       "onepieceOn"
@@ -2288,21 +2627,16 @@ function wearItem(
   }
 
 
-  /* =========================================
+  /* -------------------------------------
      BOTTOM
-  ========================================= */
+  ------------------------------------- */
 
   if(
     category === "bottom"
   ){
 
-    clearCategory(
-      "onepiece"
-    );
-
-    clearCategory(
-      "dress"
-    );
+    clearCategory("onepiece");
+    clearCategory("dress");
 
     stage.classList.remove(
       "onepieceOn"
@@ -2315,9 +2649,9 @@ function wearItem(
   }
 
 
-  /* =========================================
+  /* -------------------------------------
      OUTER
-  ========================================= */
+  ------------------------------------- */
 
   if(
     category === "outer"
@@ -2340,10 +2674,9 @@ function wearItem(
   }
 
 
-  /* =========================================
-     ITEM SCREEN
-     → 人形画面へ戻る
-  ========================================= */
+  /* -------------------------------------
+     RETURN TO DOLL
+  ------------------------------------- */
 
   itemScreen.classList.remove(
     "active"
@@ -2360,9 +2693,7 @@ function wearItem(
    UNEQUIP
 ===================================================== */
 
-function unequip(
-  category
-){
+function unequip(category){
 
   selected[category] =
     null;
@@ -2383,11 +2714,8 @@ function unequip(
   }
 
 
-  /* ONE PIECE */
-
   if(
-    category ===
-    "onepiece"
+    category === "onepiece"
   ){
 
     stage.classList.remove(
@@ -2397,11 +2725,8 @@ function unequip(
   }
 
 
-  /* DRESS */
-
   if(
-    category ===
-    "dress"
+    category === "dress"
   ){
 
     stage.classList.remove(
@@ -2411,11 +2736,8 @@ function unequip(
   }
 
 
-  /* OUTER */
-
   if(
-    category ===
-    "outer"
+    category === "outer"
   ){
 
     stage.classList.remove(
@@ -2431,6 +2753,7 @@ function unequip(
         document.getElementById(
           "topLayer"
         );
+
 
       topLayer.src =
         selected.top.src;
@@ -2449,9 +2772,7 @@ function unequip(
    CLEAR CATEGORY
 ===================================================== */
 
-function clearCategory(
-  category
-){
+function clearCategory(category){
 
   selected[category] =
     null;
@@ -2478,9 +2799,7 @@ function clearCategory(
    GET LAYER
 ===================================================== */
 
-function getLayer(
-  category
-){
+function getLayer(category){
 
   const map = {
 
@@ -2593,12 +2912,15 @@ function loadItems(){
         ITEM_STORAGE
       );
 
+
     if(!saved){
       return;
     }
 
+
     const data =
       JSON.parse(saved);
+
 
     if(!data){
       return;
@@ -2606,22 +2928,20 @@ function loadItems(){
 
 
     Object.keys(items)
-    .forEach(
-      category => {
+    .forEach(category => {
 
-        if(
-          Array.isArray(
-            data[category]
-          )
-        ){
+      if(
+        Array.isArray(
+          data[category]
+        )
+      ){
 
-          items[category] =
-            data[category];
-
-        }
+        items[category] =
+          data[category];
 
       }
-    );
+
+    });
 
   }catch(error){
 
@@ -2641,6 +2961,7 @@ function saveBase(){
   if(!baseCharacter){
     return;
   }
+
 
   try{
 
@@ -2670,6 +2991,7 @@ function loadBase(){
       localStorage.getItem(
         BASE_STORAGE
       );
+
 
     if(!saved){
       return;
@@ -2730,8 +3052,6 @@ const basePreview =
   );
 
 
-/* OPEN */
-
 document
 .getElementById(
   "baseButton"
@@ -2747,8 +3067,6 @@ document
   }
 );
 
-
-/* CANCEL */
 
 document
 .getElementById(
@@ -2766,14 +3084,13 @@ document
 );
 
 
-/* FILE */
-
 baseFile.addEventListener(
   "change",
   function(event){
 
     const file =
       event.target.files[0];
+
 
     if(!file){
       return;
@@ -2803,8 +3120,6 @@ baseFile.addEventListener(
   }
 );
 
-
-/* SAVE */
 
 document
 .getElementById(
@@ -2888,8 +3203,6 @@ const itemPreview =
   );
 
 
-/* OPEN */
-
 document
 .getElementById(
   "itemButton"
@@ -2905,8 +3218,6 @@ document
   }
 );
 
-
-/* CANCEL */
 
 document
 .getElementById(
@@ -2924,14 +3235,13 @@ document
 );
 
 
-/* FILE */
-
 itemFile.addEventListener(
   "change",
   function(event){
 
     const file =
       event.target.files[0];
+
 
     if(!file){
       return;
@@ -3001,8 +3311,6 @@ document
       .value;
 
 
-    /* IMAGE */
-
     if(!temporaryItem){
 
       alert(
@@ -3014,8 +3322,6 @@ document
     }
 
 
-    /* NAME */
-
     if(!name){
 
       alert(
@@ -3026,8 +3332,6 @@ document
 
     }
 
-
-    /* PRICE */
 
     if(
       isNaN(price) ||
@@ -3042,8 +3346,6 @@ document
 
     }
 
-
-    /* CREATE */
 
     const item = {
 
@@ -3068,19 +3370,13 @@ document
     };
 
 
-    /* ADD */
-
     items[category].push(
       item
     );
 
 
-    /* SAVE */
-
     saveItems();
 
-
-    /* RESET */
 
     itemFile.value = "";
 
@@ -3101,17 +3397,10 @@ document
     temporaryItem = "";
 
 
-    /* CLOSE */
-
     itemModal.classList.remove(
       "show"
     );
 
-
-    /*
-      登録したカテゴリーを
-      そのまま表示
-    */
 
     openItemScreen(
       category
