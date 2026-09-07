@@ -1,268 +1,122 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width,
-      initial-scale=1.0,
-      maximum-scale=1.0,
-      user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
 <title>ギフトで着せ替え</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
-html,
-body{
-
+html,body{
   width:100%;
   height:100%;
-
   overflow:hidden;
-
   font-family:
     -apple-system,
     BlinkMacSystemFont,
+    "Helvetica Neue",
     "Noto Sans JP",
     sans-serif;
-
-  background:#eadfea;
-
+  background:#f7f3ff;
 }
 
-body{
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
+button{
+  font-family:inherit;
+  -webkit-tap-highlight-color:transparent;
 }
 
-
-/* =====================================================
-   9:16 APP
-===================================================== */
-
-.app{
-
-  position:relative;
-
-  width:min(100vw,56.25vh);
-
-  height:min(100vh,177.777vw);
-
+#app{
+  width:100%;
+  height:100%;
   max-width:600px;
-  max-height:1066px;
-
-  aspect-ratio:9 / 16;
-
+  margin:0 auto;
+  position:relative;
   overflow:hidden;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fffaff 0%,
-      #f8edf7 100%
-    );
-
-  display:flex;
-
-  flex-direction:column;
-
+  background:linear-gradient(
+    180deg,
+    #fffaff 0%,
+    #f6f0ff 100%
+  );
 }
 
-
-/* =====================================================
+/* =========================
    HEADER
-===================================================== */
+========================= */
 
 .header{
-
-  flex:0 0 6%;
-
-  min-height:42px;
-
+  height:58px;
   display:flex;
-
   align-items:center;
-
-  justify-content:space-between;
-
-  padding:0 4%;
-
-  background:#fff;
-
-  border-bottom:
-    1px solid #eadbe7;
-
-  z-index:100;
-
+  justify-content:center;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid #eadff5;
+  position:relative;
+  z-index:20;
 }
 
-.title{
-
-  font-size:
-    clamp(13px,3vw,18px);
-
+.headerTitle{
+  font-size:19px;
   font-weight:900;
-
-  white-space:nowrap;
-
+  color:#6a3fa0;
 }
 
-.coinBox{
+/* =========================
+   MAIN
+========================= */
 
+.main{
+  height:calc(100% - 58px);
   display:flex;
-
-  align-items:center;
-
-  gap:4px;
-
-  padding:5px 10px;
-
-  border-radius:20px;
-
-  background:#fff0a8;
-
-  color:#705d00;
-
-  font-size:
-    clamp(11px,2.7vw,15px);
-
-  font-weight:900;
-
-  white-space:nowrap;
-
-}
-
-
-/* =====================================================
-   SCREEN
-===================================================== */
-
-.screen{
-
-  position:absolute;
-
-  left:0;
-  right:0;
-  bottom:0;
-  top:6%;
-
-  display:none;
-
-}
-
-.screen.active{
-
-  display:flex;
-
-}
-
-
-/* =====================================================
-   DRESS SCREEN
-===================================================== */
-
-#dressScreen{
-
   flex-direction:column;
-
+  overflow:hidden;
 }
 
-
-/* =====================================================
-   CHARACTER AREA
-===================================================== */
+/* =========================
+   CHARACTER
+========================= */
 
 .characterArea{
-
   flex:1;
-
   min-height:0;
-
   position:relative;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
+  padding:8px 10px 0;
   overflow:hidden;
-
-  padding:0 2%;
-
 }
 
-
-/* =====================================================
-   CHARACTER STAGE
-===================================================== */
-
-.stage{
-
-  position:relative;
-
+.characterStage{
   width:100%;
   height:100%;
-
-  max-width:520px;
-
-  aspect-ratio:2 / 3;
-
-  margin:auto;
-
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   overflow:hidden;
-
 }
-
-
-/* =====================================================
-   LAYERS
-===================================================== */
 
 .layer{
-
   position:absolute;
-
   left:50%;
   top:50%;
-
-  width:100%;
-  height:100%;
-
-  transform:
-    translate(-50%,-50%);
-
+  transform:translate(-50%,-50%);
+  max-width:94%;
+  max-height:96%;
+  width:auto;
+  height:auto;
   object-fit:contain;
-
-  object-position:center;
-
   pointer-events:none;
-
-  display:none;
-
+  user-select:none;
 }
 
-
-/* =====================================================
-   LAYER ORDER
-===================================================== */
+/* レイヤー順 */
 
 #baseLayer{
   z-index:1;
@@ -272,15 +126,15 @@ body{
   z-index:2;
 }
 
-#onepieceLayer{
+#topLayer{
   z-index:3;
 }
 
-#dressLayer{
+#onepieceLayer{
   z-index:4;
 }
 
-#topLayer{
+#dressLayer{
   z-index:5;
 }
 
@@ -300,1445 +154,712 @@ body{
   z-index:9;
 }
 
-
-/* =====================================================
-   SPECIAL CLOTHING
-===================================================== */
-
-.onepieceOn #topLayer,
-.onepieceOn #bottomLayer{
-
-  display:none!important;
-
-}
-
-.dressOn #topLayer,
-.dressOn #bottomLayer{
-
-  display:none!important;
-
-}
-
-.outerOn #topLayer{
-
-  display:none!important;
-
-}
-
-
-/* =====================================================
-   EMPTY CHARACTER
-===================================================== */
-
-.emptyCharacter{
-
-  position:absolute;
-
-  left:50%;
-  top:50%;
-
-  transform:
-    translate(-50%,-50%);
-
-  width:90%;
-
-  text-align:center;
-
-  color:#ad9dac;
-
-  font-size:
-    clamp(12px,3vw,16px);
-
-  font-weight:800;
-
-  line-height:1.7;
-
-  z-index:20;
-
-}
-
-
-/* =====================================================
-   DRESS CONTROLS
-===================================================== */
-
-.dressControls{
-
-  flex:0 0 31%;
-
-  min-height:0;
-
-  background:#fff;
-
-  border-top:
-    1px solid #eadbe7;
-
-  padding:1.5%;
-
-  display:flex;
-
-  flex-direction:column;
-
-}
-
-
-/* =====================================================
-   MAIN BUTTONS
-===================================================== */
-
-.mainButtons{
-
-  flex:0 0 22%;
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:6px;
-
-  margin-bottom:6px;
-
-}
-
-.mainBtn{
-
-  border:none;
-
-  border-radius:10px;
-
-  background:#eee4ed;
-
-  color:#604e5c;
-
-  font-size:
-    clamp(9px,2.3vw,13px);
-
-  font-weight:900;
-
-  cursor:pointer;
-
-  touch-action:manipulation;
-
-  -webkit-tap-highlight-color:transparent;
-
-}
-
-
-/* =====================================================
+/* =========================
    CATEGORY
-===================================================== */
+========================= */
+
+.categoryArea{
+  height:128px;
+  flex-shrink:0;
+  padding:7px 8px 8px;
+  background:rgba(255,255,255,.97);
+  border-top:1px solid #eadff5;
+}
 
 .categoryGrid{
-
-  flex:1;
-
-  min-height:0;
-
+  width:100%;
+  height:100%;
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  grid-template-rows:
-    repeat(2,1fr);
-
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(2,1fr);
   gap:6px;
-
 }
 
 .categoryBtn{
-
-  border:none;
-
-  border-radius:10px;
-
-  background:#f1e8f0;
-
-  color:#625360;
-
-  font-size:
-    clamp(8px,2.2vw,12px);
-
+  border:0;
+  border-radius:13px;
+  background:#f0e7ff;
+  color:#633895;
   font-weight:900;
-
-  cursor:pointer;
-
-  touch-action:manipulation;
-
-  -webkit-tap-highlight-color:transparent;
-
-}
-
-.categoryBtn:active,
-.mainBtn:active{
-
-  transform:scale(.97);
-
-}
-
-
-/* =====================================================
-   ITEM SCREEN
-===================================================== */
-
-#itemScreen{
-
-  flex-direction:column;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fffaff,
-      #f8edf7
-    );
-
-}
-
-
-/* =====================================================
-   ITEM HEADER
-===================================================== */
-
-.itemHeader{
-
-  flex:0 0 10%;
-
-  min-height:50px;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:8px;
-
-  padding:0 3%;
-
-  background:#fff;
-
-  border-bottom:
-    1px solid #eadbe7;
-
-}
-
-.backBtn{
-
-  flex:0 0 auto;
-
-  height:38px;
-
-  padding:0 12px;
-
-  border:none;
-
-  border-radius:10px;
-
-  background:#eee4ed;
-
-  color:#604e5c;
-
   font-size:13px;
-
-  font-weight:900;
-
+  box-shadow:
+    0 2px 5px rgba(100,70,130,.12);
   cursor:pointer;
-
-  touch-action:manipulation;
-
 }
 
-.itemTitle{
-
-  flex:1;
-
-  text-align:center;
-
-  font-size:
-    clamp(14px,3.5vw,20px);
-
-  font-weight:900;
-
+.categoryBtn:active{
+  transform:scale(.96);
 }
 
-.itemHeaderCoin{
-
-  flex:0 0 auto;
-
-  padding:6px 9px;
-
-  border-radius:20px;
-
-  background:#fff0a8;
-
-  color:#705d00;
-
-  font-size:11px;
-
-  font-weight:900;
-
+.categoryBtn.active{
+  background:#8e55d9;
+  color:#fff;
 }
 
+/* =========================
+   BOTTOM MENU
+========================= */
 
-/* =====================================================
-   ITEM GRID
-   2 COLUMNS
-===================================================== */
-
-.itemGrid{
-
-  flex:1;
-
-  min-height:0;
-
-  overflow-y:auto;
-
-  overflow-x:hidden;
-
-  padding:
-    10px;
-
+.bottomMenu{
+  height:58px;
+  flex-shrink:0;
   display:grid;
-
-  grid-template-columns:
-    repeat(2,minmax(0,1fr));
-
-  align-content:start;
-
-  gap:10px;
-
-  -webkit-overflow-scrolling:touch;
-
-  scrollbar-width:none;
-
-}
-
-.itemGrid::-webkit-scrollbar{
-
-  display:none;
-
-}
-
-
-/* =====================================================
-   ITEM CARD
-===================================================== */
-
-.itemCard{
-
-  position:relative;
-
-  width:100%;
-
-  min-height:250px;
-
-  border:
-    3px solid transparent;
-
-  border-radius:15px;
-
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+  padding:7px 8px;
   background:#fff;
-
-  box-shadow:
-    0 2px 8px
-    rgba(80,50,80,.08);
-
-  overflow:hidden;
-
-  cursor:pointer;
-
-  touch-action:manipulation;
-
-  user-select:none;
-
-  -webkit-user-select:none;
-
-  -webkit-tap-highlight-color:transparent;
-
-  transition:
-    transform .12s ease,
-    border-color .12s ease;
-
+  border-top:1px solid #eadff5;
 }
 
-.itemCard:active{
-
-  transform:scale(.985);
-
-}
-
-
-/* =====================================================
-   SELECTED
-===================================================== */
-
-.itemCard.selected{
-
-  border-color:#d85cae;
-
-  background:#fff0fa;
-
-  box-shadow:
-    0 0 0 3px
-    rgba(216,92,174,.15);
-
-}
-
-
-/* =====================================================
-   IMAGE AREA
-===================================================== */
-
-.itemImageWrap{
-
-  width:100%;
-
-  height:190px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  padding:8px;
-
-  overflow:hidden;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fff,
-      #fcf6fb
-    );
-
-}
-
-
-/* =====================================================
-   ITEM IMAGE
-===================================================== */
-
-.itemImage{
-
-  display:block;
-
-  width:100%;
-
-  height:100%;
-
-  object-fit:contain;
-
-  object-position:center;
-
-  pointer-events:none;
-
-  user-select:none;
-
-  -webkit-user-drag:none;
-
-}
-
-
-/* =====================================================
-   ITEM INFO
-===================================================== */
-
-.itemInfo{
-
-  height:54px;
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:2px;
-
-  background:#fff;
-
-}
-
-
-/* =====================================================
-   NAME
-===================================================== */
-
-.itemName{
-
-  width:90%;
-
-  text-align:center;
-
-  font-size:
-    clamp(11px,2.8vw,14px);
-
+.menuBtn{
+  border:0;
+  border-radius:13px;
+  background:#eee6fa;
+  color:#613b88;
+  font-size:13px;
   font-weight:900;
-
-  line-height:19px;
-
-  overflow:hidden;
-
-  white-space:nowrap;
-
-  text-overflow:ellipsis;
-
 }
 
-
-/* =====================================================
-   PRICE
-===================================================== */
-
-.itemPrice{
-
-  text-align:center;
-
-  font-size:
-    clamp(10px,2.5vw,13px);
-
-  font-weight:900;
-
-  color:#806700;
-
+.menuBtn:active{
+  transform:scale(.97);
 }
 
-
-/* =====================================================
-   SELECTED BADGE
-===================================================== */
-
-.selectedBadge{
-
-  position:absolute;
-
-  left:7px;
-  top:7px;
-
-  padding:
-    5px 8px;
-
-  border-radius:20px;
-
-  background:#d85cae;
-
-  color:#fff;
-
-  font-size:10px;
-
-  font-weight:900;
-
-  z-index:10;
-
-}
-
-
-/* =====================================================
-   DELETE
-===================================================== */
-
-.removeItem{
-
-  position:absolute;
-
-  right:6px;
-  top:6px;
-
-  width:30px;
-  height:30px;
-
-  border:none;
-
-  border-radius:50%;
-
-  background:
-    rgba(0,0,0,.58);
-
-  color:#fff;
-
-  font-size:18px;
-
-  font-weight:900;
-
-  line-height:30px;
-
-  z-index:20;
-
-  cursor:pointer;
-
-}
-
-
-/* =====================================================
-   EMPTY
-===================================================== */
-
-.noItems{
-
-  grid-column:
-    1 / -1;
-
-  min-height:250px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  text-align:center;
-
-  color:#a697a4;
-
-  font-size:14px;
-
-  font-weight:800;
-
-  line-height:1.7;
-
-}
-
-
-/* =====================================================
-   ITEM BOTTOM
-===================================================== */
-
-.itemBottom{
-
-  flex:0 0 7%;
-
-  min-height:40px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  background:#fff;
-
-  border-top:
-    1px solid #eadbe7;
-
-}
-
-.itemHint{
-
-  font-size:10px;
-
-  font-weight:800;
-
-  color:#927f8f;
-
-}
-
-
-/* =====================================================
+/* =========================
    MODAL
-===================================================== */
+========================= */
 
 .modal{
-
-  position:fixed;
-
+  position:absolute;
   inset:0;
-
+  z-index:100;
+  background:rgba(34,20,45,.48);
   display:none;
-
-  align-items:center;
-
-  justify-content:center;
-
-  padding:15px;
-
-  background:
-    rgba(0,0,0,.48);
-
-  z-index:300;
-
+  align-items:flex-end;
 }
 
 .modal.show{
-
   display:flex;
-
 }
-
-
-/* =====================================================
-   MODAL BOX
-===================================================== */
 
 .modalBox{
-
-  width:min(92vw,420px);
-
-  max-height:90vh;
-
-  overflow-y:auto;
-
-  padding:18px;
-
+  width:100%;
+  max-height:92%;
   background:#fff;
-
-  border-radius:18px;
-
-  box-shadow:
-    0 15px 45px
-    rgba(0,0,0,.25);
-
+  border-radius:22px 22px 0 0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
 }
+
+/* =========================
+   MODAL TITLE
+========================= */
 
 .modalTitle{
-
-  margin-bottom:14px;
-
-  font-size:18px;
-
-  font-weight:900;
-
-}
-
-.info{
-
-  margin-bottom:11px;
-
-  padding:9px;
-
-  border-radius:9px;
-
-  background:#faf5f9;
-
-  color:#766575;
-
-  font-size:10px;
-
-  line-height:1.5;
-
-}
-
-.preview{
-
-  width:100%;
-
-  height:140px;
-
+  height:58px;
+  flex-shrink:0;
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
-  margin-bottom:11px;
-
-  overflow:hidden;
-
-  border:
-    1px dashed #d4c5d1;
-
-  border-radius:10px;
-
-  background:#faf8fa;
-
+  position:relative;
+  border-bottom:1px solid #eee;
+  font-size:18px;
+  font-weight:900;
+  color:#573174;
 }
 
-.preview img{
+.closeBtn{
+  position:absolute;
+  right:10px;
+  top:10px;
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#f1eafa;
+  color:#62398b;
+  font-size:22px;
+  font-weight:900;
+}
 
+/* =========================
+   ITEM HEADER
+========================= */
+
+.itemHeader{
+  height:58px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  border-bottom:1px solid #eee;
+  background:#fff;
+}
+
+.itemHeaderTitle{
+  font-size:17px;
+  font-weight:900;
+  color:#573174;
+}
+
+.itemBack{
+  position:absolute;
+  left:9px;
+  top:9px;
+  height:40px;
+  padding:0 13px;
+  border:0;
+  border-radius:12px;
+  background:#eee6fa;
+  color:#633895;
+  font-weight:900;
+}
+
+/* =========================
+   ITEM GRID
+========================= */
+
+.itemList{
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  padding:10px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  align-content:start;
+  -webkit-overflow-scrolling:touch;
+}
+
+.itemCard{
+  min-width:0;
+  border:2px solid #eee5f6;
+  border-radius:16px;
+  background:#fff;
+  padding:7px;
+  position:relative;
+  box-shadow:
+    0 2px 8px rgba(90,50,120,.08);
+}
+
+.itemCard.selected{
+  border-color:#9a62dd;
+  box-shadow:
+    0 0 0 2px rgba(154,98,221,.15);
+}
+
+.itemImageBox{
+  width:100%;
+  aspect-ratio:1/1;
+  border-radius:12px;
+  background:#faf8fc;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.itemImage{
   width:100%;
   height:100%;
-
   object-fit:contain;
-
-}
-
-.formGroup{
-
-  margin-bottom:12px;
-
-}
-
-.formGroup label{
-
   display:block;
+}
 
-  margin-bottom:5px;
+.itemName{
+  margin-top:5px;
+  font-size:13px;
+  font-weight:900;
+  color:#4d385a;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align:center;
+}
 
+/* 価格表示は残す */
+
+.itemPrice{
+  margin-top:3px;
+  text-align:center;
   font-size:12px;
-
   font-weight:900;
-
+  color:#8a5aaf;
 }
 
-.formGroup input,
-.formGroup select{
+.itemDelete{
+  position:absolute;
+  right:5px;
+  top:5px;
+  width:29px;
+  height:29px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.94);
+  color:#c45b72;
+  font-size:15px;
+  font-weight:900;
+  box-shadow:
+    0 2px 5px rgba(0,0,0,.12);
+  z-index:3;
+}
 
+.empty{
+  grid-column:1/-1;
+  padding:40px 10px;
+  text-align:center;
+  color:#987fa8;
+  font-size:14px;
+  font-weight:700;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.formArea{
+  padding:16px;
+  overflow-y:auto;
+}
+
+.formLabel{
+  display:block;
+  margin-bottom:6px;
+  font-size:13px;
+  font-weight:900;
+  color:#573174;
+}
+
+.formInput,
+.formSelect{
   width:100%;
-
-  height:42px;
-
-  padding:0 10px;
-
-  border:
-    1px solid #ddd;
-
-  border-radius:9px;
-
+  height:45px;
+  border:1px solid #ded2e8;
+  border-radius:11px;
+  padding:0 11px;
+  margin-bottom:14px;
+  font-size:15px;
+  outline:none;
   background:#fff;
-
-  font-size:13px;
-
 }
 
-.modalButtons{
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:8px;
-
-  margin-top:14px;
-
+.formInput:focus,
+.formSelect:focus{
+  border-color:#9460cf;
 }
 
-.modalBtn{
-
-  height:42px;
-
-  border:none;
-
-  border-radius:10px;
-
-  font-size:13px;
-
-  font-weight:900;
-
-  cursor:pointer;
-
-}
-
-.cancelBtn{
-
-  background:#eee;
-
-  color:#555;
-
+.fileInput{
+  width:100%;
+  margin-bottom:14px;
 }
 
 .saveBtn{
-
-  background:#d85cae;
-
+  width:100%;
+  height:48px;
+  border:0;
+  border-radius:13px;
+  background:#8e55d9;
   color:#fff;
-
+  font-size:15px;
+  font-weight:900;
 }
 
-
-/* =====================================================
-   SHORT SCREEN
-===================================================== */
+/* =========================
+   SMALL SCREEN
+========================= */
 
 @media(max-height:700px){
 
-  .itemImageWrap{
-
-    height:165px;
-
+  .categoryArea{
+    height:112px;
   }
 
-  .itemCard{
-
-    min-height:225px;
-
+  .bottomMenu{
+    height:52px;
   }
 
-}
-
-
-/* =====================================================
-   VERY SHORT
-===================================================== */
-
-@media(max-height:620px){
-
-  .itemImageWrap{
-
-    height:140px;
-
-  }
-
-  .itemCard{
-
-    min-height:200px;
-
+  .categoryBtn{
+    font-size:12px;
   }
 
 }
 
+@media(min-width:601px){
 
-/* =====================================================
-   NARROW SCREEN
-===================================================== */
-
-@media(max-width:360px){
-
-  .itemGrid{
-
-    padding:7px;
-
-    gap:7px;
-
-  }
-
-  .itemImageWrap{
-
-    height:155px;
-
-  }
-
-  .itemCard{
-
-    min-height:215px;
-
+  #app{
+    border-left:1px solid #eadff5;
+    border-right:1px solid #eadff5;
   }
 
 }
-
-
-/* =====================================================
-   VERY NARROW
-===================================================== */
-
-@media(max-width:330px){
-
-  .itemImageWrap{
-
-    height:140px;
-
-  }
-
-  .itemCard{
-
-    min-height:200px;
-
-  }
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
+<div id="app">
 
-<div class="app">
+  <!-- =====================
+       HEADER
+  ====================== -->
 
+  <header class="header">
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+    <div class="headerTitle">
+      🎀 ギフトで着せ替え
+    </div>
 
-<div class="header">
-
-  <div class="title">
-    🎀 ギフトで着せ替え
-  </div>
-
-  <div class="coinBox">
-
-    🪙
-
-    <span id="coinCount">
-      1000
-    </span>
-
-  </div>
-
-</div>
+  </header>
 
 
-<!-- =====================================================
-     DRESS SCREEN
-===================================================== -->
+  <!-- =====================
+       MAIN
+  ====================== -->
 
-<div
-  id="dressScreen"
-  class="screen active"
->
+  <main class="main">
 
+    <!-- CHARACTER -->
 
-  <!-- CHARACTER -->
+    <section class="characterArea">
 
-  <div class="characterArea">
+      <div class="characterStage">
 
-    <div
-      id="stage"
-      class="stage"
-    >
+        <img
+          id="baseLayer"
+          class="layer"
+          alt=""
+        >
 
-      <div
-        id="emptyCharacter"
-        class="emptyCharacter"
-      >
+        <img
+          id="bottomLayer"
+          class="layer"
+          alt=""
+        >
 
-        👤<br>
+        <img
+          id="topLayer"
+          class="layer"
+          alt=""
+        >
 
-        ベースキャラクターを<br>
-        設定してください
+        <img
+          id="onepieceLayer"
+          class="layer"
+          alt=""
+        >
+
+        <img
+          id="dressLayer"
+          class="layer"
+          alt=""
+        >
+
+        <img
+          id="outerLayer"
+          class="layer"
+          alt=""
+        >
+
+        <img
+          id="hairLayer"
+          class="layer"
+          alt=""
+        >
+
+        <img
+          id="accessoryLayer"
+          class="layer"
+          alt=""
+        >
+
+        <img
+          id="shoesLayer"
+          class="layer"
+          alt=""
+        >
 
       </div>
 
-
-      <img
-        id="baseLayer"
-        class="layer"
-        alt=""
-      >
-
-      <img
-        id="bottomLayer"
-        class="layer"
-        alt=""
-      >
-
-      <img
-        id="onepieceLayer"
-        class="layer"
-        alt=""
-      >
-
-      <img
-        id="dressLayer"
-        class="layer"
-        alt=""
-      >
-
-      <img
-        id="topLayer"
-        class="layer"
-        alt=""
-      >
-
-      <img
-        id="outerLayer"
-        class="layer"
-        alt=""
-      >
-
-      <img
-        id="hairLayer"
-        class="layer"
-        alt=""
-      >
-
-      <img
-        id="accessoryLayer"
-        class="layer"
-        alt=""
-      >
-
-      <img
-        id="shoesLayer"
-        class="layer"
-        alt=""
-      >
-
-    </div>
-
-  </div>
+    </section>
 
 
-  <!-- CONTROLS -->
+    <!-- CATEGORY -->
 
-  <div class="dressControls">
+    <section class="categoryArea">
+
+      <div class="categoryGrid">
+
+        <button
+          class="categoryBtn"
+          data-category="top">
+          👚 トップス
+        </button>
+
+        <button
+          class="categoryBtn"
+          data-category="onepiece">
+          👗 ワンピース
+        </button>
+
+        <button
+          class="categoryBtn"
+          data-category="dress">
+          ✨ ドレス
+        </button>
+
+        <button
+          class="categoryBtn"
+          data-category="bottom">
+          👖 ボトムス
+        </button>
+
+        <button
+          class="categoryBtn"
+          data-category="outer">
+          🧥 アウター
+        </button>
+
+        <button
+          class="categoryBtn"
+          data-category="hair">
+          💇‍♀️ ヘア
+        </button>
+
+        <button
+          class="categoryBtn"
+          data-category="accessory">
+          💎 アクセ
+        </button>
+
+        <button
+          class="categoryBtn"
+          data-category="shoes">
+          👠 靴
+        </button>
+
+      </div>
+
+    </section>
 
 
-    <div class="mainButtons">
+    <!-- BOTTOM MENU -->
+
+    <section class="bottomMenu">
 
       <button
-        id="baseButton"
-        class="mainBtn"
-        type="button"
-      >
-        👤 ベースキャラ
+        class="menuBtn"
+        id="baseSettingBtn">
+        👤 キャラ設定
       </button>
 
-
       <button
-        id="itemButton"
-        class="mainBtn"
-        type="button"
-      >
+        class="menuBtn"
+        id="itemSettingBtn">
         ➕ アイテム追加
       </button>
 
-    </div>
+    </section>
+
+  </main>
 
 
-    <div class="categoryGrid">
-
-      <button
-        class="categoryBtn"
-        data-category="top"
-        type="button"
-      >
-        👕 トップス
-      </button>
-
-
-      <button
-        class="categoryBtn"
-        data-category="onepiece"
-        type="button"
-      >
-        👗 ワンピース
-      </button>
-
-
-      <button
-        class="categoryBtn"
-        data-category="dress"
-        type="button"
-      >
-        👸 ドレス
-      </button>
-
-
-      <button
-        class="categoryBtn"
-        data-category="bottom"
-        type="button"
-      >
-        🩳 ボトムス
-      </button>
-
-
-      <button
-        class="categoryBtn"
-        data-category="outer"
-        type="button"
-      >
-        🧥 アウター
-      </button>
-
-
-      <button
-        class="categoryBtn"
-        data-category="hair"
-        type="button"
-      >
-        💇 髪型
-      </button>
-
-
-      <button
-        class="categoryBtn"
-        data-category="accessory"
-        type="button"
-      >
-        💎 アクセ
-      </button>
-
-
-      <button
-        class="categoryBtn"
-        data-category="shoes"
-        type="button"
-      >
-        👟 靴
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- =====================================================
-     ITEM SCREEN
-===================================================== -->
-
-<div
-  id="itemScreen"
-  class="screen"
->
-
-
-  <div class="itemHeader">
-
-    <button
-      id="backButton"
-      class="backBtn"
-      type="button"
-    >
-      ← 戻る
-    </button>
-
-
-    <div
-      id="itemTitle"
-      class="itemTitle"
-    >
-      👕 トップス
-    </div>
-
-
-    <div class="itemHeaderCoin">
-
-      🪙
-
-      <span id="itemCoinCount">
-        1000
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <!-- ===================================================
-       2 COLUMN ITEM GRID
-  ==================================================== -->
+  <!-- =====================
+       ITEM MODAL
+  ====================== -->
 
   <div
-    id="itemGrid"
-    class="itemGrid"
-  ></div>
+    class="modal"
+    id="itemModal">
 
+    <div class="modalBox">
 
-  <div class="itemBottom">
+      <div class="itemHeader">
 
-    <div class="itemHint">
-      アイテムをタップして着せ替え
-    </div>
+        <button
+          class="itemBack"
+          id="itemBackBtn">
+          ← 戻る
+        </button>
 
-  </div>
+        <div
+          class="itemHeaderTitle"
+          id="itemModalTitle">
+          アイテム
+        </div>
 
-</div>
+      </div>
 
-
-</div>
-
-
-<!-- =====================================================
-     BASE MODAL
-===================================================== -->
-
-<div
-  id="baseModal"
-  class="modal"
->
-
-  <div class="modalBox">
-
-
-    <div class="modalTitle">
-      👤 ベースキャラクター
-    </div>
-
-
-    <div class="info">
-
-      全身が入った透過PNGがおすすめです。
-
-    </div>
-
-
-    <div class="preview">
-
-      <img
-        id="basePreview"
-        alt=""
-      >
-
-    </div>
-
-
-    <div class="formGroup">
-
-      <label>
-        キャラクター画像
-      </label>
-
-      <input
-        id="baseFile"
-        type="file"
-        accept="image/*"
-      >
-
-    </div>
-
-
-    <div class="modalButtons">
-
-      <button
-        id="baseCancel"
-        class="modalBtn cancelBtn"
-        type="button"
-      >
-        キャンセル
-      </button>
-
-
-      <button
-        id="baseSave"
-        class="modalBtn saveBtn"
-        type="button"
-      >
-        設定する
-      </button>
+      <div
+        class="itemList"
+        id="itemList">
+      </div>
 
     </div>
 
   </div>
 
-</div>
 
+  <!-- =====================
+       BASE SETTING
+  ====================== -->
 
-<!-- =====================================================
-     ITEM MODAL
-===================================================== -->
+  <div
+    class="modal"
+    id="baseModal">
 
-<div
-  id="itemModal"
-  class="modal"
->
+    <div class="modalBox">
 
-  <div class="modalBox">
+      <div class="modalTitle">
 
+        キャラクター設定
 
-    <div class="modalTitle">
-      ➕ アイテム追加
-    </div>
+        <button
+          class="closeBtn"
+          data-close="baseModal">
+          ×
+        </button>
 
+      </div>
 
-    <div class="preview">
+      <div class="formArea">
 
-      <img
-        id="itemPreview"
-        alt=""
-      >
+        <label class="formLabel">
+          キャラクター画像
+        </label>
 
-    </div>
+        <input
+          type="file"
+          id="baseFile"
+          class="fileInput"
+          accept="image/*">
 
+        <button
+          class="saveBtn"
+          id="baseSaveBtn">
+          キャラクターを設定
+        </button>
 
-    <div class="formGroup">
-
-      <label>
-        アイテム画像
-      </label>
-
-      <input
-        id="itemFile"
-        type="file"
-        accept="image/*"
-      >
-
-    </div>
-
-
-    <div class="formGroup">
-
-      <label>
-        アイテム名
-      </label>
-
-      <input
-        id="itemName"
-        type="text"
-        placeholder="例：ピンクトップス"
-      >
+      </div>
 
     </div>
 
-
-    <div class="formGroup">
-
-      <label>
-        必要コイン数
-      </label>
-
-      <input
-        id="itemPrice"
-        type="number"
-        min="0"
-        value="100"
-      >
-
-    </div>
+  </div>
 
 
-    <div class="formGroup">
+  <!-- =====================
+       ITEM SETTING
+  ====================== -->
 
-      <label>
-        アイテムカテゴリー
-      </label>
+  <div
+    class="modal"
+    id="settingModal">
 
-      <select
-        id="itemCategory"
-      >
+    <div class="modalBox">
 
-        <option value="top">
-          👕 トップス
-        </option>
+      <div class="modalTitle">
 
-        <option value="onepiece">
-          👗 ワンピース
-        </option>
+        アイテム追加
 
-        <option value="dress">
-          👸 ドレス
-        </option>
+        <button
+          class="closeBtn"
+          data-close="settingModal">
+          ×
+        </button>
 
-        <option value="bottom">
-          🩳 ボトムス
-        </option>
+      </div>
 
-        <option value="outer">
-          🧥 アウター
-        </option>
+      <div class="formArea">
 
-        <option value="hair">
-          💇 髪型
-        </option>
+        <label class="formLabel">
+          アイテム名
+        </label>
 
-        <option value="accessory">
-          💎 アクセサリー
-        </option>
-
-        <option value="shoes">
-          👟 靴
-        </option>
-
-      </select>
-
-    </div>
+        <input
+          type="text"
+          id="itemName"
+          class="formInput"
+          placeholder="例：プリンセスドレス">
 
 
-    <div class="modalButtons">
+        <label class="formLabel">
+          カテゴリー
+        </label>
 
-      <button
-        id="itemCancel"
-        class="modalBtn cancelBtn"
-        type="button"
-      >
-        キャンセル
-      </button>
+        <select
+          id="itemCategory"
+          class="formSelect">
+
+          <option value="top">
+            トップス
+          </option>
+
+          <option value="onepiece">
+            ワンピース
+          </option>
+
+          <option value="dress">
+            ドレス
+          </option>
+
+          <option value="bottom">
+            ボトムス
+          </option>
+
+          <option value="outer">
+            アウター
+          </option>
+
+          <option value="hair">
+            ヘア
+          </option>
+
+          <option value="accessory">
+            アクセサリー
+          </option>
+
+          <option value="shoes">
+            靴
+          </option>
+
+        </select>
 
 
-      <button
-        id="itemSave"
-        class="modalBtn saveBtn"
-        type="button"
-      >
-        登録する
-      </button>
+        <!--
+          価格は残す。
+          ただし購入・消費には使用しない。
+        -->
+
+        <label class="formLabel">
+          表示する価格（コイン）
+        </label>
+
+        <input
+          type="number"
+          id="itemPrice"
+          class="formInput"
+          min="0"
+          value="100">
+
+
+        <label class="formLabel">
+          アイテム画像
+        </label>
+
+        <input
+          type="file"
+          id="itemFile"
+          class="fileInput"
+          accept="image/*">
+
+
+        <button
+          class="saveBtn"
+          id="itemSaveBtn">
+          アイテムを追加
+        </button>
+
+      </div>
 
     </div>
 
@@ -1749,54 +870,40 @@ body{
 
 <script>
 
-/* =====================================================
-   STORAGE
-===================================================== */
+/* ==================================================
+   CATEGORY
+================================================== */
 
-const ITEM_STORAGE =
-  "giftDressupItems_2column_v4";
+const CATEGORIES = {
 
-const BASE_STORAGE =
-  "giftDressupBase_2column_v4";
+  top:"トップス",
 
+  onepiece:"ワンピース",
 
-/* =====================================================
-   COINS
-===================================================== */
+  dress:"ドレス",
 
-let coins = 1000;
+  bottom:"ボトムス",
 
+  outer:"アウター",
 
-/* =====================================================
-   ITEMS
-===================================================== */
+  hair:"ヘア",
 
-let items = {
+  accessory:"アクセサリー",
 
-  top:[],
-
-  onepiece:[],
-
-  dress:[],
-
-  bottom:[],
-
-  outer:[],
-
-  hair:[],
-
-  accessory:[],
-
-  shoes:[]
+  shoes:"靴"
 
 };
 
 
-/* =====================================================
-   SELECTED
-===================================================== */
+/* ==================================================
+   DATA
+================================================== */
 
-let selected = {
+let baseImage = "";
+
+let items = [];
+
+let equipped = {
 
   top:null,
 
@@ -1816,199 +923,236 @@ let selected = {
 
 };
 
-
-/* =====================================================
-   BASE
-===================================================== */
-
-let baseCharacter = null;
-
-
-/* =====================================================
-   TEMPORARY
-===================================================== */
-
-let temporaryBase = "";
-
-let temporaryItem = "";
-
-
-/* =====================================================
-   CURRENT CATEGORY
-===================================================== */
-
 let currentCategory = "top";
 
 
-/* =====================================================
-   CATEGORY NAMES
-===================================================== */
-
-const categoryNames = {
-
-  top:"👕 トップス",
-
-  onepiece:"👗 ワンピース",
-
-  dress:"👸 ドレス",
-
-  bottom:"🩳 ボトムス",
-
-  outer:"🧥 アウター",
-
-  hair:"💇 髪型",
-
-  accessory:"💎 アクセサリー",
-
-  shoes:"👟 靴"
-
-};
-
-
-/* =====================================================
+/* ==================================================
    DOM
-===================================================== */
+================================================== */
 
-const dressScreen =
-  document.getElementById(
-    "dressScreen"
+const baseLayer =
+  document.getElementById("baseLayer");
+
+const itemList =
+  document.getElementById("itemList");
+
+const itemModal =
+  document.getElementById("itemModal");
+
+const settingModal =
+  document.getElementById("settingModal");
+
+const baseModal =
+  document.getElementById("baseModal");
+
+const itemModalTitle =
+  document.getElementById("itemModalTitle");
+
+
+/* ==================================================
+   LOCAL STORAGE
+================================================== */
+
+function saveData(){
+
+  localStorage.setItem(
+    "dressup_base",
+    baseImage
   );
 
-const itemScreen =
-  document.getElementById(
-    "itemScreen"
+  localStorage.setItem(
+    "dressup_items",
+    JSON.stringify(items)
   );
 
-const itemGrid =
-  document.getElementById(
-    "itemGrid"
+  localStorage.setItem(
+    "dressup_equipped",
+    JSON.stringify(equipped)
   );
-
-const itemTitle =
-  document.getElementById(
-    "itemTitle"
-  );
-
-const coinCount =
-  document.getElementById(
-    "coinCount"
-  );
-
-const itemCoinCount =
-  document.getElementById(
-    "itemCoinCount"
-  );
-
-const stage =
-  document.getElementById(
-    "stage"
-  );
-
-
-/* =====================================================
-   UPDATE COINS
-===================================================== */
-
-function updateCoins(){
-
-  coinCount.textContent =
-    coins.toLocaleString();
-
-  itemCoinCount.textContent =
-    coins.toLocaleString();
 
 }
 
 
-/* =====================================================
-   CATEGORY BUTTON
-===================================================== */
+function loadData(){
 
-document
-.querySelectorAll(
-  ".categoryBtn"
-)
-.forEach(button => {
+  const savedBase =
+    localStorage.getItem("dressup_base");
 
-  button.addEventListener(
-    "click",
-    function(){
+  const savedItems =
+    localStorage.getItem("dressup_items");
 
-      openItemScreen(
-        this.dataset.category
-      );
-
-    }
-  );
-
-});
+  const savedEquipped =
+    localStorage.getItem("dressup_equipped");
 
 
-/* =====================================================
-   OPEN ITEM SCREEN
-===================================================== */
+  if(savedBase){
 
-function openItemScreen(
-  category
-){
-
-  currentCategory =
-    category;
-
-  itemTitle.textContent =
-    categoryNames[category];
-
-  dressScreen.classList.remove(
-    "active"
-  );
-
-  itemScreen.classList.add(
-    "active"
-  );
-
-  itemGrid.scrollTop = 0;
-
-  renderItemGrid();
-
-}
-
-
-/* =====================================================
-   BACK
-===================================================== */
-
-document
-.getElementById(
-  "backButton"
-)
-.addEventListener(
-  "click",
-  function(){
-
-    itemScreen.classList.remove(
-      "active"
-    );
-
-    dressScreen.classList.add(
-      "active"
-    );
+    baseImage = savedBase;
 
   }
-);
 
 
-/* =====================================================
+  if(savedItems){
+
+    try{
+
+      items = JSON.parse(savedItems);
+
+    }catch(e){
+
+      items = [];
+
+    }
+
+  }
+
+
+  if(savedEquipped){
+
+    try{
+
+      equipped =
+        JSON.parse(savedEquipped);
+
+    }catch(e){
+
+      equipped = {
+
+        top:null,
+        onepiece:null,
+        dress:null,
+        bottom:null,
+        outer:null,
+        hair:null,
+        accessory:null,
+        shoes:null
+
+      };
+
+    }
+
+  }
+
+}
+
+
+/* ==================================================
+   BASE
+================================================== */
+
+function renderBase(){
+
+  if(baseImage){
+
+    baseLayer.src =
+      baseImage;
+
+    baseLayer.style.display =
+      "block";
+
+  }else{
+
+    baseLayer.removeAttribute(
+      "src"
+    );
+
+    baseLayer.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* ==================================================
+   RENDER LAYER
+================================================== */
+
+function renderLayer(category){
+
+  const layer =
+    document.getElementById(
+      category + "Layer"
+    );
+
+  if(!layer){
+    return;
+  }
+
+
+  const id =
+    equipped[category];
+
+
+  if(!id){
+
+    layer.removeAttribute(
+      "src"
+    );
+
+    layer.style.display =
+      "none";
+
+    return;
+
+  }
+
+
+  const item =
+    items.find(
+      x => x.id === id
+    );
+
+
+  if(!item){
+
+    layer.removeAttribute(
+      "src"
+    );
+
+    layer.style.display =
+      "none";
+
+    return;
+
+  }
+
+
+  layer.src =
+    item.image;
+
+  layer.style.display =
+    "block";
+
+}
+
+
+function renderAll(){
+
+  renderBase();
+
+  Object.keys(CATEGORIES)
+    .forEach(category => {
+
+      renderLayer(category);
+
+    });
+
+}
+
+
+/* ==================================================
    TRANSPARENT PNG AUTO CROP
-===================================================== */
+   ※表示用だけ
+================================================== */
 
-function createTrimmedImage(
+function trimTransparentImage(
   src,
   callback
 ){
 
   const img =
     new Image();
-
 
   img.onload =
     function(){
@@ -2020,52 +1164,16 @@ function createTrimmedImage(
             "canvas"
           );
 
-
         const ctx =
           canvas.getContext(
-            "2d",
-            {
-              willReadFrequently:true
-            }
+            "2d"
           );
 
-
-        const width =
+        canvas.width =
           img.naturalWidth;
 
-        const height =
-          img.naturalHeight;
-
-
-        /*
-          極端に小さい画像対策
-        */
-
-        if(
-          !width ||
-          !height
-        ){
-
-          callback(src);
-
-          return;
-
-        }
-
-
-        canvas.width =
-          width;
-
         canvas.height =
-          height;
-
-
-        ctx.clearRect(
-          0,
-          0,
-          width,
-          height
-        );
+          img.naturalHeight;
 
 
         ctx.drawImage(
@@ -2075,30 +1183,20 @@ function createTrimmedImage(
         );
 
 
-        /*
-          JPEGなどの画像は
-          透明部分がないため、
-          そのまま表示
-        */
-
-        const imageData =
+        const data =
           ctx.getImageData(
             0,
             0,
-            width,
-            height
-          );
-
-
-        const data =
-          imageData.data;
+            canvas.width,
+            canvas.height
+          ).data;
 
 
         let minX =
-          width;
+          canvas.width;
 
         let minY =
-          height;
+          canvas.height;
 
         let maxX =
           -1;
@@ -2107,71 +1205,37 @@ function createTrimmedImage(
           -1;
 
 
-        const alphaThreshold =
-          12;
-
-
         for(
-          let y = 0;
-          y < height;
+          let y=0;
+          y<canvas.height;
           y++
         ){
 
           for(
-            let x = 0;
-            x < width;
+            let x=0;
+            x<canvas.width;
             x++
           ){
 
-            const index =
-              (
-                y * width + x
-              ) * 4;
-
-
             const alpha =
-              data[index + 3];
+              data[
+                (y * canvas.width + x) * 4 + 3
+              ];
 
 
-            if(
-              alpha >
-              alphaThreshold
-            ){
+            if(alpha > 5){
 
-              if(
-                x < minX
-              ){
-
+              if(x < minX)
                 minX = x;
 
-              }
-
-
-              if(
-                y < minY
-              ){
-
+              if(y < minY)
                 minY = y;
 
-              }
-
-
-              if(
-                x > maxX
-              ){
-
+              if(x > maxX)
                 maxX = x;
 
-              }
-
-
-              if(
-                y > maxY
-              ){
-
+              if(y > maxY)
                 maxY = y;
-
-              }
 
             }
 
@@ -2180,21 +1244,7 @@ function createTrimmedImage(
         }
 
 
-        /*
-          透明部分がない、
-          または全透明なら元画像
-        */
-
-        if(
-          maxX < 0 ||
-          maxY < 0 ||
-          (
-            minX === 0 &&
-            minY === 0 &&
-            maxX === width - 1 &&
-            maxY === height - 1
-          )
-        ){
+        if(maxX === -1){
 
           callback(src);
 
@@ -2203,51 +1253,10 @@ function createTrimmedImage(
         }
 
 
-        /*
-          少しだけ余白を残す
-        */
-
-        const padding =
-          Math.max(
-            3,
-            Math.round(
-              Math.min(
-                width,
-                height
-              ) * .01
-            )
-          );
-
-
-        minX =
-          Math.max(
-            0,
-            minX - padding
-          );
-
-        minY =
-          Math.max(
-            0,
-            minY - padding
-          );
-
-        maxX =
-          Math.min(
-            width - 1,
-            maxX + padding
-          );
-
-        maxY =
-          Math.min(
-            height - 1,
-            maxY + padding
-          );
-
-
-        const cropWidth =
+        const width =
           maxX - minX + 1;
 
-        const cropHeight =
+        const height =
           maxY - minY + 1;
 
 
@@ -2256,12 +1265,11 @@ function createTrimmedImage(
             "canvas"
           );
 
-
         cropCanvas.width =
-          cropWidth;
+          width;
 
         cropCanvas.height =
-          cropHeight;
+          height;
 
 
         const cropCtx =
@@ -2271,39 +1279,26 @@ function createTrimmedImage(
 
 
         cropCtx.drawImage(
-
           img,
-
           minX,
           minY,
-
-          cropWidth,
-          cropHeight,
-
+          width,
+          height,
           0,
           0,
-
-          cropWidth,
-          cropHeight
-
+          width,
+          height
         );
 
 
-        const result =
+        callback(
           cropCanvas.toDataURL(
             "image/png"
-          );
-
-
-        callback(result);
-
-
-      }catch(error){
-
-        console.log(
-          "画像トリミングエラー",
-          error
+          )
         );
+
+
+      }catch(e){
 
         callback(src);
 
@@ -2326,66 +1321,122 @@ function createTrimmedImage(
 }
 
 
-/* =====================================================
-   RENDER ITEMS
-===================================================== */
+/* ==================================================
+   CATEGORY BUTTON
+================================================== */
 
-function renderItemGrid(){
+document
+  .querySelectorAll(".categoryBtn")
+  .forEach(btn => {
 
-  itemGrid.innerHTML = "";
+    btn.addEventListener(
+      "click",
+      () => {
 
-
-  const list =
-    items[currentCategory];
-
-
-  if(
-    !list ||
-    list.length === 0
-  ){
-
-    const empty =
-      document.createElement(
-        "div"
-      );
+        currentCategory =
+          btn.dataset.category;
 
 
-    empty.className =
-      "noItems";
+        document
+          .querySelectorAll(".categoryBtn")
+          .forEach(x => {
+
+            x.classList.remove(
+              "active"
+            );
+
+          });
 
 
-    empty.innerHTML =
-
-      categoryNames[
-        currentCategory
-      ]
-
-      +
-
-      "<br><br>" +
-
-      "まだアイテムがありません" +
-
-      "<br><br>" +
-
-      "「➕ アイテム追加」から" +
-
-      "<br>" +
-
-      "登録してください";
+        btn.classList.add(
+          "active"
+        );
 
 
-    itemGrid.appendChild(
-      empty
+        openItemModal(
+          currentCategory
+        );
+
+      }
     );
 
+  });
+
+
+/* ==================================================
+   OPEN ITEM MODAL
+================================================== */
+
+function openItemModal(category){
+
+  currentCategory =
+    category;
+
+
+  itemModalTitle.textContent =
+    CATEGORIES[category];
+
+
+  renderItemList();
+
+
+  itemModal.classList.add(
+    "show"
+  );
+
+}
+
+
+function closeItemModal(){
+
+  itemModal.classList.remove(
+    "show"
+  );
+
+}
+
+
+document
+  .getElementById("itemBackBtn")
+  .addEventListener(
+    "click",
+    closeItemModal
+  );
+
+
+/* ==================================================
+   ITEM LIST
+================================================== */
+
+function renderItemList(){
+
+  itemList.innerHTML =
+    "";
+
+
+  const categoryItems =
+    items.filter(
+      item =>
+        item.category ===
+        currentCategory
+    );
+
+
+  if(categoryItems.length === 0){
+
+    itemList.innerHTML = `
+      <div class="empty">
+        このカテゴリーには<br>
+        まだアイテムがありません
+      </div>
+    `;
 
     return;
 
   }
 
 
-  list.forEach(
+  categoryItems.forEach(
     item => {
 
       const card =
@@ -2393,18 +1444,12 @@ function renderItemGrid(){
           "div"
         );
 
-
       card.className =
         "itemCard";
 
 
-      /* ---------------------------------
-         SELECTED
-      --------------------------------- */
-
       if(
-        selected[currentCategory] &&
-        selected[currentCategory].id ===
+        equipped[currentCategory] ===
         item.id
       ){
 
@@ -2412,188 +1457,97 @@ function renderItemGrid(){
           "selected"
         );
 
-
-        const badge =
-          document.createElement(
-            "div"
-          );
-
-
-        badge.className =
-          "selectedBadge";
-
-
-        badge.textContent =
-          "✓ 着用中";
-
-
-        card.appendChild(
-          badge
-        );
-
       }
 
 
-      /* ---------------------------------
-         IMAGE WRAP
-      --------------------------------- */
+      /* 画像 */
 
-      const imageWrap =
+      const imageBox =
         document.createElement(
           "div"
         );
 
+      imageBox.className =
+        "itemImageBox";
 
-      imageWrap.className =
-        "itemImageWrap";
-
-
-      /* ---------------------------------
-         IMAGE
-      --------------------------------- */
 
       const image =
         document.createElement(
           "img"
         );
 
-
       image.className =
         "itemImage";
 
-
       image.alt =
-        item.name;
+        "";
 
 
-      image.draggable =
-        false;
+      trimTransparentImage(
+        item.image,
+        trimmed => {
 
-
-      /*
-        最初は元画像
-      */
-
-      image.src =
-        item.src;
-
-
-      /*
-        透明部分を自動トリミング
-      */
-
-      createTrimmedImage(
-        item.src,
-        function(trimmedSrc){
-
-          if(
-            document.body.contains(
-              image
-            )
-          ){
-
-            image.src =
-              trimmedSrc;
-
-          }
+          image.src =
+            trimmed;
 
         }
       );
 
 
-      imageWrap.appendChild(
+      imageBox.appendChild(
         image
       );
 
 
-      /* ---------------------------------
-         INFO
-      --------------------------------- */
-
-      const info =
-        document.createElement(
-          "div"
-        );
-
-
-      info.className =
-        "itemInfo";
-
+      /* 名前 */
 
       const name =
         document.createElement(
           "div"
         );
 
-
       name.className =
         "itemName";
-
 
       name.textContent =
         item.name;
 
+
+      /* 価格 */
 
       const price =
         document.createElement(
           "div"
         );
 
-
       price.className =
         "itemPrice";
 
-
       price.textContent =
-        "🪙 " +
-        Number(
-          item.price
-        ).toLocaleString() +
-        "コイン";
+        `🪙 ${item.price}コイン`;
 
 
-      info.appendChild(
-        name
-      );
+      /* 削除 */
 
-
-      info.appendChild(
-        price
-      );
-
-
-      /* ---------------------------------
-         DELETE
-      --------------------------------- */
-
-      const remove =
+      const deleteBtn =
         document.createElement(
           "button"
         );
 
+      deleteBtn.className =
+        "itemDelete";
 
-      remove.className =
-        "removeItem";
-
-
-      remove.type =
-        "button";
-
-
-      remove.textContent =
+      deleteBtn.textContent =
         "×";
 
 
-      remove.addEventListener(
+      deleteBtn.addEventListener(
         "click",
-        function(event){
-
-          event.preventDefault();
+        event => {
 
           event.stopPropagation();
 
           deleteItem(
-            currentCategory,
             item.id
           );
 
@@ -2601,43 +1555,39 @@ function renderItemGrid(){
       );
 
 
-      /* ---------------------------------
-         CARD
-      --------------------------------- */
+      card.appendChild(
+        imageBox
+      );
 
       card.appendChild(
-        imageWrap
+        name
+      );
+
+      card.appendChild(
+        price
+      );
+
+      card.appendChild(
+        deleteBtn
       );
 
 
-      card.appendChild(
-        info
-      );
-
-
-      card.appendChild(
-        remove
-      );
-
-
-      /* ---------------------------------
-         TAP
-      --------------------------------- */
+      /*
+        タップするだけで着用。
+        コインは消費しない。
+      */
 
       card.addEventListener(
         "click",
-        function(){
+        () => {
 
-          wearItem(
-            currentCategory,
-            item
-          );
+          wearItem(item);
 
         }
       );
 
 
-      itemGrid.appendChild(
+      itemList.appendChild(
         card
       );
 
@@ -2647,1166 +1597,571 @@ function renderItemGrid(){
 }
 
 
-/* =====================================================
+/* ==================================================
    WEAR ITEM
-===================================================== */
+================================================== */
 
-function wearItem(
-  category,
-  item
-){
+function wearItem(item){
 
-  /* ---------------------------------
-     SAME ITEM = UNEQUIP
-  --------------------------------- */
+  const category =
+    item.category;
+
+
+  /*
+    同じアイテムを再タップ
+    → 脱ぐ
+  */
 
   if(
-    selected[category] &&
-    selected[category].id ===
+    equipped[category] ===
     item.id
   ){
 
-    unequip(
-      category
-    );
-
-    renderItemGrid();
-
-    return;
-
-  }
+    equipped[category] =
+      null;
 
 
-  const price =
-    Number(
-      item.price
-    ) || 0;
+    saveData();
 
+    renderAll();
 
-  /* ---------------------------------
-     COIN CHECK
-  --------------------------------- */
-
-  if(
-    coins < price
-  ){
-
-    alert(
-
-      "コインが足りません。\n\n" +
-
-      "必要：" +
-
-      price.toLocaleString() +
-
-      "コイン\n" +
-
-      "現在：" +
-
-      coins.toLocaleString() +
-
-      "コイン"
-
-    );
+    renderItemList();
 
     return;
 
   }
 
 
-  /* ---------------------------------
-     PAYMENT
-  --------------------------------- */
-
-  coins -= price;
-
-  updateCoins();
+  /*
+    コイン処理なし。
+    価格は表示用のみ。
+  */
 
 
-  /* ---------------------------------
-     SELECT
-  --------------------------------- */
+  /* ワンピース */
 
-  selected[category] =
-    item;
+  if(category === "onepiece"){
 
+    equipped.onepiece =
+      item.id;
 
-  /* ---------------------------------
-     LAYER
-  --------------------------------- */
+    equipped.dress =
+      null;
 
-  const layer =
-    getLayer(
-      category
-    );
+    equipped.top =
+      null;
 
-
-  if(layer){
-
-    layer.src =
-      item.src;
-
-    layer.style.display =
-      "block";
+    equipped.bottom =
+      null;
 
   }
 
 
-  /* ---------------------------------
-     ONEPIECE
-  --------------------------------- */
+  /* ドレス */
 
-  if(
-    category ===
-    "onepiece"
-  ){
+  else if(category === "dress"){
 
-    clearCategory(
-      "top"
-    );
+    equipped.dress =
+      item.id;
 
-    clearCategory(
-      "bottom"
-    );
+    equipped.onepiece =
+      null;
 
-    clearCategory(
-      "dress"
-    );
+    equipped.top =
+      null;
 
-
-    stage.classList.remove(
-      "dressOn"
-    );
-
-
-    stage.classList.add(
-      "onepieceOn"
-    );
+    equipped.bottom =
+      null;
 
   }
 
 
-  /* ---------------------------------
-     DRESS
-  --------------------------------- */
+  /* トップス */
 
-  if(
-    category ===
-    "dress"
-  ){
+  else if(category === "top"){
 
-    clearCategory(
-      "top"
-    );
+    equipped.top =
+      item.id;
 
-    clearCategory(
-      "bottom"
-    );
+    equipped.onepiece =
+      null;
 
-    clearCategory(
-      "onepiece"
-    );
-
-
-    stage.classList.remove(
-      "onepieceOn"
-    );
-
-
-    stage.classList.add(
-      "dressOn"
-    );
+    equipped.dress =
+      null;
 
   }
 
 
-  /* ---------------------------------
-     TOP
-  --------------------------------- */
+  /* ボトムス */
 
-  if(
-    category ===
-    "top"
-  ){
+  else if(category === "bottom"){
 
-    clearCategory(
-      "onepiece"
-    );
+    equipped.bottom =
+      item.id;
 
-    clearCategory(
-      "dress"
-    );
+    equipped.onepiece =
+      null;
 
-
-    stage.classList.remove(
-      "onepieceOn"
-    );
-
-    stage.classList.remove(
-      "dressOn"
-    );
-
-
-    if(
-      selected.outer
-    ){
-
-      layer.style.display =
-        "none";
-
-    }
+    equipped.dress =
+      null;
 
   }
 
 
-  /* ---------------------------------
-     BOTTOM
-  --------------------------------- */
+  /* その他 */
 
-  if(
-    category ===
-    "bottom"
-  ){
+  else{
 
-    clearCategory(
-      "onepiece"
-    );
-
-    clearCategory(
-      "dress"
-    );
-
-
-    stage.classList.remove(
-      "onepieceOn"
-    );
-
-    stage.classList.remove(
-      "dressOn"
-    );
+    equipped[category] =
+      item.id;
 
   }
 
 
-  /* ---------------------------------
-     OUTER
-  --------------------------------- */
+  saveData();
 
-  if(
-    category ===
-    "outer"
-  ){
+  renderAll();
 
-    stage.classList.add(
-      "outerOn"
-    );
-
-
-    const topLayer =
-      document.getElementById(
-        "topLayer"
-      );
-
-
-    topLayer.style.display =
-      "none";
-
-  }
-
-
-  /* ---------------------------------
-     RETURN
-  --------------------------------- */
-
-  itemScreen.classList.remove(
-    "active"
-  );
-
-
-  dressScreen.classList.add(
-    "active"
-  );
+  renderItemList();
 
 }
 
 
-/* =====================================================
-   UNEQUIP
-===================================================== */
+/* ==================================================
+   DELETE ITEM
+================================================== */
 
-function unequip(
-  category
-){
+function deleteItem(id){
 
-  selected[category] =
-    null;
-
-
-  const layer =
-    getLayer(
-      category
+  const item =
+    items.find(
+      x => x.id === id
     );
 
 
-  if(layer){
-
-    layer.src =
-      "";
-
-    layer.style.display =
-      "none";
-
+  if(!item){
+    return;
   }
 
 
-  if(
-    category ===
-    "onepiece"
-  ){
-
-    stage.classList.remove(
-      "onepieceOn"
+  const ok =
+    confirm(
+      `「${item.name}」を削除しますか？`
     );
 
+
+  if(!ok){
+    return;
   }
 
 
-  if(
-    category ===
-    "dress"
-  ){
+  /*
+    着用中なら解除
+  */
 
-    stage.classList.remove(
-      "dressOn"
+  Object.keys(equipped)
+    .forEach(category => {
+
+      if(
+        equipped[category] ===
+        id
+      ){
+
+        equipped[category] =
+          null;
+
+      }
+
+    });
+
+
+  items =
+    items.filter(
+      x => x.id !== id
     );
 
-  }
+
+  saveData();
+
+  renderAll();
+
+  renderItemList();
+
+}
 
 
-  if(
-    category ===
-    "outer"
-  ){
+/* ==================================================
+   ADD ITEM
+================================================== */
 
-    stage.classList.remove(
-      "outerOn"
-    );
+document
+  .getElementById("itemSaveBtn")
+  .addEventListener(
+    "click",
+    () => {
+
+      const name =
+        document
+          .getElementById(
+            "itemName"
+          )
+          .value
+          .trim();
 
 
-    if(
-      selected.top
-    ){
+      const category =
+        document
+          .getElementById(
+            "itemCategory"
+          )
+          .value;
 
-      const topLayer =
-        document.getElementById(
-          "topLayer"
+
+      /*
+        価格は「表示用」。
+        着用時には一切使用しない。
+      */
+
+      const price =
+        Number(
+          document
+            .getElementById(
+              "itemPrice"
+            )
+            .value
         );
 
 
-      topLayer.src =
-        selected.top.src;
-
-
-      topLayer.style.display =
-        "block";
-
-    }
-
-  }
-
-}
-
-
-/* =====================================================
-   CLEAR CATEGORY
-===================================================== */
-
-function clearCategory(
-  category
-){
-
-  selected[category] =
-    null;
-
-
-  const layer =
-    getLayer(
-      category
-    );
-
-
-  if(layer){
-
-    layer.src =
-      "";
-
-    layer.style.display =
-      "none";
-
-  }
-
-}
-
-
-/* =====================================================
-   GET LAYER
-===================================================== */
-
-function getLayer(
-  category
-){
-
-  const map = {
-
-    top:"topLayer",
-
-    onepiece:"onepieceLayer",
-
-    dress:"dressLayer",
-
-    bottom:"bottomLayer",
-
-    outer:"outerLayer",
-
-    hair:"hairLayer",
-
-    accessory:"accessoryLayer",
-
-    shoes:"shoesLayer"
-
-  };
-
-
-  return document.getElementById(
-    map[category]
-  );
-
-}
-
-
-/* =====================================================
-   DELETE ITEM
-===================================================== */
-
-function deleteItem(
-  category,
-  id
-){
-
-  const index =
-    items[category].findIndex(
-      item =>
-        item.id === id
-    );
-
-
-  if(
-    index === -1
-  ){
-
-    return;
-
-  }
-
-
-  if(
-    selected[category] &&
-    selected[category].id === id
-  ){
-
-    unequip(
-      category
-    );
-
-  }
-
-
-  items[category].splice(
-    index,
-    1
-  );
-
-
-  saveItems();
-
-  renderItemGrid();
-
-}
-
-
-/* =====================================================
-   SAVE ITEMS
-===================================================== */
-
-function saveItems(){
-
-  try{
-
-    localStorage.setItem(
-      ITEM_STORAGE,
-      JSON.stringify(items)
-    );
-
-  }catch(error){
-
-    console.log(
-      error
-    );
-
-    alert(
-      "アイテムの保存容量がいっぱいになりました。"
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   LOAD ITEMS
-===================================================== */
-
-function loadItems(){
-
-  try{
-
-    const saved =
-      localStorage.getItem(
-        ITEM_STORAGE
-      );
-
-
-    if(!saved){
-
-      return;
-
-    }
-
-
-    const data =
-      JSON.parse(
-        saved
-      );
-
-
-    if(!data){
-
-      return;
-
-    }
-
-
-    Object.keys(
-      items
-    )
-    .forEach(
-      category => {
-
-        if(
-          Array.isArray(
-            data[category]
+      const file =
+        document
+          .getElementById(
+            "itemFile"
           )
-        ){
+          .files[0];
 
-          items[category] =
-            data[category];
 
-        }
+      if(!name){
+
+        alert(
+          "アイテム名を入力してください"
+        );
+
+        return;
+
+      }
+
+
+      if(!file){
+
+        alert(
+          "アイテム画像を選択してください"
+        );
+
+        return;
+
+      }
+
+
+      if(
+        !Number.isFinite(price) ||
+        price < 0
+      ){
+
+        alert(
+          "価格を正しく入力してください"
+        );
+
+        return;
+
+      }
+
+
+      const reader =
+        new FileReader();
+
+
+      reader.onload =
+        function(e){
+
+          const item = {
+
+            id:
+              "item_" +
+              Date.now() +
+              "_" +
+              Math.random()
+                .toString(36)
+                .slice(2),
+
+            name:
+              name,
+
+            category:
+              category,
+
+            /*
+              価格は表示するためだけに保存
+            */
+
+            price:
+              price,
+
+            image:
+              e.target.result
+
+          };
+
+
+          items.push(
+            item
+          );
+
+
+          saveData();
+
+
+          /*
+            入力リセット
+          */
+
+          document
+            .getElementById(
+              "itemName"
+            )
+            .value = "";
+
+
+          document
+            .getElementById(
+              "itemPrice"
+            )
+            .value = "100";
+
+
+          document
+            .getElementById(
+              "itemFile"
+            )
+            .value = "";
+
+
+          settingModal
+            .classList.remove(
+              "show"
+            );
+
+
+          /*
+            追加したカテゴリーを開く
+          */
+
+          currentCategory =
+            category;
+
+
+          document
+            .querySelectorAll(
+              ".categoryBtn"
+            )
+            .forEach(btn => {
+
+              btn.classList.toggle(
+                "active",
+                btn.dataset.category ===
+                category
+              );
+
+            });
+
+
+          openItemModal(
+            category
+          );
+
+        };
+
+
+      reader.readAsDataURL(
+        file
+      );
+
+    }
+  );
+
+
+/* ==================================================
+   BASE SETTING
+================================================== */
+
+document
+  .getElementById(
+    "baseSettingBtn"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      baseModal.classList.add(
+        "show"
+      );
+
+    }
+  );
+
+
+document
+  .getElementById(
+    "baseSaveBtn"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      const file =
+        document
+          .getElementById(
+            "baseFile"
+          )
+          .files[0];
+
+
+      if(!file){
+
+        alert(
+          "キャラクター画像を選択してください"
+        );
+
+        return;
+
+      }
+
+
+      const reader =
+        new FileReader();
+
+
+      reader.onload =
+        function(e){
+
+          baseImage =
+            e.target.result;
+
+
+          saveData();
+
+          renderBase();
+
+
+          document
+            .getElementById(
+              "baseFile"
+            )
+            .value = "";
+
+
+          baseModal
+            .classList.remove(
+              "show"
+            );
+
+        };
+
+
+      reader.readAsDataURL(
+        file
+      );
+
+    }
+  );
+
+
+/* ==================================================
+   ITEM SETTING OPEN
+================================================== */
+
+document
+  .getElementById(
+    "itemSettingBtn"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      settingModal.classList.add(
+        "show"
+      );
+
+    }
+  );
+
+
+/* ==================================================
+   CLOSE BUTTONS
+================================================== */
+
+document
+  .querySelectorAll(
+    "[data-close]"
+  )
+  .forEach(btn => {
+
+    btn.addEventListener(
+      "click",
+      () => {
+
+        const id =
+          btn.dataset.close;
+
+        document
+          .getElementById(id)
+          .classList.remove(
+            "show"
+          );
 
       }
     );
 
-
-  }catch(error){
-
-    console.log(
-      error
-    );
-
-  }
-
-}
+  });
 
 
-/* =====================================================
-   SAVE BASE
-===================================================== */
+/* ==================================================
+   MODAL OUTSIDE TAP
+================================================== */
 
-function saveBase(){
+[
+  baseModal,
+  settingModal
+].forEach(modal => {
 
-  if(
-    !baseCharacter
-  ){
+  modal.addEventListener(
+    "click",
+    event => {
 
-    return;
+      if(
+        event.target === modal
+      ){
 
-  }
+        modal.classList.remove(
+          "show"
+        );
 
-
-  try{
-
-    localStorage.setItem(
-      BASE_STORAGE,
-      baseCharacter
-    );
-
-  }catch(error){
-
-    console.log(
-      error
-    );
-
-    alert(
-      "キャラクター画像を保存できませんでした。"
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   LOAD BASE
-===================================================== */
-
-function loadBase(){
-
-  try{
-
-    const saved =
-      localStorage.getItem(
-        BASE_STORAGE
-      );
-
-
-    if(!saved){
-
-      return;
+      }
 
     }
-
-
-    baseCharacter =
-      saved;
-
-
-    const layer =
-      document.getElementById(
-        "baseLayer"
-      );
-
-
-    layer.src =
-      saved;
-
-
-    layer.style.display =
-      "block";
-
-
-    document
-    .getElementById(
-      "emptyCharacter"
-    )
-    .style.display =
-      "none";
-
-
-  }catch(error){
-
-    console.log(
-      error
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   BASE MODAL
-===================================================== */
-
-const baseModal =
-  document.getElementById(
-    "baseModal"
   );
 
-const baseFile =
-  document.getElementById(
-    "baseFile"
-  );
+});
 
-const basePreview =
-  document.getElementById(
-    "basePreview"
-  );
 
-
-/* OPEN */
-
-document
-.getElementById(
-  "baseButton"
-)
-.addEventListener(
-  "click",
-  function(){
-
-    baseModal.classList.add(
-      "show"
-    );
-
-  }
-);
-
-
-/* CANCEL */
-
-document
-.getElementById(
-  "baseCancel"
-)
-.addEventListener(
-  "click",
-  function(){
-
-    baseModal.classList.remove(
-      "show"
-    );
-
-  }
-);
-
-
-/* FILE */
-
-baseFile.addEventListener(
-  "change",
-  function(event){
-
-    const file =
-      event.target.files[0];
-
-
-    if(!file){
-
-      return;
-
-    }
-
-
-    const reader =
-      new FileReader();
-
-
-    reader.onload =
-      function(e){
-
-        temporaryBase =
-          e.target.result;
-
-
-        basePreview.src =
-          temporaryBase;
-
-      };
-
-
-    reader.readAsDataURL(
-      file
-    );
-
-  }
-);
-
-
-/* SAVE */
-
-document
-.getElementById(
-  "baseSave"
-)
-.addEventListener(
-  "click",
-  function(){
-
-    if(
-      !temporaryBase
-    ){
-
-      alert(
-        "キャラクター画像を選択してください。"
-      );
-
-      return;
-
-    }
-
-
-    baseCharacter =
-      temporaryBase;
-
-
-    const layer =
-      document.getElementById(
-        "baseLayer"
-      );
-
-
-    layer.src =
-      baseCharacter;
-
-
-    layer.style.display =
-      "block";
-
-
-    document
-    .getElementById(
-      "emptyCharacter"
-    )
-    .style.display =
-      "none";
-
-
-    saveBase();
-
-
-    temporaryBase = "";
-
-    baseFile.value = "";
-
-    basePreview.src = "";
-
-
-    baseModal.classList.remove(
-      "show"
-    );
-
-  }
-);
-
-
-/* =====================================================
-   ITEM MODAL
-===================================================== */
-
-const itemModal =
-  document.getElementById(
-    "itemModal"
-  );
-
-const itemFile =
-  document.getElementById(
-    "itemFile"
-  );
-
-const itemPreview =
-  document.getElementById(
-    "itemPreview"
-  );
-
-
-/* OPEN */
-
-document
-.getElementById(
-  "itemButton"
-)
-.addEventListener(
-  "click",
-  function(){
-
-    itemModal.classList.add(
-      "show"
-    );
-
-  }
-);
-
-
-/* CANCEL */
-
-document
-.getElementById(
-  "itemCancel"
-)
-.addEventListener(
-  "click",
-  function(){
-
-    itemModal.classList.remove(
-      "show"
-    );
-
-  }
-);
-
-
-/* FILE */
-
-itemFile.addEventListener(
-  "change",
-  function(event){
-
-    const file =
-      event.target.files[0];
-
-
-    if(!file){
-
-      return;
-
-    }
-
-
-    const reader =
-      new FileReader();
-
-
-    reader.onload =
-      function(e){
-
-        temporaryItem =
-          e.target.result;
-
-
-        itemPreview.src =
-          temporaryItem;
-
-      };
-
-
-    reader.readAsDataURL(
-      file
-    );
-
-  }
-);
-
-
-/* =====================================================
-   SAVE ITEM
-===================================================== */
-
-document
-.getElementById(
-  "itemSave"
-)
-.addEventListener(
-  "click",
-  function(){
-
-    const name =
-      document
-      .getElementById(
-        "itemName"
-      )
-      .value
-      .trim();
-
-
-    const price =
-      Number(
-        document
-        .getElementById(
-          "itemPrice"
-        )
-        .value
-      );
-
-
-    const category =
-      document
-      .getElementById(
-        "itemCategory"
-      )
-      .value;
-
-
-    /* IMAGE */
-
-    if(
-      !temporaryItem
-    ){
-
-      alert(
-        "アイテム画像を選択してください。"
-      );
-
-      return;
-
-    }
-
-
-    /* NAME */
-
-    if(
-      !name
-    ){
-
-      alert(
-        "アイテム名を入力してください。"
-      );
-
-      return;
-
-    }
-
-
-    /* PRICE */
-
-    if(
-      isNaN(price) ||
-      price < 0
-    ){
-
-      alert(
-        "コイン数を正しく入力してください。"
-      );
-
-      return;
-
-    }
-
-
-    /* CREATE */
-
-    const item = {
-
-      id:
-        Date.now()
-        .toString()
-        +
-        "_"
-        +
-        Math.random()
-        .toString(36)
-        .substring(2),
-
-      name:name,
-
-      price:price,
-
-      category:category,
-
-      /*
-        元画像を保存
-      */
-
-      src:temporaryItem
-
-    };
-
-
-    /* ADD */
-
-    items[category].push(
-      item
-    );
-
-
-    /* SAVE */
-
-    saveItems();
-
-
-    /* RESET */
-
-    itemFile.value = "";
-
-    document
-    .getElementById(
-      "itemName"
-    )
-    .value = "";
-
-    document
-    .getElementById(
-      "itemPrice"
-    )
-    .value = "100";
-
-    itemPreview.src = "";
-
-    temporaryItem = "";
-
-
-    /* CLOSE */
-
-    itemModal.classList.remove(
-      "show"
-    );
-
-
-    /*
-      登録したカテゴリーを
-      そのまま開く
-    */
-
-    openItemScreen(
-      category
-    );
-
-  }
-);
-
-
-/* =====================================================
-   MODAL OUTSIDE
-===================================================== */
-
-baseModal.addEventListener(
-  "click",
-  function(event){
-
-    if(
-      event.target ===
-      baseModal
-    ){
-
-      baseModal.classList.remove(
-        "show"
-      );
-
-    }
-
-  }
-);
-
-
-itemModal.addEventListener(
-  "click",
-  function(event){
-
-    if(
-      event.target ===
-      itemModal
-    ){
-
-      itemModal.classList.remove(
-        "show"
-      );
-
-    }
-
-  }
-);
-
-
-/* =====================================================
+/* ==================================================
    START
-===================================================== */
+================================================== */
 
-loadItems();
+loadData();
 
-loadBase();
-
-updateCoins();
+renderAll();
 
 </script>
 
 </body>
-
 </html>
