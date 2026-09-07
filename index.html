@@ -80,6 +80,7 @@ body{
     );
 
   display:flex;
+
   flex-direction:column;
 
 }
@@ -96,7 +97,9 @@ body{
   min-height:42px;
 
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
 
   padding:0 4%;
@@ -124,6 +127,7 @@ body{
 .coinBox{
 
   display:flex;
+
   align-items:center;
 
   gap:4px;
@@ -196,6 +200,7 @@ body{
   display:flex;
 
   align-items:center;
+
   justify-content:center;
 
   overflow:hidden;
@@ -371,6 +376,7 @@ body{
   padding:1.5%;
 
   display:flex;
+
   flex-direction:column;
 
 }
@@ -574,7 +580,8 @@ body{
 
 
 /* =====================================================
-   ITEM LIST
+   ITEM GRID
+   2 COLUMNS
 ===================================================== */
 
 .itemGrid{
@@ -584,16 +591,20 @@ body{
   min-height:0;
 
   overflow-y:auto;
+
   overflow-x:hidden;
 
   padding:
-    12px 10px 18px;
+    10px;
 
-  display:flex;
+  display:grid;
 
-  flex-direction:column;
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
 
-  gap:16px;
+  align-content:start;
+
+  gap:10px;
 
   -webkit-overflow-scrolling:touch;
 
@@ -616,22 +627,20 @@ body{
 
   position:relative;
 
-  flex:0 0 auto;
-
   width:100%;
 
-  min-height:360px;
+  min-height:250px;
 
   border:
-    4px solid transparent;
+    3px solid transparent;
 
-  border-radius:20px;
+  border-radius:15px;
 
   background:#fff;
 
   box-shadow:
-    0 3px 12px
-    rgba(80,50,80,.10);
+    0 2px 8px
+    rgba(80,50,80,.08);
 
   overflow:hidden;
 
@@ -659,7 +668,7 @@ body{
 
 
 /* =====================================================
-   SELECTED CARD
+   SELECTED
 ===================================================== */
 
 .itemCard.selected{
@@ -683,7 +692,7 @@ body{
 
   width:100%;
 
-  height:285px;
+  height:190px;
 
   display:flex;
 
@@ -691,7 +700,7 @@ body{
 
   justify-content:center;
 
-  padding:10px;
+  padding:8px;
 
   overflow:hidden;
 
@@ -706,7 +715,7 @@ body{
 
 
 /* =====================================================
-   CROPPED IMAGE
+   ITEM IMAGE
 ===================================================== */
 
 .itemImage{
@@ -736,7 +745,7 @@ body{
 
 .itemInfo{
 
-  height:68px;
+  height:54px;
 
   display:flex;
 
@@ -746,7 +755,7 @@ body{
 
   justify-content:center;
 
-  gap:3px;
+  gap:2px;
 
   background:#fff;
 
@@ -764,11 +773,11 @@ body{
   text-align:center;
 
   font-size:
-    clamp(13px,3.2vw,17px);
+    clamp(11px,2.8vw,14px);
 
   font-weight:900;
 
-  line-height:22px;
+  line-height:19px;
 
   overflow:hidden;
 
@@ -788,7 +797,7 @@ body{
   text-align:center;
 
   font-size:
-    clamp(11px,2.8vw,15px);
+    clamp(10px,2.5vw,13px);
 
   font-weight:900;
 
@@ -805,10 +814,11 @@ body{
 
   position:absolute;
 
-  left:10px;
-  top:10px;
+  left:7px;
+  top:7px;
 
-  padding:7px 11px;
+  padding:
+    5px 8px;
 
   border-radius:20px;
 
@@ -816,7 +826,7 @@ body{
 
   color:#fff;
 
-  font-size:11px;
+  font-size:10px;
 
   font-weight:900;
 
@@ -833,11 +843,11 @@ body{
 
   position:absolute;
 
-  right:9px;
-  top:9px;
+  right:6px;
+  top:6px;
 
-  width:36px;
-  height:36px;
+  width:30px;
+  height:30px;
 
   border:none;
 
@@ -848,11 +858,11 @@ body{
 
   color:#fff;
 
-  font-size:21px;
+  font-size:18px;
 
   font-weight:900;
 
-  line-height:36px;
+  line-height:30px;
 
   z-index:20;
 
@@ -867,13 +877,15 @@ body{
 
 .noItems{
 
-  width:100%;
+  grid-column:
+    1 / -1;
 
-  min-height:300px;
+  min-height:250px;
 
   display:flex;
 
   align-items:center;
+
   justify-content:center;
 
   text-align:center;
@@ -890,7 +902,7 @@ body{
 
 
 /* =====================================================
-   BOTTOM
+   ITEM BOTTOM
 ===================================================== */
 
 .itemBottom{
@@ -902,6 +914,7 @@ body{
   display:flex;
 
   align-items:center;
+
   justify-content:center;
 
   background:#fff;
@@ -935,6 +948,7 @@ body{
   display:none;
 
   align-items:center;
+
   justify-content:center;
 
   padding:15px;
@@ -951,6 +965,11 @@ body{
   display:flex;
 
 }
+
+
+/* =====================================================
+   MODAL BOX
+===================================================== */
 
 .modalBox{
 
@@ -1003,11 +1022,13 @@ body{
 .preview{
 
   width:100%;
+
   height:140px;
 
   display:flex;
 
   align-items:center;
+
   justify-content:center;
 
   margin-bottom:11px;
@@ -1122,15 +1143,15 @@ body{
 
 @media(max-height:700px){
 
-  .itemCard{
+  .itemImageWrap{
 
-    min-height:310px;
+    height:165px;
 
   }
 
-  .itemImageWrap{
+  .itemCard{
 
-    height:235px;
+    min-height:225px;
 
   }
 
@@ -1138,20 +1159,20 @@ body{
 
 
 /* =====================================================
-   VERY SHORT SCREEN
+   VERY SHORT
 ===================================================== */
 
 @media(max-height:620px){
 
-  .itemCard{
+  .itemImageWrap{
 
-    min-height:275px;
+    height:140px;
 
   }
 
-  .itemImageWrap{
+  .itemCard{
 
-    height:200px;
+    min-height:200px;
 
   }
 
@@ -1159,29 +1180,49 @@ body{
 
 
 /* =====================================================
-   NARROW
+   NARROW SCREEN
 ===================================================== */
 
 @media(max-width:360px){
 
   .itemGrid{
 
-    padding:
-      8px 7px 14px;
+    padding:7px;
 
-    gap:11px;
-
-  }
-
-  .itemCard{
-
-    min-height:300px;
+    gap:7px;
 
   }
 
   .itemImageWrap{
 
-    height:225px;
+    height:155px;
+
+  }
+
+  .itemCard{
+
+    min-height:215px;
+
+  }
+
+}
+
+
+/* =====================================================
+   VERY NARROW
+===================================================== */
+
+@media(max-width:330px){
+
+  .itemImageWrap{
+
+    height:140px;
+
+  }
+
+  .itemCard{
+
+    min-height:200px;
 
   }
 
@@ -1230,6 +1271,8 @@ body{
   class="screen active"
 >
 
+
+  <!-- CHARACTER -->
 
   <div class="characterArea">
 
@@ -1310,6 +1353,8 @@ body{
   </div>
 
 
+  <!-- CONTROLS -->
+
   <div class="dressControls">
 
 
@@ -1345,6 +1390,7 @@ body{
         👕 トップス
       </button>
 
+
       <button
         class="categoryBtn"
         data-category="onepiece"
@@ -1352,6 +1398,7 @@ body{
       >
         👗 ワンピース
       </button>
+
 
       <button
         class="categoryBtn"
@@ -1361,6 +1408,7 @@ body{
         👸 ドレス
       </button>
 
+
       <button
         class="categoryBtn"
         data-category="bottom"
@@ -1368,6 +1416,7 @@ body{
       >
         🩳 ボトムス
       </button>
+
 
       <button
         class="categoryBtn"
@@ -1377,6 +1426,7 @@ body{
         🧥 アウター
       </button>
 
+
       <button
         class="categoryBtn"
         data-category="hair"
@@ -1385,6 +1435,7 @@ body{
         💇 髪型
       </button>
 
+
       <button
         class="categoryBtn"
         data-category="accessory"
@@ -1392,6 +1443,7 @@ body{
       >
         💎 アクセ
       </button>
+
 
       <button
         class="categoryBtn"
@@ -1450,6 +1502,10 @@ body{
   </div>
 
 
+  <!-- ===================================================
+       2 COLUMN ITEM GRID
+  ==================================================== -->
+
   <div
     id="itemGrid"
     class="itemGrid"
@@ -1481,13 +1537,18 @@ body{
 
   <div class="modalBox">
 
+
     <div class="modalTitle">
       👤 ベースキャラクター
     </div>
 
+
     <div class="info">
+
       全身が入った透過PNGがおすすめです。
+
     </div>
+
 
     <div class="preview">
 
@@ -1497,6 +1558,7 @@ body{
       >
 
     </div>
+
 
     <div class="formGroup">
 
@@ -1512,6 +1574,7 @@ body{
 
     </div>
 
+
     <div class="modalButtons">
 
       <button
@@ -1521,6 +1584,7 @@ body{
       >
         キャンセル
       </button>
+
 
       <button
         id="baseSave"
@@ -1548,9 +1612,11 @@ body{
 
   <div class="modalBox">
 
+
     <div class="modalTitle">
       ➕ アイテム追加
     </div>
+
 
     <div class="preview">
 
@@ -1560,6 +1626,7 @@ body{
       >
 
     </div>
+
 
     <div class="formGroup">
 
@@ -1575,6 +1642,7 @@ body{
 
     </div>
 
+
     <div class="formGroup">
 
       <label>
@@ -1588,6 +1656,7 @@ body{
       >
 
     </div>
+
 
     <div class="formGroup">
 
@@ -1604,13 +1673,16 @@ body{
 
     </div>
 
+
     <div class="formGroup">
 
       <label>
         アイテムカテゴリー
       </label>
 
-      <select id="itemCategory">
+      <select
+        id="itemCategory"
+      >
 
         <option value="top">
           👕 トップス
@@ -1648,6 +1720,7 @@ body{
 
     </div>
 
+
     <div class="modalButtons">
 
       <button
@@ -1657,6 +1730,7 @@ body{
       >
         キャンセル
       </button>
+
 
       <button
         id="itemSave"
@@ -1680,10 +1754,10 @@ body{
 ===================================================== */
 
 const ITEM_STORAGE =
-  "giftDressupItems_largeImage_v3";
+  "giftDressupItems_2column_v4";
 
 const BASE_STORAGE =
-  "giftDressupBase_largeImage_v3";
+  "giftDressupBase_2column_v4";
 
 
 /* =====================================================
@@ -1700,12 +1774,19 @@ let coins = 1000;
 let items = {
 
   top:[],
+
   onepiece:[],
+
   dress:[],
+
   bottom:[],
+
   outer:[],
+
   hair:[],
+
   accessory:[],
+
   shoes:[]
 
 };
@@ -1718,12 +1799,19 @@ let items = {
 let selected = {
 
   top:null,
+
   onepiece:null,
+
   dress:null,
+
   bottom:null,
+
   outer:null,
+
   hair:null,
+
   accessory:null,
+
   shoes:null
 
 };
@@ -1741,15 +1829,20 @@ let baseCharacter = null;
 ===================================================== */
 
 let temporaryBase = "";
+
 let temporaryItem = "";
 
 
 /* =====================================================
-   CATEGORY
+   CURRENT CATEGORY
 ===================================================== */
 
 let currentCategory = "top";
 
+
+/* =====================================================
+   CATEGORY NAMES
+===================================================== */
 
 const categoryNames = {
 
@@ -1813,7 +1906,7 @@ const stage =
 
 
 /* =====================================================
-   COINS
+   UPDATE COINS
 ===================================================== */
 
 function updateCoins(){
@@ -1828,11 +1921,13 @@ function updateCoins(){
 
 
 /* =====================================================
-   OPEN CATEGORY
+   CATEGORY BUTTON
 ===================================================== */
 
 document
-.querySelectorAll(".categoryBtn")
+.querySelectorAll(
+  ".categoryBtn"
+)
 .forEach(button => {
 
   button.addEventListener(
@@ -1853,7 +1948,9 @@ document
    OPEN ITEM SCREEN
 ===================================================== */
 
-function openItemScreen(category){
+function openItemScreen(
+  category
+){
 
   currentCategory =
     category;
@@ -1881,7 +1978,9 @@ function openItemScreen(category){
 ===================================================== */
 
 document
-.getElementById("backButton")
+.getElementById(
+  "backButton"
+)
 .addEventListener(
   "click",
   function(){
@@ -1899,16 +1998,8 @@ document
 
 
 /* =====================================================
-   TRANSPARENT IMAGE CROP
+   TRANSPARENT PNG AUTO CROP
 ===================================================== */
-
-/*
-  透明PNGの場合、
-  実際に絵が存在する部分だけを検出。
-
-  チョイス画面では、
-  この範囲を使って画像を大きく表示する。
-*/
 
 function createTrimmedImage(
   src,
@@ -1929,6 +2020,7 @@ function createTrimmedImage(
             "canvas"
           );
 
+
         const ctx =
           canvas.getContext(
             "2d",
@@ -1938,18 +2030,41 @@ function createTrimmedImage(
           );
 
 
-        canvas.width =
+        const width =
           img.naturalWidth;
 
-        canvas.height =
+        const height =
           img.naturalHeight;
+
+
+        /*
+          極端に小さい画像対策
+        */
+
+        if(
+          !width ||
+          !height
+        ){
+
+          callback(src);
+
+          return;
+
+        }
+
+
+        canvas.width =
+          width;
+
+        canvas.height =
+          height;
 
 
         ctx.clearRect(
           0,
           0,
-          canvas.width,
-          canvas.height
+          width,
+          height
         );
 
 
@@ -1960,20 +2075,30 @@ function createTrimmedImage(
         );
 
 
-        const data =
+        /*
+          JPEGなどの画像は
+          透明部分がないため、
+          そのまま表示
+        */
+
+        const imageData =
           ctx.getImageData(
             0,
             0,
-            canvas.width,
-            canvas.height
-          ).data;
+            width,
+            height
+          );
+
+
+        const data =
+          imageData.data;
 
 
         let minX =
-          canvas.width;
+          width;
 
         let minY =
-          canvas.height;
+          height;
 
         let maxX =
           -1;
@@ -1982,32 +2107,25 @@ function createTrimmedImage(
           -1;
 
 
-        /*
-          透明度が一定以上ある
-          ピクセルを探す
-        */
-
         const alphaThreshold =
           12;
 
 
         for(
           let y = 0;
-          y < canvas.height;
+          y < height;
           y++
         ){
 
           for(
             let x = 0;
-            x < canvas.width;
+            x < width;
             x++
           ){
 
             const index =
               (
-                y *
-                canvas.width +
-                x
+                y * width + x
               ) * 4;
 
 
@@ -2020,17 +2138,40 @@ function createTrimmedImage(
               alphaThreshold
             ){
 
-              if(x < minX)
+              if(
+                x < minX
+              ){
+
                 minX = x;
 
-              if(y < minY)
+              }
+
+
+              if(
+                y < minY
+              ){
+
                 minY = y;
 
-              if(x > maxX)
+              }
+
+
+              if(
+                x > maxX
+              ){
+
                 maxX = x;
 
-              if(y > maxY)
+              }
+
+
+              if(
+                y > maxY
+              ){
+
                 maxY = y;
+
+              }
 
             }
 
@@ -2040,12 +2181,19 @@ function createTrimmedImage(
 
 
         /*
-          全透明などの場合
+          透明部分がない、
+          または全透明なら元画像
         */
 
         if(
           maxX < 0 ||
-          maxY < 0
+          maxY < 0 ||
+          (
+            minX === 0 &&
+            minY === 0 &&
+            maxX === width - 1 &&
+            maxY === height - 1
+          )
         ){
 
           callback(src);
@@ -2061,12 +2209,12 @@ function createTrimmedImage(
 
         const padding =
           Math.max(
-            4,
+            3,
             Math.round(
               Math.min(
-                canvas.width,
-                canvas.height
-              ) * .015
+                width,
+                height
+              ) * .01
             )
           );
 
@@ -2085,13 +2233,13 @@ function createTrimmedImage(
 
         maxX =
           Math.min(
-            canvas.width - 1,
+            width - 1,
             maxX + padding
           );
 
         maxY =
           Math.min(
-            canvas.height - 1,
+            height - 1,
             maxY + padding
           );
 
@@ -2123,6 +2271,7 @@ function createTrimmedImage(
 
 
         cropCtx.drawImage(
+
           img,
 
           minX,
@@ -2136,19 +2285,25 @@ function createTrimmedImage(
 
           cropWidth,
           cropHeight
+
         );
 
 
-        callback(
+        const result =
           cropCanvas.toDataURL(
             "image/png"
-          )
-        );
+          );
+
+
+        callback(result);
 
 
       }catch(error){
 
-        console.log(error);
+        console.log(
+          "画像トリミングエラー",
+          error
+        );
 
         callback(src);
 
@@ -2172,12 +2327,13 @@ function createTrimmedImage(
 
 
 /* =====================================================
-   RENDER ITEM GRID
+   RENDER ITEMS
 ===================================================== */
 
 function renderItemGrid(){
 
   itemGrid.innerHTML = "";
+
 
   const list =
     items[currentCategory];
@@ -2193,267 +2349,300 @@ function renderItemGrid(){
         "div"
       );
 
+
     empty.className =
       "noItems";
 
+
     empty.innerHTML =
-      categoryNames[currentCategory] +
+
+      categoryNames[
+        currentCategory
+      ]
+
+      +
+
       "<br><br>" +
-      "まだアイテムがありません<br><br>" +
-      "「➕ アイテム追加」から<br>" +
+
+      "まだアイテムがありません" +
+
+      "<br><br>" +
+
+      "「➕ アイテム追加」から" +
+
+      "<br>" +
+
       "登録してください";
+
 
     itemGrid.appendChild(
       empty
     );
+
 
     return;
 
   }
 
 
-  list.forEach(item => {
+  list.forEach(
+    item => {
 
-    const card =
-      document.createElement(
-        "div"
-      );
-
-    card.className =
-      "itemCard";
-
-
-    /* -------------------------------------
-       SELECTED
-    ------------------------------------- */
-
-    if(
-      selected[currentCategory] &&
-      selected[currentCategory].id ===
-      item.id
-    ){
-
-      card.classList.add(
-        "selected"
-      );
-
-
-      const badge =
+      const card =
         document.createElement(
           "div"
         );
 
-      badge.className =
-        "selectedBadge";
 
-      badge.textContent =
-        "✓ 着用中";
+      card.className =
+        "itemCard";
+
+
+      /* ---------------------------------
+         SELECTED
+      --------------------------------- */
+
+      if(
+        selected[currentCategory] &&
+        selected[currentCategory].id ===
+        item.id
+      ){
+
+        card.classList.add(
+          "selected"
+        );
+
+
+        const badge =
+          document.createElement(
+            "div"
+          );
+
+
+        badge.className =
+          "selectedBadge";
+
+
+        badge.textContent =
+          "✓ 着用中";
+
+
+        card.appendChild(
+          badge
+        );
+
+      }
+
+
+      /* ---------------------------------
+         IMAGE WRAP
+      --------------------------------- */
+
+      const imageWrap =
+        document.createElement(
+          "div"
+        );
+
+
+      imageWrap.className =
+        "itemImageWrap";
+
+
+      /* ---------------------------------
+         IMAGE
+      --------------------------------- */
+
+      const image =
+        document.createElement(
+          "img"
+        );
+
+
+      image.className =
+        "itemImage";
+
+
+      image.alt =
+        item.name;
+
+
+      image.draggable =
+        false;
+
+
+      /*
+        最初は元画像
+      */
+
+      image.src =
+        item.src;
+
+
+      /*
+        透明部分を自動トリミング
+      */
+
+      createTrimmedImage(
+        item.src,
+        function(trimmedSrc){
+
+          if(
+            document.body.contains(
+              image
+            )
+          ){
+
+            image.src =
+              trimmedSrc;
+
+          }
+
+        }
+      );
+
+
+      imageWrap.appendChild(
+        image
+      );
+
+
+      /* ---------------------------------
+         INFO
+      --------------------------------- */
+
+      const info =
+        document.createElement(
+          "div"
+        );
+
+
+      info.className =
+        "itemInfo";
+
+
+      const name =
+        document.createElement(
+          "div"
+        );
+
+
+      name.className =
+        "itemName";
+
+
+      name.textContent =
+        item.name;
+
+
+      const price =
+        document.createElement(
+          "div"
+        );
+
+
+      price.className =
+        "itemPrice";
+
+
+      price.textContent =
+        "🪙 " +
+        Number(
+          item.price
+        ).toLocaleString() +
+        "コイン";
+
+
+      info.appendChild(
+        name
+      );
+
+
+      info.appendChild(
+        price
+      );
+
+
+      /* ---------------------------------
+         DELETE
+      --------------------------------- */
+
+      const remove =
+        document.createElement(
+          "button"
+        );
+
+
+      remove.className =
+        "removeItem";
+
+
+      remove.type =
+        "button";
+
+
+      remove.textContent =
+        "×";
+
+
+      remove.addEventListener(
+        "click",
+        function(event){
+
+          event.preventDefault();
+
+          event.stopPropagation();
+
+          deleteItem(
+            currentCategory,
+            item.id
+          );
+
+        }
+      );
+
+
+      /* ---------------------------------
+         CARD
+      --------------------------------- */
 
       card.appendChild(
-        badge
+        imageWrap
+      );
+
+
+      card.appendChild(
+        info
+      );
+
+
+      card.appendChild(
+        remove
+      );
+
+
+      /* ---------------------------------
+         TAP
+      --------------------------------- */
+
+      card.addEventListener(
+        "click",
+        function(){
+
+          wearItem(
+            currentCategory,
+            item
+          );
+
+        }
+      );
+
+
+      itemGrid.appendChild(
+        card
       );
 
     }
-
-
-    /* -------------------------------------
-       IMAGE WRAP
-    ------------------------------------- */
-
-    const imageWrap =
-      document.createElement(
-        "div"
-      );
-
-    imageWrap.className =
-      "itemImageWrap";
-
-
-    /* -------------------------------------
-       IMAGE
-    ------------------------------------- */
-
-    const image =
-      document.createElement(
-        "img"
-      );
-
-    image.className =
-      "itemImage";
-
-    image.alt =
-      item.name;
-
-    image.draggable =
-      false;
-
-
-    /*
-      最初は元画像を表示
-    */
-
-    image.src =
-      item.src;
-
-
-    /*
-      透明部分を検出して
-      実際の絵だけを大きくする
-    */
-
-    createTrimmedImage(
-      item.src,
-      function(trimmedSrc){
-
-        /*
-          カードがまだ存在する場合だけ更新
-        */
-
-        if(
-          document.body.contains(
-            image
-          )
-        ){
-
-          image.src =
-            trimmedSrc;
-
-        }
-
-      }
-    );
-
-
-    imageWrap.appendChild(
-      image
-    );
-
-
-    /* -------------------------------------
-       INFO
-    ------------------------------------- */
-
-    const info =
-      document.createElement(
-        "div"
-      );
-
-    info.className =
-      "itemInfo";
-
-
-    const name =
-      document.createElement(
-        "div"
-      );
-
-    name.className =
-      "itemName";
-
-    name.textContent =
-      item.name;
-
-
-    const price =
-      document.createElement(
-        "div"
-      );
-
-    price.className =
-      "itemPrice";
-
-    price.textContent =
-      "🪙 " +
-      Number(
-        item.price
-      ).toLocaleString() +
-      "コイン";
-
-
-    info.appendChild(
-      name
-    );
-
-    info.appendChild(
-      price
-    );
-
-
-    /* -------------------------------------
-       DELETE
-    ------------------------------------- */
-
-    const remove =
-      document.createElement(
-        "button"
-      );
-
-    remove.className =
-      "removeItem";
-
-    remove.type =
-      "button";
-
-    remove.textContent =
-      "×";
-
-
-    remove.addEventListener(
-      "click",
-      function(event){
-
-        event.preventDefault();
-
-        event.stopPropagation();
-
-        deleteItem(
-          currentCategory,
-          item.id
-        );
-
-      }
-    );
-
-
-    /* -------------------------------------
-       CARD
-    ------------------------------------- */
-
-    card.appendChild(
-      imageWrap
-    );
-
-    card.appendChild(
-      info
-    );
-
-    card.appendChild(
-      remove
-    );
-
-
-    /* -------------------------------------
-       TAP
-    ------------------------------------- */
-
-    card.addEventListener(
-      "click",
-      function(){
-
-        wearItem(
-          currentCategory,
-          item
-        );
-
-      }
-    );
-
-
-    itemGrid.appendChild(
-      card
-    );
-
-  });
+  );
 
 }
 
@@ -2467,9 +2656,9 @@ function wearItem(
   item
 ){
 
-  /* -------------------------------------
+  /* ---------------------------------
      SAME ITEM = UNEQUIP
-  ------------------------------------- */
+  --------------------------------- */
 
   if(
     selected[category] &&
@@ -2477,7 +2666,9 @@ function wearItem(
     item.id
   ){
 
-    unequip(category);
+    unequip(
+      category
+    );
 
     renderItemGrid();
 
@@ -2487,25 +2678,35 @@ function wearItem(
 
 
   const price =
-    Number(item.price) || 0;
+    Number(
+      item.price
+    ) || 0;
 
 
-  /* -------------------------------------
+  /* ---------------------------------
      COIN CHECK
-  ------------------------------------- */
+  --------------------------------- */
 
   if(
     coins < price
   ){
 
     alert(
+
       "コインが足りません。\n\n" +
+
       "必要：" +
+
       price.toLocaleString() +
+
       "コイン\n" +
+
       "現在：" +
+
       coins.toLocaleString() +
+
       "コイン"
+
     );
 
     return;
@@ -2513,29 +2714,31 @@ function wearItem(
   }
 
 
-  /* -------------------------------------
+  /* ---------------------------------
      PAYMENT
-  ------------------------------------- */
+  --------------------------------- */
 
   coins -= price;
 
   updateCoins();
 
 
-  /* -------------------------------------
+  /* ---------------------------------
      SELECT
-  ------------------------------------- */
+  --------------------------------- */
 
   selected[category] =
     item;
 
 
-  /* -------------------------------------
+  /* ---------------------------------
      LAYER
-  ------------------------------------- */
+  --------------------------------- */
 
   const layer =
-    getLayer(category);
+    getLayer(
+      category
+    );
 
 
   if(layer){
@@ -2549,21 +2752,32 @@ function wearItem(
   }
 
 
-  /* -------------------------------------
+  /* ---------------------------------
      ONEPIECE
-  ------------------------------------- */
+  --------------------------------- */
 
   if(
-    category === "onepiece"
+    category ===
+    "onepiece"
   ){
 
-    clearCategory("top");
-    clearCategory("bottom");
-    clearCategory("dress");
+    clearCategory(
+      "top"
+    );
+
+    clearCategory(
+      "bottom"
+    );
+
+    clearCategory(
+      "dress"
+    );
+
 
     stage.classList.remove(
       "dressOn"
     );
+
 
     stage.classList.add(
       "onepieceOn"
@@ -2572,21 +2786,32 @@ function wearItem(
   }
 
 
-  /* -------------------------------------
+  /* ---------------------------------
      DRESS
-  ------------------------------------- */
+  --------------------------------- */
 
   if(
-    category === "dress"
+    category ===
+    "dress"
   ){
 
-    clearCategory("top");
-    clearCategory("bottom");
-    clearCategory("onepiece");
+    clearCategory(
+      "top"
+    );
+
+    clearCategory(
+      "bottom"
+    );
+
+    clearCategory(
+      "onepiece"
+    );
+
 
     stage.classList.remove(
       "onepieceOn"
     );
+
 
     stage.classList.add(
       "dressOn"
@@ -2595,16 +2820,23 @@ function wearItem(
   }
 
 
-  /* -------------------------------------
+  /* ---------------------------------
      TOP
-  ------------------------------------- */
+  --------------------------------- */
 
   if(
-    category === "top"
+    category ===
+    "top"
   ){
 
-    clearCategory("onepiece");
-    clearCategory("dress");
+    clearCategory(
+      "onepiece"
+    );
+
+    clearCategory(
+      "dress"
+    );
+
 
     stage.classList.remove(
       "onepieceOn"
@@ -2627,16 +2859,23 @@ function wearItem(
   }
 
 
-  /* -------------------------------------
+  /* ---------------------------------
      BOTTOM
-  ------------------------------------- */
+  --------------------------------- */
 
   if(
-    category === "bottom"
+    category ===
+    "bottom"
   ){
 
-    clearCategory("onepiece");
-    clearCategory("dress");
+    clearCategory(
+      "onepiece"
+    );
+
+    clearCategory(
+      "dress"
+    );
+
 
     stage.classList.remove(
       "onepieceOn"
@@ -2649,12 +2888,13 @@ function wearItem(
   }
 
 
-  /* -------------------------------------
+  /* ---------------------------------
      OUTER
-  ------------------------------------- */
+  --------------------------------- */
 
   if(
-    category === "outer"
+    category ===
+    "outer"
   ){
 
     stage.classList.add(
@@ -2674,13 +2914,14 @@ function wearItem(
   }
 
 
-  /* -------------------------------------
-     RETURN TO DOLL
-  ------------------------------------- */
+  /* ---------------------------------
+     RETURN
+  --------------------------------- */
 
   itemScreen.classList.remove(
     "active"
   );
+
 
   dressScreen.classList.add(
     "active"
@@ -2693,14 +2934,18 @@ function wearItem(
    UNEQUIP
 ===================================================== */
 
-function unequip(category){
+function unequip(
+  category
+){
 
   selected[category] =
     null;
 
 
   const layer =
-    getLayer(category);
+    getLayer(
+      category
+    );
 
 
   if(layer){
@@ -2715,7 +2960,8 @@ function unequip(category){
 
 
   if(
-    category === "onepiece"
+    category ===
+    "onepiece"
   ){
 
     stage.classList.remove(
@@ -2726,7 +2972,8 @@ function unequip(category){
 
 
   if(
-    category === "dress"
+    category ===
+    "dress"
   ){
 
     stage.classList.remove(
@@ -2737,7 +2984,8 @@ function unequip(category){
 
 
   if(
-    category === "outer"
+    category ===
+    "outer"
   ){
 
     stage.classList.remove(
@@ -2758,6 +3006,7 @@ function unequip(category){
       topLayer.src =
         selected.top.src;
 
+
       topLayer.style.display =
         "block";
 
@@ -2772,14 +3021,18 @@ function unequip(category){
    CLEAR CATEGORY
 ===================================================== */
 
-function clearCategory(category){
+function clearCategory(
+  category
+){
 
   selected[category] =
     null;
 
 
   const layer =
-    getLayer(category);
+    getLayer(
+      category
+    );
 
 
   if(layer){
@@ -2799,7 +3052,9 @@ function clearCategory(category){
    GET LAYER
 ===================================================== */
 
-function getLayer(category){
+function getLayer(
+  category
+){
 
   const map = {
 
@@ -2859,7 +3114,9 @@ function deleteItem(
     selected[category].id === id
   ){
 
-    unequip(category);
+    unequip(
+      category
+    );
 
   }
 
@@ -2892,7 +3149,13 @@ function saveItems(){
 
   }catch(error){
 
-    console.log(error);
+    console.log(
+      error
+    );
+
+    alert(
+      "アイテムの保存容量がいっぱいになりました。"
+    );
 
   }
 
@@ -2914,38 +3177,51 @@ function loadItems(){
 
 
     if(!saved){
+
       return;
+
     }
 
 
     const data =
-      JSON.parse(saved);
+      JSON.parse(
+        saved
+      );
 
 
     if(!data){
+
       return;
+
     }
 
 
-    Object.keys(items)
-    .forEach(category => {
+    Object.keys(
+      items
+    )
+    .forEach(
+      category => {
 
-      if(
-        Array.isArray(
-          data[category]
-        )
-      ){
+        if(
+          Array.isArray(
+            data[category]
+          )
+        ){
 
-        items[category] =
-          data[category];
+          items[category] =
+            data[category];
+
+        }
 
       }
+    );
 
-    });
 
   }catch(error){
 
-    console.log(error);
+    console.log(
+      error
+    );
 
   }
 
@@ -2958,8 +3234,12 @@ function loadItems(){
 
 function saveBase(){
 
-  if(!baseCharacter){
+  if(
+    !baseCharacter
+  ){
+
     return;
+
   }
 
 
@@ -2972,7 +3252,13 @@ function saveBase(){
 
   }catch(error){
 
-    console.log(error);
+    console.log(
+      error
+    );
+
+    alert(
+      "キャラクター画像を保存できませんでした。"
+    );
 
   }
 
@@ -2994,7 +3280,9 @@ function loadBase(){
 
 
     if(!saved){
+
       return;
+
     }
 
 
@@ -3011,6 +3299,7 @@ function loadBase(){
     layer.src =
       saved;
 
+
     layer.style.display =
       "block";
 
@@ -3025,7 +3314,9 @@ function loadBase(){
 
   }catch(error){
 
-    console.log(error);
+    console.log(
+      error
+    );
 
   }
 
@@ -3052,6 +3343,8 @@ const basePreview =
   );
 
 
+/* OPEN */
+
 document
 .getElementById(
   "baseButton"
@@ -3067,6 +3360,8 @@ document
   }
 );
 
+
+/* CANCEL */
 
 document
 .getElementById(
@@ -3084,6 +3379,8 @@ document
 );
 
 
+/* FILE */
+
 baseFile.addEventListener(
   "change",
   function(event){
@@ -3093,7 +3390,9 @@ baseFile.addEventListener(
 
 
     if(!file){
+
       return;
+
     }
 
 
@@ -3106,6 +3405,7 @@ baseFile.addEventListener(
 
         temporaryBase =
           e.target.result;
+
 
         basePreview.src =
           temporaryBase;
@@ -3121,6 +3421,8 @@ baseFile.addEventListener(
 );
 
 
+/* SAVE */
+
 document
 .getElementById(
   "baseSave"
@@ -3129,7 +3431,9 @@ document
   "click",
   function(){
 
-    if(!temporaryBase){
+    if(
+      !temporaryBase
+    ){
 
       alert(
         "キャラクター画像を選択してください。"
@@ -3152,6 +3456,7 @@ document
 
     layer.src =
       baseCharacter;
+
 
     layer.style.display =
       "block";
@@ -3203,6 +3508,8 @@ const itemPreview =
   );
 
 
+/* OPEN */
+
 document
 .getElementById(
   "itemButton"
@@ -3218,6 +3525,8 @@ document
   }
 );
 
+
+/* CANCEL */
 
 document
 .getElementById(
@@ -3235,6 +3544,8 @@ document
 );
 
 
+/* FILE */
+
 itemFile.addEventListener(
   "change",
   function(event){
@@ -3244,7 +3555,9 @@ itemFile.addEventListener(
 
 
     if(!file){
+
       return;
+
     }
 
 
@@ -3257,6 +3570,7 @@ itemFile.addEventListener(
 
         temporaryItem =
           e.target.result;
+
 
         itemPreview.src =
           temporaryItem;
@@ -3311,7 +3625,11 @@ document
       .value;
 
 
-    if(!temporaryItem){
+    /* IMAGE */
+
+    if(
+      !temporaryItem
+    ){
 
       alert(
         "アイテム画像を選択してください。"
@@ -3322,7 +3640,11 @@ document
     }
 
 
-    if(!name){
+    /* NAME */
+
+    if(
+      !name
+    ){
 
       alert(
         "アイテム名を入力してください。"
@@ -3332,6 +3654,8 @@ document
 
     }
 
+
+    /* PRICE */
 
     if(
       isNaN(price) ||
@@ -3346,6 +3670,8 @@ document
 
     }
 
+
+    /* CREATE */
 
     const item = {
 
@@ -3365,18 +3691,28 @@ document
 
       category:category,
 
+      /*
+        元画像を保存
+      */
+
       src:temporaryItem
 
     };
 
+
+    /* ADD */
 
     items[category].push(
       item
     );
 
 
+    /* SAVE */
+
     saveItems();
 
+
+    /* RESET */
 
     itemFile.value = "";
 
@@ -3397,10 +3733,17 @@ document
     temporaryItem = "";
 
 
+    /* CLOSE */
+
     itemModal.classList.remove(
       "show"
     );
 
+
+    /*
+      登録したカテゴリーを
+      そのまま開く
+    */
 
     openItemScreen(
       category
@@ -3465,4 +3808,5 @@ updateCoins();
 </script>
 
 </body>
+
 </html>
