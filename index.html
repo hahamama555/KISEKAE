@@ -3,21 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport"
-      content="width=device-width,
-      initial-scale=1.0,
-      maximum-scale=1.0,
-      user-scalable=no">
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
 <title>ギフトで着せ替え</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
+  -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
   width:100%;
   height:100%;
   overflow:hidden;
@@ -27,7 +30,7 @@ html,body{
     "Hiragino Kaku Gothic ProN",
     "Yu Gothic",
     sans-serif;
-  background:#f8eff8;
+  background:#f7edf9;
 }
 
 body{
@@ -39,16 +42,20 @@ body{
   width:100%;
   max-width:500px;
   height:100dvh;
+
   display:flex;
   flex-direction:column;
+
   background:
     linear-gradient(
       180deg,
-      #fff7ff 0%,
-      #f9effc 100%
+      #fff9ff,
+      #f7edfa
     );
+
   overflow:hidden;
 }
+
 
 /* =========================
    HEADER
@@ -56,50 +63,67 @@ body{
 
 .header{
   flex:0 0 58px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:7px 12px;
+
+  padding:7px 10px;
+
   background:#fff;
-  border-bottom:1px solid #eadbea;
-  z-index:20;
+
+  border-bottom:1px solid #eaddea;
+
+  z-index:50;
 }
 
 .title{
-  font-size:20px;
+  font-size:19px;
   font-weight:900;
-  color:#6c3c72;
-  white-space:nowrap;
+  color:#743d7c;
+
+  text-align:center;
+
+  flex:1;
 }
 
 .coinBox{
+  min-width:95px;
+
   display:flex;
   align-items:center;
-  gap:5px;
-  background:#fff7d8;
-  border:2px solid #f0c94a;
-  border-radius:20px;
-  padding:5px 10px;
-  font-weight:900;
-  color:#805d00;
-}
+  justify-content:center;
+  gap:4px;
 
-.coinIcon{
-  font-size:18px;
+  padding:7px 8px;
+
+  background:#fff8d9;
+
+  border:2px solid #f0ce54;
+
+  border-radius:20px;
+
+  color:#755b00;
+
+  font-size:12px;
+  font-weight:900;
 }
 
 #coinCount{
-  min-width:45px;
+  min-width:35px;
   text-align:center;
 }
 
+
 /* =========================
-   CHARACTER AREA
+   CHARACTER
 ========================= */
 
 .characterArea{
   position:relative;
+
   flex:1 1 auto;
+
   min-height:0;
 
   display:flex;
@@ -110,34 +134,37 @@ body{
 
   background:
     radial-gradient(
-      circle at 50% 35%,
-      #ffffff 0%,
-      #fff5fc 45%,
-      #f1e1f5 100%
+      circle at 50% 30%,
+      #fff 0%,
+      #fff5fd 45%,
+      #f0dff5 100%
     );
 }
 
-/*
-  全身を必ず表示するため
-  characterStageは高さ基準。
-*/
 .characterStage{
+
   position:relative;
 
-  width:min(76vw,380px);
-  height:calc(100% - 10px);
+  width:min(72vw,360px);
+
+  height:calc(100% - 8px);
 
   max-height:100%;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
+
 }
 
+
 /*
-  すべてのレイヤーを同じ場所に重ねる
+ 全レイヤーを完全に同じ位置に重ねる
 */
+
 .layer{
+
   position:absolute;
 
   left:50%;
@@ -146,7 +173,8 @@ body{
   width:100%;
   height:100%;
 
-  transform:translate(-50%,-50%);
+  transform:
+    translate(-50%,-50%);
 
   object-fit:contain;
   object-position:center;
@@ -156,69 +184,116 @@ body{
   display:none;
 }
 
-/* 本体 */
-#base{
-  display:block;
-}
-
-/* =========================
-   アイテムレイヤー
-========================= */
-
-.layer.hair.active,
-.layer.top.active,
-.layer.onepiece.active,
-.layer.bottom.active,
-.layer.outer.active,
-.layer.socks.active,
-.layer.shoes.active,
-.layer.accessory.active{
-  display:block;
-}
 
 /*
-  ワンピースを着たとき
-  トップス・ボトムスを隠す
+ 本体
 */
-.characterStage.onepieceOn .topLayer,
-.characterStage.onepieceOn .bottomLayer{
+
+#baseLayer{
+  display:block;
+}
+
+
+/* =========================
+   ワンピース・ドレス
+========================= */
+
+.onepieceOn .topLayer,
+.onepieceOn .bottomLayer{
   display:none!important;
 }
 
+.dressOn .topLayer,
+.dressOn .bottomLayer{
+  display:none!important;
+}
+
+
 /* =========================
-   NOW ITEM
+   現在のアイテム
 ========================= */
 
 .currentItem{
+
   position:absolute;
-  left:10px;
-  top:10px;
+
+  top:8px;
+  left:8px;
 
   padding:5px 9px;
 
-  background:rgba(255,255,255,.88);
-  border:1px solid #ead5ec;
+  background:
+    rgba(255,255,255,.9);
+
+  border:
+    1px solid #e6d5e9;
+
   border-radius:15px;
 
-  font-size:11px;
+  color:#714c77;
+
+  font-size:10px;
+
   font-weight:800;
 
-  color:#704878;
-
-  z-index:10;
+  z-index:20;
 }
+
+
+/* =========================
+   GIFT AREA
+========================= */
+
+.giftArea{
+
+  flex:0 0 42px;
+
+  display:flex;
+
+  gap:5px;
+
+  padding:5px 7px;
+
+  background:#fff;
+
+  border-top:1px solid #eaddea;
+  border-bottom:1px solid #eaddea;
+}
+
+.giftBtn{
+
+  flex:1;
+
+  border:2px solid #eadb64;
+
+  background:#fffbe5;
+
+  border-radius:18px;
+
+  color:#775e00;
+
+  font-size:10px;
+
+  font-weight:900;
+
+}
+
+.giftBtn:active{
+  transform:scale(.96);
+}
+
 
 /* =========================
    BOTTOM PANEL
 ========================= */
 
 .bottomPanel{
-  flex:0 0 38%;
-  min-height:220px;
+
+  flex:0 0 39%;
+
+  min-height:230px;
 
   background:#fff;
-
-  border-top:1px solid #eadbea;
 
   display:flex;
   flex-direction:column;
@@ -226,22 +301,22 @@ body{
   overflow:hidden;
 }
 
+
 /* =========================
    TABS
 ========================= */
 
 .tabs{
-  flex:0 0 42px;
+
+  flex:0 0 43px;
 
   display:flex;
 
   overflow-x:auto;
 
-  background:#fff;
+  scrollbar-width:none;
 
   border-bottom:1px solid #eee;
-
-  scrollbar-width:none;
 }
 
 .tabs::-webkit-scrollbar{
@@ -249,33 +324,40 @@ body{
 }
 
 .tab{
+
   flex:0 0 auto;
 
-  min-width:76px;
+  min-width:78px;
 
   border:none;
 
   background:#fff;
 
-  font-size:12px;
-  font-weight:800;
+  color:#8b738f;
 
-  color:#8b728d;
+  font-size:11px;
+
+  font-weight:900;
 
   border-bottom:3px solid transparent;
 }
 
 .tab.active{
-  color:#9a4fa8;
-  border-bottom-color:#c96bd6;
+
+  color:#9b4eaa;
+
+  border-bottom-color:#c968d7;
 }
 
+
 /* =========================
-   ITEM AREA
+   ITEMS
 ========================= */
 
 .itemArea{
+
   flex:1;
+
   min-height:0;
 
   overflow-y:auto;
@@ -286,6 +368,7 @@ body{
 }
 
 .items{
+
   display:grid;
 
   grid-template-columns:
@@ -294,28 +377,28 @@ body{
   gap:7px;
 }
 
+
 /* =========================
    ITEM CARD
 ========================= */
 
 .item{
+
   position:relative;
 
   min-width:0;
 
-  border:2px solid #eaddea;
+  padding:5px;
 
   background:#fff;
 
-  border-radius:12px;
+  border:
+    2px solid #eaddea;
 
-  padding:5px;
+  border-radius:13px;
 
   cursor:pointer;
 
-  transition:.15s;
-
-  user-select:none;
 }
 
 .item:active{
@@ -323,11 +406,13 @@ body{
 }
 
 .item.selected{
-  border-color:#c25acb;
+
+  border-color:#c35bcf;
 
   box-shadow:
     0 0 0 2px
-    rgba(194,90,203,.15);
+    rgba(195,91,207,.15);
+
 }
 
 .item.locked{
@@ -335,35 +420,42 @@ body{
 }
 
 .itemImage{
+
   width:100%;
-  height:62px;
+  height:60px;
 
   object-fit:contain;
-
-  display:block;
 
   background:#faf7fb;
 
   border-radius:8px;
+
+  display:block;
+
 }
 
 .itemName{
+
   margin-top:3px;
-
-  font-size:10px;
-
-  font-weight:800;
 
   text-align:center;
 
+  font-size:9px;
+
+  font-weight:800;
+
+  color:#674e6a;
+
   white-space:nowrap;
+
   overflow:hidden;
+
   text-overflow:ellipsis;
 
-  color:#644d67;
 }
 
 .price{
+
   margin-top:2px;
 
   text-align:center;
@@ -372,52 +464,54 @@ body{
 
   font-weight:900;
 
-  color:#9a6900;
+  color:#946d00;
+
 }
 
-.price span{
-  font-size:11px;
-}
 
 /* =========================
-   UPLOAD
+   BASE SETTING
 ========================= */
 
-.uploadArea{
-  padding:7px;
+.baseSetting{
+
+  flex:0 0 39px;
+
+  padding:4px 7px;
 
   background:#fff;
 
   border-top:1px solid #eee;
+
 }
 
-.uploadButton{
+.baseButton{
+
   width:100%;
 
-  height:34px;
+  height:31px;
 
   border:none;
 
-  border-radius:18px;
+  border-radius:17px;
 
-  background:#9d5aa7;
+  background:#8f55a0;
 
   color:#fff;
 
+  font-size:11px;
+
   font-weight:900;
 
-  font-size:12px;
 }
 
-#fileInput{
-  display:none;
-}
 
 /* =========================
-   MODAL
+   UPLOAD MODAL
 ========================= */
 
 .modal{
+
   position:fixed;
 
   inset:0;
@@ -427,9 +521,10 @@ body{
   align-items:center;
   justify-content:center;
 
-  background:rgba(40,20,45,.5);
+  background:
+    rgba(45,20,50,.55);
 
-  z-index:100;
+  z-index:200;
 }
 
 .modal.show{
@@ -437,12 +532,18 @@ body{
 }
 
 .modalBox{
-  width:86%;
-  max-width:350px;
+
+  width:88%;
+
+  max-width:370px;
+
+  max-height:90vh;
+
+  overflow:auto;
 
   background:#fff;
 
-  border-radius:22px;
+  border-radius:24px;
 
   padding:20px;
 
@@ -450,74 +551,192 @@ body{
     0 15px 50px
     rgba(0,0,0,.25);
 
-  text-align:center;
 }
 
 .modalTitle{
-  font-size:20px;
+
+  text-align:center;
+
+  font-size:19px;
+
   font-weight:900;
-  color:#7c4585;
+
+  color:#78427f;
+
+  margin-bottom:15px;
+
 }
 
-.modalItem{
-  margin:12px auto;
+.uploadRow{
 
-  width:130px;
-  height:130px;
+  margin-bottom:13px;
 
-  object-fit:contain;
+  padding:11px;
+
+  background:#f8f0fa;
+
+  border-radius:15px;
+
+}
+
+.uploadRow label{
 
   display:block;
+
+  margin-bottom:5px;
+
+  color:#714778;
+
+  font-size:12px;
+
+  font-weight:900;
+
 }
 
-.modalText{
+.uploadRow input{
+
+  width:100%;
+
+  font-size:11px;
+
+}
+
+.closeButton{
+
+  width:100%;
+
+  height:40px;
+
+  margin-top:5px;
+
+  border:none;
+
+  border-radius:20px;
+
+  background:#9c54aa;
+
+  color:#fff;
+
+  font-weight:900;
+
+}
+
+
+/* =========================
+   ITEM GET MODAL
+========================= */
+
+.getModal{
+
+  position:fixed;
+
+  inset:0;
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  background:
+    rgba(50,20,55,.45);
+
+  z-index:300;
+
+}
+
+.getModal.show{
+  display:flex;
+}
+
+.getBox{
+
+  width:82%;
+
+  max-width:330px;
+
+  padding:25px 18px;
+
+  background:#fff;
+
+  border-radius:25px;
+
+  text-align:center;
+
+}
+
+.getEmoji{
+  font-size:45px;
+}
+
+.getTitle{
+
+  margin-top:6px;
+
+  color:#9b45aa;
+
+  font-size:22px;
+
+  font-weight:900;
+
+}
+
+.getName{
+
+  margin-top:7px;
+
+  color:#654d69;
+
   font-size:13px;
-  font-weight:700;
-  color:#644d67;
+
+  font-weight:800;
+
 }
 
-.modalButton{
+.getClose{
+
   width:100%;
 
   height:42px;
 
-  margin-top:12px;
+  margin-top:15px;
 
   border:none;
 
-  border-radius:22px;
+  border-radius:21px;
 
-  background:#c15ccf;
+  background:#a653b1;
 
-  color:white;
-
-  font-size:14px;
+  color:#fff;
 
   font-weight:900;
+
 }
+
 
 /* =========================
    TOAST
 ========================= */
 
 .toast{
+
   position:fixed;
 
   left:50%;
+
   bottom:45%;
 
   transform:
     translate(-50%,20px);
 
-  padding:10px 18px;
+  padding:10px 17px;
 
-  border-radius:25px;
-
-  background:#5d3d64;
+  background:#5f4265;
 
   color:#fff;
 
-  font-size:13px;
+  border-radius:22px;
+
+  font-size:12px;
 
   font-weight:900;
 
@@ -527,355 +746,352 @@ body{
 
   transition:.25s;
 
-  z-index:200;
+  z-index:500;
 
   white-space:nowrap;
+
 }
 
 .toast.show{
+
   opacity:1;
 
   transform:
     translate(-50%,0);
-}
-
-/* =========================
-   GIFT BUTTONS
-========================= */
-
-.giftArea{
-  display:flex;
-  gap:5px;
-
-  padding:6px 8px;
-
-  background:#fff;
-
-  border-bottom:1px solid #eee;
-}
-
-.giftBtn{
-  flex:1;
-
-  height:34px;
-
-  border:2px solid #eadb50;
-
-  border-radius:18px;
-
-  background:#fffbe3;
-
-  color:#806400;
-
-  font-size:11px;
-
-  font-weight:900;
-}
-
-.giftBtn:active{
-  transform:scale(.96);
-}
-
-/* =========================
-   PC
-========================= */
-
-@media(min-width:700px){
-
-  .app{
-    box-shadow:
-      0 0 30px
-      rgba(80,40,90,.15);
-  }
-
-  .bottomPanel{
-    flex-basis:35%;
-  }
 
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="app">
 
-  <!-- HEADER -->
-  <header class="header">
 
-    <div class="title">
-      🎀 ギフトで着せ替え
-    </div>
+<!-- =========================
+     HEADER
+========================= -->
 
-    <div class="coinBox">
-      <span class="coinIcon">🪙</span>
-      <span id="coinCount">0</span>
-      <span>コイン</span>
-    </div>
+<header class="header">
 
-  </header>
+  <div class="title">
+    🎀 ギフトで着せ替え
+  </div>
 
+  <div class="coinBox">
+    🪙
+    <span id="coinCount">0</span>
+    コイン
+  </div>
 
-  <!-- CHARACTER -->
-  <main class="characterArea">
-
-    <div class="currentItem" id="currentItem">
-      ベースキャラクター
-    </div>
-
-    <div
-      class="characterStage"
-      id="characterStage"
-    >
-
-      <!-- 本体 -->
-      <img
-        id="base"
-        class="layer"
-        src=""
-        alt="キャラクター"
-      >
-
-      <!-- 靴下 -->
-      <img
-        id="socksLayer"
-        class="layer socks"
-        src=""
-        alt=""
-      >
-
-      <!-- ボトム -->
-      <img
-        id="bottomLayer"
-        class="layer bottomLayer bottom"
-        src=""
-        alt=""
-      >
-
-      <!-- ワンピース -->
-      <img
-        id="onepieceLayer"
-        class="layer onepiece"
-        src=""
-        alt=""
-      >
-
-      <!-- トップス -->
-      <img
-        id="topLayer"
-        class="layer topLayer top"
-        src=""
-        alt=""
-      >
-
-      <!-- アウター -->
-      <img
-        id="outerLayer"
-        class="layer outer"
-        src=""
-        alt=""
-      >
-
-      <!-- 靴 -->
-      <img
-        id="shoesLayer"
-        class="layer shoes"
-        src=""
-        alt=""
-      >
-
-      <!-- 髪 -->
-      <img
-        id="hairLayer"
-        class="layer hair"
-        src=""
-        alt=""
-      >
-
-      <!-- アクセサリー -->
-      <img
-        id="accessoryLayer"
-        class="layer accessory"
-        src=""
-        alt=""
-      >
-
-    </div>
-
-  </main>
+</header>
 
 
-  <!-- GIFT / COIN -->
-  <div class="giftArea">
+<!-- =========================
+     CHARACTER
+========================= -->
 
-    <button
-      class="giftBtn"
-      onclick="addCoins(1)"
-    >
-      💗 1コイン
-    </button>
+<section class="characterArea">
 
-    <button
-      class="giftBtn"
-      onclick="addCoins(10)"
-    >
-      🍩 10コイン
-    </button>
+  <div
+    class="currentItem"
+    id="currentItem">
 
-    <button
-      class="giftBtn"
-      onclick="addCoins(100)"
-    >
-      🎁 100コイン
-    </button>
-
-    <button
-      class="giftBtn"
-      onclick="addCoins(500)"
-    >
-      💎 500コイン
-    </button>
+    ベースキャラクター
 
   </div>
 
 
-  <!-- ITEMS -->
-  <section class="bottomPanel">
-
-    <nav class="tabs">
-
-      <button
-        class="tab active"
-        data-category="hair"
-        onclick="changeCategory('hair',this)"
-      >
-        💇 髪
-      </button>
-
-      <button
-        class="tab"
-        data-category="top"
-        onclick="changeCategory('top',this)"
-      >
-        👚 トップス
-      </button>
-
-      <button
-        class="tab"
-        data-category="onepiece"
-        onclick="changeCategory('onepiece',this)"
-      >
-        👗 ワンピース
-      </button>
-
-      <button
-        class="tab"
-        data-category="bottom"
-        onclick="changeCategory('bottom',this)"
-      >
-        👖 ボトム
-      </button>
-
-      <button
-        class="tab"
-        data-category="outer"
-        onclick="changeCategory('outer',this)"
-      >
-        🧥 アウター
-      </button>
-
-      <button
-        class="tab"
-        data-category="socks"
-        onclick="changeCategory('socks',this)"
-      >
-        🧦 靴下
-      </button>
-
-      <button
-        class="tab"
-        data-category="shoes"
-        onclick="changeCategory('shoes',this)"
-      >
-        👟 靴
-      </button>
-
-      <button
-        class="tab"
-        data-category="accessory"
-        onclick="changeCategory('accessory',this)"
-      >
-        💎 アクセ
-      </button>
-
-    </nav>
+  <div
+    class="characterStage"
+    id="characterStage">
 
 
-    <div class="itemArea">
+    <!-- ① 本体 -->
 
-      <div
-        class="items"
-        id="items"
-      ></div>
+    <img
+      id="baseLayer"
+      class="layer"
+      src=""
+      alt="本体">
 
-    </div>
+
+    <!-- ② 靴 -->
+
+    <img
+      id="shoesLayer"
+      class="layer"
+      src=""
+      alt="靴">
 
 
-    <div class="uploadArea">
+    <!-- ③ ボトムス -->
 
-      <input
-        type="file"
-        id="fileInput"
-        accept="image/*"
-        multiple
-        onchange="loadImages(event)"
-      >
+    <img
+      id="bottomLayer"
+      class="layer bottomLayer"
+      src=""
+      alt="ボトムス">
 
-      <button
-        class="uploadButton"
-        onclick="document.getElementById('fileInput').click()"
-      >
-        📷 自分のアイテム画像を追加
-      </button>
 
-    </div>
+    <!-- ④ ワンピース -->
 
-  </section>
+    <img
+      id="onepieceLayer"
+      class="layer"
+      src=""
+      alt="ワンピース">
+
+
+    <!-- ⑤ ドレス -->
+
+    <img
+      id="dressLayer"
+      class="layer"
+      src=""
+      alt="ドレス">
+
+
+    <!-- ⑥ トップス -->
+
+    <img
+      id="topLayer"
+      class="layer topLayer"
+      src=""
+      alt="トップス">
+
+
+    <!-- ⑦ アウター -->
+
+    <img
+      id="outerLayer"
+      class="layer"
+      src=""
+      alt="アウター">
+
+
+    <!-- ⑧ 髪 -->
+
+    <img
+      id="hairLayer"
+      class="layer"
+      src=""
+      alt="髪型">
+
+
+    <!-- ⑨ アクセサリー -->
+
+    <img
+      id="accessoryLayer"
+      class="layer"
+      src=""
+      alt="アクセサリー">
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     GIFTS
+========================= -->
+
+<div class="giftArea">
+
+  <button
+    class="giftBtn"
+    onclick="addCoins(1)">
+    💗 1コイン
+  </button>
+
+  <button
+    class="giftBtn"
+    onclick="addCoins(10)">
+    🍩 10コイン
+  </button>
+
+  <button
+    class="giftBtn"
+    onclick="addCoins(100)">
+    🎁 100コイン
+  </button>
+
+  <button
+    class="giftBtn"
+    onclick="addCoins(500)">
+    💎 500コイン
+  </button>
 
 </div>
 
 
-<!-- GET MODAL -->
+<!-- =========================
+     ITEM PANEL
+========================= -->
+
+<section class="bottomPanel">
+
+
+  <!-- TABS -->
+
+  <nav class="tabs">
+
+    <button
+      class="tab active"
+      onclick="changeCategory('top',this)">
+      👚 トップス
+    </button>
+
+    <button
+      class="tab"
+      onclick="changeCategory('onepiece',this)">
+      👗 ワンピース
+    </button>
+
+    <button
+      class="tab"
+      onclick="changeCategory('dress',this)">
+      👑 ドレス
+    </button>
+
+    <button
+      class="tab"
+      onclick="changeCategory('bottom',this)">
+      👖 ボトムス
+    </button>
+
+    <button
+      class="tab"
+      onclick="changeCategory('outer',this)">
+      🧥 アウター
+    </button>
+
+    <button
+      class="tab"
+      onclick="changeCategory('hair',this)">
+      💇 髪型
+    </button>
+
+    <button
+      class="tab"
+      onclick="changeCategory('accessory',this)">
+      💎 アクセ
+    </button>
+
+    <button
+      class="tab"
+      onclick="changeCategory('shoes',this)">
+      👟 靴
+    </button>
+
+  </nav>
+
+
+  <!-- ITEMS -->
+
+  <div class="itemArea">
+
+    <div
+      class="items"
+      id="items">
+    </div>
+
+  </div>
+
+
+  <!-- BASE -->
+
+  <div class="baseSetting">
+
+    <button
+      class="baseButton"
+      onclick="openBaseSetting()">
+
+      👤 ベースキャラクターを設定
+
+    </button>
+
+  </div>
+
+</section>
+
+</div>
+
+
+<!-- =========================
+     BASE SETTING MODAL
+========================= -->
 
 <div
   class="modal"
-  id="modal"
->
+  id="baseModal">
 
   <div class="modalBox">
 
     <div class="modalTitle">
-      ✨ アイテムGET！
+      👤 ベースキャラクター設定
     </div>
 
-    <img
-      id="modalImage"
-      class="modalItem"
-      src=""
-      alt=""
-    >
+
+    <div class="uploadRow">
+
+      <label>
+        キャラクター本体の画像
+      </label>
+
+      <input
+        type="file"
+        id="baseInput"
+        accept="image/*"
+        onchange="setBaseCharacter(event)">
+
+    </div>
+
+
+    <button
+      class="closeButton"
+      onclick="closeBaseSetting()">
+
+      ✓ 設定完了
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     GET MODAL
+========================= -->
+
+<div
+  class="getModal"
+  id="getModal">
+
+  <div class="getBox">
+
+    <div class="getEmoji">
+      ✨
+    </div>
+
+    <div class="getTitle">
+      アイテムGET！
+    </div>
 
     <div
-      class="modalText"
-      id="modalText"
-    >
+      class="getName"
+      id="getName">
     </div>
 
     <button
-      class="modalButton"
-      onclick="closeModal()"
-    >
+      class="getClose"
+      onclick="closeGetModal()">
+
       着せる
+
     </button>
 
   </div>
@@ -885,214 +1101,308 @@ body{
 
 <div
   class="toast"
-  id="toast"
-></div>
+  id="toast">
+</div>
 
 
 <script>
 
 /* =====================================================
-   基本設定
+   コイン
 ===================================================== */
 
 let coins = 0;
 
-let currentCategory = "hair";
 
-let selectedItem = null;
+/* =====================================================
+   現在のカテゴリー
+===================================================== */
+
+let currentCategory = "top";
+
+
+/* =====================================================
+   現在着ているアイテム
+===================================================== */
+
+let selected = {
+
+  top:null,
+
+  onepiece:null,
+
+  dress:null,
+
+  bottom:null,
+
+  outer:null,
+
+  hair:null,
+
+  accessory:null,
+
+  shoes:null
+
+};
 
 
 /* =====================================================
    アイテムデータ
-   price = 必要コイン
+=====================================================
+
+   price が必要コイン数です。
+
+   例：
+   price:100
+
+   → 100コイン必要
 ===================================================== */
 
 const items = {
 
-  hair:[
-    {
-      id:"hair1",
-      name:"ロングヘア",
-      price:100,
-      src:""
-    },
-    {
-      id:"hair2",
-      name:"ハーフアップ",
-      price:100,
-      src:""
-    },
-    {
-      id:"hair3",
-      name:"ツインテール",
-      price:500,
-      src:""
-    },
-    {
-      id:"hair4",
-      name:"おだんご",
-      price:500,
-      src:""
-    }
-  ],
+
+  /* トップス */
 
   top:[
+
     {
       id:"top1",
       name:"ハートトップス",
       price:10,
       src:""
     },
+
     {
       id:"top2",
       name:"リボンブラウス",
       price:100,
       src:""
     },
+
     {
       id:"top3",
       name:"パーカー",
       price:100,
       src:""
     },
+
     {
       id:"top4",
       name:"ブラックトップス",
       price:500,
       src:""
     }
+
   ],
 
+
+  /* ワンピース */
+
   onepiece:[
+
+    {
+      id:"onepiece1",
+      name:"ピンクワンピース",
+      price:100,
+      src:""
+    },
+
+    {
+      id:"onepiece2",
+      name:"ハートワンピース",
+      price:500,
+      src:""
+    }
+
+  ],
+
+
+  /* ドレス */
+
+  dress:[
+
     {
       id:"dress1",
       name:"ピンクドレス",
       price:100,
       src:""
     },
+
     {
       id:"dress2",
       name:"プリンセスドレス",
       price:500,
       src:""
+    },
+
+    {
+      id:"dress3",
+      name:"スペシャルドレス",
+      price:1000,
+      src:""
     }
+
   ],
 
+
+  /* ボトムス */
+
   bottom:[
+
     {
       id:"bottom1",
       name:"ピンクスカート",
       price:10,
       src:""
     },
+
     {
       id:"bottom2",
       name:"ブラックスカート",
       price:100,
       src:""
     },
+
     {
       id:"bottom3",
       name:"デニムショートパンツ",
       price:100,
       src:""
     },
+
     {
       id:"bottom4",
       name:"カーゴパンツ",
       price:500,
       src:""
     }
+
   ],
 
+
+  /* アウター */
+
   outer:[
+
     {
       id:"outer1",
       name:"ハートジャケット",
       price:100,
       src:""
     },
+
     {
       id:"outer2",
       name:"ピンクアウター",
       price:500,
       src:""
     },
+
     {
       id:"outer3",
       name:"デニムジャケット",
       price:100,
       src:""
     }
+
   ],
 
-  socks:[
+
+  /* 髪 */
+
+  hair:[
+
     {
-      id:"socks1",
-      name:"ホワイトソックス",
-      price:10,
-      src:""
-    },
-    {
-      id:"socks2",
-      name:"ブラックソックス",
+      id:"hair1",
+      name:"ロングヘア",
       price:100,
       src:""
     },
-    {
-      id:"socks3",
-      name:"リボンソックス",
-      price:500,
-      src:""
-    }
-  ],
 
-  shoes:[
     {
-      id:"shoes1",
-      name:"ブラックシューズ",
-      price:10,
-      src:""
-    },
-    {
-      id:"shoes2",
-      name:"ブラックブーツ",
+      id:"hair2",
+      name:"ハーフアップ",
       price:100,
       src:""
     },
+
     {
-      id:"shoes3",
-      name:"うさぎシューズ",
+      id:"hair3",
+      name:"ツインテール",
       price:500,
       src:""
     },
+
     {
-      id:"shoes4",
-      name:"リボンブーツ",
+      id:"hair4",
+      name:"おだんご",
       price:500,
       src:""
     }
+
   ],
+
+
+  /* アクセサリー */
 
   accessory:[
+
     {
       id:"accessory1",
       name:"ハートネックレス",
       price:10,
       src:""
     },
+
     {
       id:"accessory2",
       name:"ハートイヤリング",
       price:100,
       src:""
     },
+
     {
       id:"accessory3",
       name:"ハートメガネ",
       price:500,
       src:""
     }
+
+  ],
+
+
+  /* 靴 */
+
+  shoes:[
+
+    {
+      id:"shoes1",
+      name:"ブラックシューズ",
+      price:10,
+      src:""
+    },
+
+    {
+      id:"shoes2",
+      name:"ブラックブーツ",
+      price:100,
+      src:""
+    },
+
+    {
+      id:"shoes3",
+      name:"うさぎシューズ",
+      price:500,
+      src:""
+    },
+
+    {
+      id:"shoes4",
+      name:"リボンブーツ",
+      price:500,
+      src:""
+    }
+
   ]
 
 };
@@ -1106,6 +1416,70 @@ renderItems();
 
 
 /* =====================================================
+   ベースキャラクター設定
+===================================================== */
+
+function openBaseSetting(){
+
+  document
+    .getElementById("baseModal")
+    .classList.add("show");
+
+}
+
+
+function closeBaseSetting(){
+
+  document
+    .getElementById("baseModal")
+    .classList.remove("show");
+
+}
+
+
+/*
+  選択した画像を本体に設定
+*/
+
+function setBaseCharacter(event){
+
+  const file =
+    event.target.files[0];
+
+  if(!file) return;
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload=function(e){
+
+    const base =
+      document.getElementById(
+        "baseLayer"
+      );
+
+    base.src =
+      e.target.result;
+
+    base.style.display =
+      "block";
+
+
+    showToast(
+      "👤 ベースキャラクターを設定しました"
+    );
+
+  };
+
+
+  reader.readAsDataURL(file);
+
+}
+
+
+/* =====================================================
    コイン追加
 ===================================================== */
 
@@ -1115,13 +1489,15 @@ function addCoins(value){
 
   document.getElementById(
     "coinCount"
-  ).textContent = coins;
+  ).textContent =
+    coins;
 
   showToast(
     `🪙 ${value}コイン追加！`
   );
 
   renderItems();
+
 }
 
 
@@ -1131,17 +1507,28 @@ function addCoins(value){
 
 function changeCategory(category,button){
 
-  currentCategory = category;
+  currentCategory =
+    category;
+
 
   document
     .querySelectorAll(".tab")
     .forEach(tab=>{
-      tab.classList.remove("active");
+
+      tab.classList.remove(
+        "active"
+      );
+
     });
 
-  button.classList.add("active");
+
+  button.classList.add(
+    "active"
+  );
+
 
   renderItems();
+
 }
 
 
@@ -1152,41 +1539,68 @@ function changeCategory(category,button){
 function renderItems(){
 
   const container =
-    document.getElementById("items");
+    document.getElementById(
+      "items"
+    );
+
 
   container.innerHTML = "";
+
 
   const list =
     items[currentCategory] || [];
 
+
   list.forEach(item=>{
 
     const card =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
-    card.className = "item";
+
+    card.className =
+      "item";
+
 
     if(
-      selectedItem &&
-      selectedItem.id === item.id
+      selected[currentCategory] &&
+      selected[currentCategory].id === item.id
     ){
-      card.classList.add("selected");
+
+      card.classList.add(
+        "selected"
+      );
+
     }
 
-    if(coins < item.price){
-      card.classList.add("locked");
+
+    if(
+      coins < item.price
+    ){
+
+      card.classList.add(
+        "locked"
+      );
+
     }
+
 
     card.innerHTML = `
 
       ${
         item.src
+
         ?
+
         `<img
           class="itemImage"
           src="${item.src}"
+          alt=""
         >`
+
         :
+
         `<div
           class="itemImage"
           style="
@@ -1200,9 +1614,11 @@ function renderItems(){
         </div>`
       }
 
+
       <div class="itemName">
-        ${item.name}
+        ${escapeHTML(item.name)}
       </div>
+
 
       <div class="price">
         🪙 ${item.price}
@@ -1210,11 +1626,16 @@ function renderItems(){
 
     `;
 
-    card.onclick = ()=>{
-      selectItem(item);
-    };
 
-    container.appendChild(card);
+    card.onclick =
+      ()=>{
+        selectItem(item);
+      };
+
+
+    container.appendChild(
+      card
+    );
 
   });
 
@@ -1231,7 +1652,9 @@ function selectItem(item){
     コイン不足
   */
 
-  if(coins < item.price){
+  if(
+    coins < item.price
+  ){
 
     const need =
       item.price - coins;
@@ -1241,185 +1664,230 @@ function selectItem(item){
     );
 
     return;
+
   }
 
 
   /*
-    コインを消費
+    コイン消費
   */
 
   coins -= item.price;
 
+
   document.getElementById(
     "coinCount"
-  ).textContent = coins;
+  ).textContent =
+    coins;
 
 
   /*
-    選択
+    選択状態
   */
 
-  selectedItem = item;
+  selected[currentCategory] =
+    item;
 
 
   /*
     着せる
   */
 
-  wearItem(item);
+  wearItem(
+    currentCategory,
+    item
+  );
 
 
   /*
     GET表示
   */
 
-  showModal(item);
+  document.getElementById(
+    "getName"
+  ).textContent =
+    `${item.name}をGETしました！`;
+
+
+  document
+    .getElementById("getModal")
+    .classList.add("show");
 
 
   renderItems();
+
 }
 
 
 /* =====================================================
-   アイテムをキャラクターに着せる
+   着せる
 ===================================================== */
 
-function wearItem(item){
+function wearItem(
+  category,
+  item
+){
 
-  const map = {
+  const layerMap = {
 
-    hair:
-      "hairLayer",
+    top:"topLayer",
 
-    top:
-      "topLayer",
+    onepiece:"onepieceLayer",
 
-    onepiece:
-      "onepieceLayer",
+    dress:"dressLayer",
 
-    bottom:
-      "bottomLayer",
+    bottom:"bottomLayer",
 
-    outer:
-      "outerLayer",
+    outer:"outerLayer",
 
-    socks:
-      "socksLayer",
+    hair:"hairLayer",
 
-    shoes:
-      "shoesLayer",
+    accessory:"accessoryLayer",
 
-    accessory:
-      "accessoryLayer"
+    shoes:"shoesLayer"
 
   };
 
 
   const layer =
     document.getElementById(
-      map[currentCategory]
+      layerMap[category]
     );
+
 
   if(!layer) return;
 
 
-  /*
-    画像が登録されている場合
-  */
-
   if(item.src){
 
-    layer.src = item.src;
+    layer.src =
+      item.src;
 
-    layer.classList.add("active");
+    layer.style.display =
+      "block";
 
   }
 
-
-  /*
-    ワンピース
-  */
 
   const stage =
     document.getElementById(
       "characterStage"
     );
 
-  if(currentCategory === "onepiece"){
+
+  /*
+    ワンピース
+  */
+
+  if(category === "onepiece"){
 
     stage.classList.add(
       "onepieceOn"
     );
 
-  }else{
+    stage.classList.remove(
+      "dressOn"
+    );
 
-    /*
-      トップスまたはボトムを選択したら
-      ワンピースを解除
-    */
-
-    if(
-      currentCategory === "top" ||
-      currentCategory === "bottom"
-    ){
-
-      stage.classList.remove(
-        "onepieceOn"
-      );
-
-    }
+    hideLayer(
+      "dressLayer"
+    );
 
   }
 
+
+  /*
+    ドレス
+  */
+
+  if(category === "dress"){
+
+    stage.classList.add(
+      "dressOn"
+    );
+
+    stage.classList.remove(
+      "onepieceOn"
+    );
+
+    hideLayer(
+      "onepieceLayer"
+    );
+
+  }
+
+
+  /*
+    トップス・ボトムスを選んだら
+    ワンピースとドレスを解除
+  */
+
+  if(
+    category === "top" ||
+    category === "bottom"
+  ){
+
+    stage.classList.remove(
+      "onepieceOn"
+    );
+
+    stage.classList.remove(
+      "dressOn"
+    );
+
+    hideLayer(
+      "onepieceLayer"
+    );
+
+    hideLayer(
+      "dressLayer"
+    );
+
+  }
+
+
+  /*
+    現在の表示
+  */
 
   document.getElementById(
     "currentItem"
   ).textContent =
     item.name;
+
 }
 
 
 /* =====================================================
-   MODAL
+   レイヤーを非表示
 ===================================================== */
 
-function showModal(item){
+function hideLayer(id){
 
-  const modal =
-    document.getElementById("modal");
+  const layer =
+    document.getElementById(id);
 
-  const image =
-    document.getElementById("modalImage");
+  if(layer){
 
-  const text =
-    document.getElementById("modalText");
-
-  if(item.src){
-
-    image.src = item.src;
-
-    image.style.display =
-      "block";
-
-  }else{
-
-    image.style.display =
+    layer.style.display =
       "none";
 
   }
 
-  text.textContent =
-    `${item.name}をGET！`;
-
-  modal.classList.add("show");
 }
 
 
-function closeModal(){
+/* =====================================================
+   GETモーダルを閉じる
+===================================================== */
+
+function closeGetModal(){
 
   document
-    .getElementById("modal")
-    .classList.remove("show");
+    .getElementById("getModal")
+    .classList.remove(
+      "show"
+    );
 
 }
 
@@ -1430,21 +1898,35 @@ function closeModal(){
 
 let toastTimer;
 
+
 function showToast(message){
 
   const toast =
-    document.getElementById("toast");
+    document.getElementById(
+      "toast"
+    );
 
-  toast.textContent = message;
 
-  toast.classList.add("show");
+  toast.textContent =
+    message;
 
-  clearTimeout(toastTimer);
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    toastTimer
+  );
+
 
   toastTimer =
     setTimeout(()=>{
 
-      toast.classList.remove("show");
+      toast.classList.remove(
+        "show"
+      );
 
     },1800);
 
@@ -1452,89 +1934,19 @@ function showToast(message){
 
 
 /* =====================================================
-   画像アップロード
+   HTMLエスケープ
 ===================================================== */
 
-function loadImages(event){
+function escapeHTML(str){
 
-  const files =
-    Array.from(event.target.files);
-
-  if(!files.length) return;
-
-
-  files.forEach((file,index)=>{
-
-    const reader =
-      new FileReader();
-
-    reader.onload = function(e){
-
-      /*
-        アップロードした画像を
-        現在のカテゴリーのアイテムに追加
-      */
-
-      const newItem = {
-
-        id:
-          "upload_" +
-          Date.now() +
-          "_" +
-          index,
-
-        name:
-          file.name
-            .replace(/\.[^/.]+$/,""),
-
-        /*
-          初期価格
-          必要ならあとで変更
-        */
-
-        price:100,
-
-        src:e.target.result
-
-      };
-
-
-      items[currentCategory]
-        .push(newItem);
-
-
-      renderItems();
-
-      showToast(
-        "📷 アイテムを追加しました"
-      );
-
-    };
-
-    reader.readAsDataURL(file);
-
-  });
-
-
-  event.target.value = "";
+  return String(str)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
-
-
-/* =====================================================
-   キャラクター本体画像
-===================================================== */
-
-/*
-  ここにあなたが作った
-  「キャラクター本体」の画像URLを入れます。
-
-  例：
-
-  document.getElementById("base").src =
-  "https://～/character.png";
-
-*/
 
 </script>
 
