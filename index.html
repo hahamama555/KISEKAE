@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -50,13 +52,12 @@ body{
 }
 
 .app{
+
   position:relative;
 
-  width:min(100vw, 56.25vh);
-  height:min(100vh, 177.777vw);
+  width:min(100vw,56.25vh);
 
-  max-width:600px;
-  max-height:1066px;
+  height:min(100vh,177.777vw);
 
   aspect-ratio:9 / 16;
 
@@ -69,8 +70,6 @@ body{
       #f8edf7 100%
     );
 
-  border-radius:0;
-
   display:flex;
   flex-direction:column;
 }
@@ -81,16 +80,19 @@ body{
 ================================================== */
 
 .header{
-  flex:0 0 5.3%;
 
-  min-height:40px;
+  flex:0 0 6%;
+
+  min-height:42px;
 
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
 
   padding:
-    0 3%;
+    0 4%;
 
   background:#fff;
 
@@ -101,25 +103,36 @@ body{
 }
 
 .title{
-  font-size:clamp(13px,2.7vw,18px);
+
+  font-size:
+    clamp(13px,3vw,18px);
+
   font-weight:900;
+
+  white-space:nowrap;
 }
 
 .coinBox{
+
   display:flex;
+
   align-items:center;
 
-  gap:3px;
+  gap:4px;
 
   padding:
-    4px 9px;
+    5px 10px;
 
   border-radius:20px;
 
   background:#fff0a8;
 
-  font-size:clamp(11px,2.5vw,15px);
+  font-size:
+    clamp(11px,2.7vw,15px);
+
   font-weight:900;
+
+  white-space:nowrap;
 }
 
 
@@ -128,6 +141,7 @@ body{
 ================================================== */
 
 .characterArea{
+
   flex:1 1 auto;
 
   min-height:0;
@@ -137,6 +151,7 @@ body{
   display:flex;
 
   align-items:center;
+
   justify-content:center;
 
   overflow:hidden;
@@ -147,16 +162,15 @@ body{
 
 
 /* ==================================================
-   STAGE
-
-   キャラクター部分を9:16内で
-   十分な大きさを保ちつつ収める
+   CHARACTER STAGE
 ================================================== */
 
 .stage{
+
   position:relative;
 
   width:100%;
+
   height:100%;
 
   max-width:520px;
@@ -174,12 +188,15 @@ body{
 ================================================== */
 
 .layer{
+
   position:absolute;
 
   left:50%;
+
   top:50%;
 
   width:100%;
+
   height:100%;
 
   transform:
@@ -258,8 +275,6 @@ body{
 
 /* ==================================================
    アウター
-
-   トップスが外に出ないようにする
 ================================================== */
 
 .outerOn #topLayer{
@@ -272,9 +287,11 @@ body{
 ================================================== */
 
 .emptyCharacter{
+
   position:absolute;
 
   left:50%;
+
   top:50%;
 
   transform:
@@ -286,7 +303,8 @@ body{
 
   color:#ad9dac;
 
-  font-size:clamp(12px,2.8vw,16px);
+  font-size:
+    clamp(12px,3vw,16px);
 
   font-weight:800;
 
@@ -298,12 +316,11 @@ body{
 
 /* ==================================================
    CONTROL AREA
-
-   画面下約31%
 ================================================== */
 
 .controlArea{
-  flex:0 0 31%;
+
+  flex:0 0 34%;
 
   min-height:0;
 
@@ -317,7 +334,7 @@ body{
     1px solid #eadbe7;
 
   padding:
-    1.2% 1.5% 1%;
+    1.5% 1.8% 1.2%;
 
   z-index:40;
 }
@@ -328,30 +345,33 @@ body{
 ================================================== */
 
 .mainButtons{
-  flex:0 0 10%;
+
+  flex:0 0 9%;
 
   display:grid;
 
   grid-template-columns:
     1fr 1fr;
 
-  gap:5px;
+  gap:6px;
 
-  margin-bottom:4px;
+  margin-bottom:5px;
 }
 
 .mainBtn{
-  min-height:25px;
+
+  min-height:27px;
 
   border:none;
 
-  border-radius:8px;
+  border-radius:9px;
 
   background:#f0e3ee;
 
   color:#654e60;
 
-  font-size:clamp(9px,2.2vw,13px);
+  font-size:
+    clamp(9px,2.3vw,13px);
 
   font-weight:900;
 
@@ -364,10 +384,11 @@ body{
 
 
 /* ==================================================
-   COINS
+   COIN BUTTONS
 ================================================== */
 
 .coinButtons{
+
   flex:0 0 9%;
 
   display:grid;
@@ -375,40 +396,43 @@ body{
   grid-template-columns:
     repeat(4,1fr);
 
-  gap:4px;
+  gap:5px;
 
-  margin-bottom:4px;
+  margin-bottom:5px;
 }
 
 .coinBtn{
-  min-height:22px;
+
+  min-height:25px;
 
   border:none;
 
-  border-radius:7px;
+  border-radius:8px;
 
   background:#fff0a8;
 
   color:#705d00;
 
-  font-size:clamp(8px,2vw,12px);
+  font-size:
+    clamp(8px,2.2vw,12px);
 
   font-weight:900;
 
   cursor:pointer;
 
   touch-action:manipulation;
+
+  -webkit-tap-highlight-color:transparent;
 }
 
 
 /* ==================================================
-   TABS
-
-   8カテゴリーを2段で表示
+   CATEGORY TABS
 ================================================== */
 
 .tabs{
-  flex:0 0 20%;
+
+  flex:0 0 19%;
 
   display:grid;
 
@@ -418,23 +442,25 @@ body{
   grid-template-rows:
     repeat(2,1fr);
 
-  gap:4px;
+  gap:5px;
 
-  margin-bottom:4px;
+  margin-bottom:6px;
 }
 
 .tab{
-  min-height:20px;
+
+  min-height:23px;
 
   border:none;
 
-  border-radius:7px;
+  border-radius:8px;
 
   background:#eee6ed;
 
   color:#665663;
 
-  font-size:clamp(8px,1.9vw,11px);
+  font-size:
+    clamp(8px,2.1vw,12px);
 
   font-weight:900;
 
@@ -443,9 +469,12 @@ body{
   touch-action:manipulation;
 
   -webkit-tap-highlight-color:transparent;
+
+  white-space:nowrap;
 }
 
 .tab.active{
+
   background:#d85cae;
 
   color:#fff;
@@ -453,12 +482,11 @@ body{
 
 
 /* ==================================================
-   ITEMS
-
-   残りスペースを全て使用
+   ITEM AREA
 ================================================== */
 
 .items{
+
   flex:1 1 auto;
 
   min-height:0;
@@ -467,16 +495,16 @@ body{
 
   display:flex;
 
-  align-items:flex-start;
+  align-items:stretch;
 
-  gap:5px;
+  gap:8px;
 
   overflow-x:auto;
 
   overflow-y:hidden;
 
   padding:
-    1px 1px 3px;
+    2px 2px 5px;
 
   -webkit-overflow-scrolling:touch;
 
@@ -490,26 +518,26 @@ body{
 
 /* ==================================================
    ITEM CARD
+   ★ 大きく変更
 ================================================== */
 
 .itemCard{
+
   position:relative;
 
   flex:
-    0 0 70px;
+    0 0 105px;
 
-  width:70px;
+  width:105px;
 
   height:100%;
 
-  min-height:70px;
-
-  max-height:105px;
+  min-height:105px;
 
   border:
-    2px solid transparent;
+    3px solid transparent;
 
-  border-radius:9px;
+  border-radius:13px;
 
   background:#faf7fa;
 
@@ -526,14 +554,20 @@ body{
   -webkit-tap-highlight-color:transparent;
 }
 
+
+/* ==================================================
+   SELECTED
+================================================== */
+
 .itemCard.selected{
+
   border-color:#d85cae;
 
   background:#fff0fa;
 
   box-shadow:
-    0 0 0 2px
-    rgba(216,92,174,.12);
+    0 0 0 3px
+    rgba(216,92,174,.15);
 }
 
 
@@ -542,19 +576,25 @@ body{
 ================================================== */
 
 .itemImage{
+
   display:block;
 
   width:100%;
 
-  height:calc(100% - 36px);
+  height:
+    calc(100% - 44px);
 
-  min-height:35px;
+  min-height:60px;
 
   object-fit:contain;
+
+  object-position:center;
 
   pointer-events:none;
 
   user-select:none;
+
+  -webkit-user-drag:none;
 }
 
 
@@ -563,20 +603,21 @@ body{
 ================================================== */
 
 .itemName{
+
   width:100%;
 
-  height:18px;
+  height:21px;
 
   padding:
-    1px 2px;
+    2px 4px;
 
   text-align:center;
 
-  font-size:9px;
+  font-size:11px;
 
-  font-weight:800;
+  font-weight:900;
 
-  line-height:16px;
+  line-height:17px;
 
   overflow:hidden;
 
@@ -589,40 +630,44 @@ body{
 
 
 /* ==================================================
-   PRICE
+   ITEM PRICE
 ================================================== */
 
 .itemPrice{
+
   width:100%;
 
-  height:18px;
+  height:21px;
 
   text-align:center;
 
-  font-size:9px;
+  font-size:10px;
 
   font-weight:900;
 
   color:#806700;
 
-  line-height:18px;
+  line-height:21px;
 
   pointer-events:none;
 }
 
 
 /* ==================================================
-   DELETE
+   DELETE BUTTON
 ================================================== */
 
 .removeItem{
+
   position:absolute;
 
-  top:2px;
-  right:2px;
+  top:4px;
 
-  width:18px;
-  height:18px;
+  right:4px;
+
+  width:24px;
+
+  height:24px;
 
   padding:0;
 
@@ -631,40 +676,46 @@ body{
   border-radius:50%;
 
   background:
-    rgba(0,0,0,.55);
+    rgba(0,0,0,.58);
 
   color:#fff;
 
-  font-size:11px;
+  font-size:14px;
 
   font-weight:900;
 
-  line-height:18px;
+  line-height:24px;
 
-  z-index:10;
+  z-index:20;
 
   cursor:pointer;
+
+  touch-action:manipulation;
 }
 
 
 /* ==================================================
-   NO ITEMS
+   EMPTY
 ================================================== */
 
 .noItems{
+
   width:100%;
+
   height:100%;
 
   display:flex;
 
   align-items:center;
+
   justify-content:center;
 
   text-align:center;
 
   color:#a697a4;
 
-  font-size:clamp(9px,2.2vw,12px);
+  font-size:
+    clamp(10px,2.5vw,13px);
 
   font-weight:700;
 
@@ -677,6 +728,7 @@ body{
 ================================================== */
 
 .modal{
+
   position:fixed;
 
   inset:0;
@@ -684,6 +736,7 @@ body{
   display:none;
 
   align-items:center;
+
   justify-content:center;
 
   padding:15px;
@@ -698,18 +751,24 @@ body{
   display:flex;
 }
 
+
+/* ==================================================
+   MODAL BOX
+================================================== */
+
 .modalBox{
+
   width:min(92vw,420px);
 
   max-height:90vh;
 
   overflow-y:auto;
 
-  padding:17px;
+  padding:18px;
 
   background:#fff;
 
-  border-radius:17px;
+  border-radius:18px;
 
   box-shadow:
     0 15px 45px
@@ -717,35 +776,104 @@ body{
 }
 
 .modalTitle{
-  margin-bottom:13px;
 
-  font-size:17px;
+  margin-bottom:14px;
+
+  font-size:18px;
 
   font-weight:900;
 }
 
-.formGroup{
+
+/* ==================================================
+   INFO
+================================================== */
+
+.info{
+
   margin-bottom:11px;
+
+  padding:9px;
+
+  border-radius:9px;
+
+  background:#faf5f9;
+
+  color:#766575;
+
+  font-size:10px;
+
+  line-height:1.5;
+}
+
+
+/* ==================================================
+   PREVIEW
+================================================== */
+
+.preview{
+
+  width:100%;
+
+  height:140px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  margin-bottom:11px;
+
+  overflow:hidden;
+
+  border:
+    1px dashed #d4c5d1;
+
+  border-radius:10px;
+
+  background:#faf8fa;
+}
+
+.preview img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:contain;
+}
+
+
+/* ==================================================
+   FORM
+================================================== */
+
+.formGroup{
+
+  margin-bottom:12px;
 }
 
 .formGroup label{
+
   display:block;
 
-  margin-bottom:4px;
+  margin-bottom:5px;
 
   font-size:12px;
 
-  font-weight:800;
+  font-weight:900;
 }
 
 .formGroup input,
 .formGroup select{
+
   width:100%;
 
-  height:40px;
+  height:42px;
 
   padding:
-    0 9px;
+    0 10px;
 
   border:
     1px solid #ddd;
@@ -759,80 +887,28 @@ body{
 
 
 /* ==================================================
-   PREVIEW
-================================================== */
-
-.preview{
-  width:100%;
-  height:130px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  margin-bottom:10px;
-
-  overflow:hidden;
-
-  border:
-    1px dashed #d4c5d1;
-
-  border-radius:9px;
-
-  background:#faf8fa;
-}
-
-.preview img{
-  width:100%;
-  height:100%;
-
-  object-fit:contain;
-}
-
-
-/* ==================================================
-   INFO
-================================================== */
-
-.info{
-  margin-bottom:10px;
-
-  padding:8px;
-
-  border-radius:8px;
-
-  background:#faf5f9;
-
-  color:#766575;
-
-  font-size:10px;
-
-  line-height:1.5;
-}
-
-
-/* ==================================================
-   MODAL BUTTON
+   MODAL BUTTONS
 ================================================== */
 
 .modalButtons{
+
   display:grid;
 
   grid-template-columns:
     1fr 1fr;
 
-  gap:7px;
+  gap:8px;
 
-  margin-top:13px;
+  margin-top:14px;
 }
 
 .modalBtn{
-  height:40px;
+
+  height:42px;
 
   border:none;
 
-  border-radius:9px;
+  border-radius:10px;
 
   font-size:13px;
 
@@ -842,12 +918,14 @@ body{
 }
 
 .cancelBtn{
+
   background:#eee;
 
   color:#555;
 }
 
 .saveBtn{
+
   background:#d85cae;
 
   color:#fff;
@@ -855,55 +933,62 @@ body{
 
 
 /* ==================================================
-   非常に小さい画面
+   SMALL SCREEN
 ================================================== */
 
 @media(max-height:650px){
 
   .controlArea{
-    flex-basis:32%;
+    flex-basis:35%;
   }
 
   .itemCard{
-    flex-basis:62px;
+
+    flex-basis:92px;
+
+    width:92px;
+
   }
 
   .itemImage{
-    height:calc(100% - 32px);
+    min-height:50px;
   }
 
   .itemName{
-    height:16px;
-    line-height:14px;
-    font-size:8px;
+    font-size:9px;
   }
 
   .itemPrice{
-    height:16px;
-    line-height:16px;
-    font-size:8px;
+    font-size:9px;
   }
 
 }
 
 
 /* ==================================================
-   横幅が非常に狭いスマホ
+   NARROW SCREEN
 ================================================== */
 
 @media(max-width:360px){
 
   .itemCard{
-    flex-basis:60px;
+
+    flex-basis:90px;
+
+    width:90px;
+
   }
 
   .tab{
+
     font-size:8px;
+
   }
 
 }
 
 </style>
+
 </head>
 
 
@@ -913,215 +998,223 @@ body{
 <div class="app">
 
 
-  <!-- ==========================================
-       HEADER
-  =========================================== -->
+<!-- =================================================
+     HEADER
+================================================= -->
 
-  <div class="header">
+<div class="header">
 
-    <div class="title">
-      🎀 ギフトで着せ替え
-    </div>
+  <div class="title">
+    🎀 ギフトで着せ替え
+  </div>
 
-    <div class="coinBox">
+  <div class="coinBox">
 
-      🪙
+    🪙
 
-      <span id="coinCount">
-        1000
-      </span>
-
-    </div>
+    <span id="coinCount">
+      1000
+    </span>
 
   </div>
 
+</div>
 
-  <!-- ==========================================
-       CHARACTER
-  =========================================== -->
 
-  <div class="characterArea">
+
+<!-- =================================================
+     CHARACTER
+================================================= -->
+
+<div class="characterArea">
+
+  <div
+    id="stage"
+    class="stage"
+  >
 
     <div
-      id="stage"
-      class="stage"
+      id="emptyCharacter"
+      class="emptyCharacter"
+    >
+      👤<br>
+      ベースキャラクターを<br>
+      設定してください
+    </div>
+
+
+    <!-- 本体 -->
+
+    <img
+      id="baseLayer"
+      class="layer"
+      alt=""
     >
 
 
-      <div
-        id="emptyCharacter"
-        class="emptyCharacter"
-      >
-        👤<br>
-        ベースキャラクターを設定してください
-      </div>
+    <!-- ボトムス -->
+
+    <img
+      id="bottomLayer"
+      class="layer"
+      alt=""
+    >
 
 
-      <!-- 本体 -->
+    <!-- ワンピース -->
 
-      <img
-        id="baseLayer"
-        class="layer"
-        alt=""
-      >
-
-
-      <!-- ボトムス -->
-
-      <img
-        id="bottomLayer"
-        class="layer"
-        alt=""
-      >
+    <img
+      id="onepieceLayer"
+      class="layer"
+      alt=""
+    >
 
 
-      <!-- ワンピース -->
+    <!-- ドレス -->
 
-      <img
-        id="onepieceLayer"
-        class="layer"
-        alt=""
-      >
-
-
-      <!-- ドレス -->
-
-      <img
-        id="dressLayer"
-        class="layer"
-        alt=""
-      >
+    <img
+      id="dressLayer"
+      class="layer"
+      alt=""
+    >
 
 
-      <!-- トップス -->
+    <!-- トップス -->
 
-      <img
-        id="topLayer"
-        class="layer"
-        alt=""
-      >
-
-
-      <!-- アウター -->
-
-      <img
-        id="outerLayer"
-        class="layer"
-        alt=""
-      >
+    <img
+      id="topLayer"
+      class="layer"
+      alt=""
+    >
 
 
-      <!-- 髪 -->
+    <!-- アウター -->
 
-      <img
-        id="hairLayer"
-        class="layer"
-        alt=""
-      >
-
-
-      <!-- アクセサリー -->
-
-      <img
-        id="accessoryLayer"
-        class="layer"
-        alt=""
-      >
+    <img
+      id="outerLayer"
+      class="layer"
+      alt=""
+    >
 
 
-      <!-- 靴 -->
+    <!-- 髪 -->
 
-      <img
-        id="shoesLayer"
-        class="layer"
-        alt=""
-      >
+    <img
+      id="hairLayer"
+      class="layer"
+      alt=""
+    >
 
-    </div>
+
+    <!-- アクセサリー -->
+
+    <img
+      id="accessoryLayer"
+      class="layer"
+      alt=""
+    >
+
+
+    <!-- 靴 -->
+
+    <img
+      id="shoesLayer"
+      class="layer"
+      alt=""
+    >
+
+  </div>
+
+</div>
+
+
+
+<!-- =================================================
+     CONTROL
+================================================= -->
+
+<div class="controlArea">
+
+
+  <!-- ベース・設定 -->
+
+  <div class="mainButtons">
+
+    <button
+      id="baseButton"
+      class="mainBtn"
+      type="button"
+    >
+      👤 ベースキャラ
+    </button>
+
+    <button
+      id="itemButton"
+      class="mainBtn"
+      type="button"
+    >
+      ➕ アイテム設定
+    </button>
 
   </div>
 
 
-  <!-- ==========================================
-       CONTROL
-  =========================================== -->
+  <!-- コイン -->
 
-  <div class="controlArea">
+  <div class="coinButtons">
 
+    <button
+      class="coinBtn"
+      data-coins="10"
+      type="button"
+    >
+      🪙 +10
+    </button>
 
-    <!-- ベース・アイテム -->
+    <button
+      class="coinBtn"
+      data-coins="50"
+      type="button"
+    >
+      🪙 +50
+    </button>
 
-    <div class="mainButtons">
+    <button
+      class="coinBtn"
+      data-coins="100"
+      type="button"
+    >
+      🪙 +100
+    </button>
 
-      <button
-        id="baseButton"
-        class="mainBtn"
-      >
-        👤 ベースキャラ
-      </button>
-
-      <button
-        id="itemButton"
-        class="mainBtn"
-      >
-        ➕ アイテム設定
-      </button>
-
-    </div>
-
-
-    <!-- コイン -->
-
-    <div class="coinButtons">
-
-      <button
-        class="coinBtn"
-        data-coins="10"
-      >
-        🪙 +10
-      </button>
-
-      <button
-        class="coinBtn"
-        data-coins="50"
-      >
-        🪙 +50
-      </button>
-
-      <button
-        class="coinBtn"
-        data-coins="100"
-      >
-        🪙 +100
-      </button>
-
-      <button
-        class="coinBtn"
-        data-coins="500"
-      >
-        🪙 +500
-      </button>
-
-    </div>
-
-
-    <!-- カテゴリー -->
-
-    <div
-      id="tabs"
-      class="tabs"
-    ></div>
-
-
-    <!-- アイテム一覧 -->
-
-    <div
-      id="items"
-      class="items"
-    ></div>
-
+    <button
+      class="coinBtn"
+      data-coins="500"
+      type="button"
+    >
+      🪙 +500
+    </button>
 
   </div>
+
+
+  <!-- カテゴリー -->
+
+  <div
+    id="tabs"
+    class="tabs"
+  ></div>
+
+
+  <!-- アイテム -->
+
+  <div
+    id="items"
+    class="items"
+  ></div>
+
+
+</div>
 
 </div>
 
@@ -1142,11 +1235,9 @@ body{
       👤 ベースキャラクター
     </div>
 
-
     <div class="info">
       全身が入った透過PNGがおすすめです。
     </div>
-
 
     <div class="preview">
 
@@ -1156,7 +1247,6 @@ body{
       >
 
     </div>
-
 
     <div class="formGroup">
 
@@ -1172,12 +1262,12 @@ body{
 
     </div>
 
-
     <div class="modalButtons">
 
       <button
         id="baseCancel"
         class="modalBtn cancelBtn"
+        type="button"
       >
         キャンセル
       </button>
@@ -1185,6 +1275,7 @@ body{
       <button
         id="baseSave"
         class="modalBtn saveBtn"
+        type="button"
       >
         設定する
       </button>
@@ -1208,11 +1299,9 @@ body{
 
   <div class="modalBox">
 
-
     <div class="modalTitle">
       ➕ アイテム設定
     </div>
-
 
     <div class="preview">
 
@@ -1320,6 +1409,7 @@ body{
       <button
         id="itemCancel"
         class="modalBtn cancelBtn"
+        type="button"
       >
         キャンセル
       </button>
@@ -1327,12 +1417,12 @@ body{
       <button
         id="itemSave"
         class="modalBtn saveBtn"
+        type="button"
       >
         登録する
       </button>
 
     </div>
-
 
   </div>
 
@@ -1347,18 +1437,22 @@ body{
 ================================================== */
 
 const ITEM_STORAGE =
-  "giftDressupItems_9x16_v1";
+  "giftDressupItems_9x16_v2";
 
 const BASE_STORAGE =
-  "giftDressupBase_9x16_v1";
+  "giftDressupBase_9x16_v2";
 
 
 /* ==================================================
-   DATA
+   COINS
 ================================================== */
 
 let coins = 1000;
 
+
+/* ==================================================
+   ITEMS
+================================================== */
 
 let items = {
 
@@ -1381,6 +1475,10 @@ let items = {
 };
 
 
+/* ==================================================
+   SELECTED
+================================================== */
+
 let selected = {
 
   top:null,
@@ -1402,13 +1500,25 @@ let selected = {
 };
 
 
+/* ==================================================
+   CURRENT CATEGORY
+================================================== */
+
 let currentCategory =
   "top";
 
 
+/* ==================================================
+   BASE
+================================================== */
+
 let baseCharacter =
   null;
 
+
+/* ==================================================
+   TEMP
+================================================== */
 
 let temporaryBase =
   "";
@@ -1418,7 +1528,7 @@ let temporaryItem =
 
 
 /* ==================================================
-   CATEGORY
+   CATEGORY NAME
 ================================================== */
 
 const categoryNames = {
@@ -1468,7 +1578,7 @@ const coinCount =
 
 
 /* ==================================================
-   COIN
+   COIN UPDATE
 ================================================== */
 
 function updateCoins(){
@@ -1479,17 +1589,21 @@ function updateCoins(){
 }
 
 
+/* ==================================================
+   COIN BUTTON
+================================================== */
+
 document
 .querySelectorAll(".coinBtn")
 .forEach(button => {
 
   button.addEventListener(
     "click",
-    () => {
+    function(){
 
       const amount =
         Number(
-          button.dataset.coins
+          this.dataset.coins
         );
 
       coins += amount;
@@ -1543,17 +1657,14 @@ function loadItems(){
 
     }
 
-
     const data =
       JSON.parse(saved);
-
 
     if(!data){
 
       return;
 
     }
-
 
     Object.keys(items)
     .forEach(category => {
@@ -1627,23 +1738,19 @@ function loadBase(){
 
     }
 
-
     baseCharacter =
       saved;
-
 
     const layer =
       document.getElementById(
         "baseLayer"
       );
 
-
     layer.src =
       saved;
 
     layer.style.display =
       "block";
-
 
     document
     .getElementById(
@@ -1662,15 +1769,17 @@ function loadBase(){
 
 
 /* ==================================================
-   TABS
+   RENDER TABS
 ================================================== */
 
 function renderTabs(){
 
-  tabs.innerHTML = "";
+  tabs.innerHTML =
+    "";
 
-
-  Object.keys(categoryNames)
+  Object.keys(
+    categoryNames
+  )
   .forEach(category => {
 
     const button =
@@ -1678,14 +1787,11 @@ function renderTabs(){
         "button"
       );
 
-
     button.type =
       "button";
 
-
     button.className =
       "tab";
-
 
     if(
       category ===
@@ -1698,14 +1804,12 @@ function renderTabs(){
 
     }
 
-
     button.textContent =
       categoryNames[category];
 
-
     button.addEventListener(
       "click",
-      () => {
+      function(){
 
         currentCategory =
           category;
@@ -1717,7 +1821,6 @@ function renderTabs(){
       }
     );
 
-
     tabs.appendChild(
       button
     );
@@ -1728,13 +1831,13 @@ function renderTabs(){
 
 
 /* ==================================================
-   ITEMS
+   RENDER ITEMS
 ================================================== */
 
 function renderItems(){
 
-  itemsBox.innerHTML = "";
-
+  itemsBox.innerHTML =
+    "";
 
   const list =
     items[currentCategory];
@@ -1750,206 +1853,180 @@ function renderItems(){
         "div"
       );
 
-
     empty.className =
       "noItems";
-
 
     empty.innerHTML =
       "このカテゴリーには<br>" +
       "まだアイテムがありません";
 
-
     itemsBox.appendChild(
       empty
     );
-
 
     return;
 
   }
 
 
-  list.forEach(item => {
+  list.forEach(
+    item => {
 
-    const card =
-      document.createElement(
-        "div"
+      const card =
+        document.createElement(
+          "div"
+        );
+
+      card.className =
+        "itemCard";
+
+
+      /* 選択中 */
+
+      if(
+        selected[currentCategory] &&
+        selected[currentCategory].id ===
+        item.id
+      ){
+
+        card.classList.add(
+          "selected"
+        );
+
+      }
+
+
+      /* 画像 */
+
+      const image =
+        document.createElement(
+          "img"
+        );
+
+      image.className =
+        "itemImage";
+
+      image.src =
+        item.src;
+
+      image.alt =
+        item.name;
+
+      image.draggable =
+        false;
+
+
+      /* 名前 */
+
+      const name =
+        document.createElement(
+          "div"
+        );
+
+      name.className =
+        "itemName";
+
+      name.textContent =
+        item.name;
+
+
+      /* コイン */
+
+      const price =
+        document.createElement(
+          "div"
+        );
+
+      price.className =
+        "itemPrice";
+
+      price.textContent =
+        "🪙 " +
+        Number(
+          item.price
+        ).toLocaleString();
+
+
+      /* 削除 */
+
+      const remove =
+        document.createElement(
+          "button"
+        );
+
+      remove.type =
+        "button";
+
+      remove.className =
+        "removeItem";
+
+      remove.textContent =
+        "×";
+
+
+      remove.addEventListener(
+        "click",
+        function(event){
+
+          event.preventDefault();
+
+          event.stopPropagation();
+
+          deleteItem(
+            currentCategory,
+            item.id
+          );
+
+        }
       );
 
 
-    card.className =
-      "itemCard";
+      /* カード */
+
+      card.appendChild(
+        image
+      );
+
+      card.appendChild(
+        name
+      );
+
+      card.appendChild(
+        price
+      );
+
+      card.appendChild(
+        remove
+      );
 
 
-    /*
-      選択中
-    */
+      /* ==================================================
+         ★ カード全体をタップ
+      ================================================== */
 
-    if(
-      selected[currentCategory] &&
-      selected[currentCategory].id ===
-      item.id
-    ){
+      card.addEventListener(
+        "click",
+        function(event){
 
-      card.classList.add(
-        "selected"
+          event.preventDefault();
+
+          event.stopPropagation();
+
+          wearItem(
+            currentCategory,
+            item
+          );
+
+        }
+      );
+
+
+      itemsBox.appendChild(
+        card
       );
 
     }
-
-
-    /*
-      IMAGE
-    */
-
-    const image =
-      document.createElement(
-        "img"
-      );
-
-
-    image.className =
-      "itemImage";
-
-
-    image.src =
-      item.src;
-
-
-    image.alt =
-      item.name;
-
-
-    image.draggable =
-      false;
-
-
-    /*
-      NAME
-    */
-
-    const name =
-      document.createElement(
-        "div"
-      );
-
-
-    name.className =
-      "itemName";
-
-
-    name.textContent =
-      item.name;
-
-
-    /*
-      PRICE
-    */
-
-    const price =
-      document.createElement(
-        "div"
-      );
-
-
-    price.className =
-      "itemPrice";
-
-
-    price.textContent =
-      "🪙 " +
-      Number(
-        item.price
-      ).toLocaleString();
-
-
-    /*
-      DELETE
-    */
-
-    const remove =
-      document.createElement(
-        "button"
-      );
-
-
-    remove.type =
-      "button";
-
-
-    remove.className =
-      "removeItem";
-
-
-    remove.textContent =
-      "×";
-
-
-    remove.addEventListener(
-      "click",
-      event => {
-
-        event.preventDefault();
-
-        event.stopPropagation();
-
-        deleteItem(
-          currentCategory,
-          item.id
-        );
-
-      }
-    );
-
-
-    /*
-      CARD
-    */
-
-    card.appendChild(
-      image
-    );
-
-    card.appendChild(
-      name
-    );
-
-    card.appendChild(
-      price
-    );
-
-    card.appendChild(
-      remove
-    );
-
-
-    /*
-      ★カード全体タップ
-    */
-
-    card.addEventListener(
-      "click",
-      event => {
-
-        event.preventDefault();
-
-        event.stopPropagation();
-
-        wearItem(
-          currentCategory,
-          item
-        );
-
-      }
-    );
-
-
-    itemsBox.appendChild(
-      card
-    );
-
-  });
+  );
 
 }
 
@@ -1963,9 +2040,9 @@ function wearItem(
   item
 ){
 
-  /*
-    ★同じアイテムなら脱ぐ
-  */
+  /* ==============================================
+     ★ 同じアイテムをもう一度押すと脱ぐ
+  ============================================== */
 
   if(
     selected[category] &&
@@ -1982,9 +2059,9 @@ function wearItem(
   }
 
 
-  /*
-    PRICE
-  */
+  /* ==============================================
+     PRICE
+  ============================================== */
 
   const price =
     Number(
@@ -1992,9 +2069,9 @@ function wearItem(
     ) || 0;
 
 
-  /*
-    COIN CHECK
-  */
+  /* ==============================================
+     COIN CHECK
+  ============================================== */
 
   if(
     coins < price
@@ -2015,26 +2092,26 @@ function wearItem(
   }
 
 
-  /*
-    PAY
-  */
+  /* ==============================================
+     支払い
+  ============================================== */
 
   coins -= price;
 
   updateCoins();
 
 
-  /*
-    SELECT
-  */
+  /* ==============================================
+     選択
+  ============================================== */
 
   selected[category] =
     item;
 
 
-  /*
-    LAYER
-  */
+  /* ==============================================
+     表示
+  ============================================== */
 
   const layer =
     getLayer(category);
@@ -2051,20 +2128,26 @@ function wearItem(
   }
 
 
-  /* ==========================================
-     ONE PIECE
-  ========================================== */
+  /* ==============================================
+     ワンピース
+  ============================================== */
 
   if(
-    category === "onepiece"
+    category ===
+    "onepiece"
   ){
 
-    clearCategory("top");
+    clearCategory(
+      "top"
+    );
 
-    clearCategory("bottom");
+    clearCategory(
+      "bottom"
+    );
 
-    clearCategory("dress");
-
+    clearCategory(
+      "dress"
+    );
 
     stage.classList.remove(
       "dressOn"
@@ -2077,20 +2160,26 @@ function wearItem(
   }
 
 
-  /* ==========================================
-     DRESS
-  ========================================== */
+  /* ==============================================
+     ドレス
+  ============================================== */
 
   if(
-    category === "dress"
+    category ===
+    "dress"
   ){
 
-    clearCategory("top");
+    clearCategory(
+      "top"
+    );
 
-    clearCategory("bottom");
+    clearCategory(
+      "bottom"
+    );
 
-    clearCategory("onepiece");
-
+    clearCategory(
+      "onepiece"
+    );
 
     stage.classList.remove(
       "onepieceOn"
@@ -2103,12 +2192,13 @@ function wearItem(
   }
 
 
-  /* ==========================================
-     TOP
-  ========================================== */
+  /* ==============================================
+     トップス
+  ============================================== */
 
   if(
-    category === "top"
+    category ===
+    "top"
   ){
 
     clearCategory(
@@ -2118,7 +2208,6 @@ function wearItem(
     clearCategory(
       "dress"
     );
-
 
     stage.classList.remove(
       "onepieceOn"
@@ -2130,10 +2219,13 @@ function wearItem(
 
 
     /*
-      アウター着用中は隠す
+      アウターがある場合は
+      トップスを表示しない
     */
 
-    if(selected.outer){
+    if(
+      selected.outer
+    ){
 
       layer.style.display =
         "none";
@@ -2143,12 +2235,13 @@ function wearItem(
   }
 
 
-  /* ==========================================
-     BOTTOM
-  ========================================== */
+  /* ==============================================
+     ボトムス
+  ============================================== */
 
   if(
-    category === "bottom"
+    category ===
+    "bottom"
   ){
 
     clearCategory(
@@ -2158,7 +2251,6 @@ function wearItem(
     clearCategory(
       "dress"
     );
-
 
     stage.classList.remove(
       "onepieceOn"
@@ -2171,12 +2263,13 @@ function wearItem(
   }
 
 
-  /* ==========================================
-     OUTER
-  ========================================== */
+  /* ==============================================
+     アウター
+  ============================================== */
 
   if(
-    category === "outer"
+    category ===
+    "outer"
   ){
 
     stage.classList.add(
@@ -2184,24 +2277,26 @@ function wearItem(
     );
 
 
+    const topLayer =
+      document.getElementById(
+        "topLayer"
+      );
+
+
     /*
-      トップスを隠す
+      トップスがアウターから
+      はみ出さないように隠す
     */
 
-    if(selected.top){
-
-      const topLayer =
-        document.getElementById(
-          "topLayer"
-        );
-
-      topLayer.style.display =
-        "none";
-
-    }
+    topLayer.style.display =
+      "none";
 
   }
 
+
+  /* ==============================================
+     再描画
+  ============================================== */
 
   renderItems();
 
@@ -2235,8 +2330,11 @@ function unequip(
   }
 
 
+  /* ワンピース */
+
   if(
-    category === "onepiece"
+    category ===
+    "onepiece"
   ){
 
     stage.classList.remove(
@@ -2246,8 +2344,11 @@ function unequip(
   }
 
 
+  /* ドレス */
+
   if(
-    category === "dress"
+    category ===
+    "dress"
   ){
 
     stage.classList.remove(
@@ -2257,13 +2358,11 @@ function unequip(
   }
 
 
-  /*
-    アウターを脱いだら
-    トップスを戻す
-  */
+  /* アウター */
 
   if(
-    category === "outer"
+    category ===
+    "outer"
   ){
 
     stage.classList.remove(
@@ -2271,17 +2370,22 @@ function unequip(
     );
 
 
-    if(selected.top){
+    /*
+      アウターを脱いだら
+      トップスを再表示
+    */
+
+    if(
+      selected.top
+    ){
 
       const topLayer =
         document.getElementById(
           "topLayer"
         );
 
-
       topLayer.src =
         selected.top.src;
-
 
       topLayer.style.display =
         "block";
@@ -2382,23 +2486,26 @@ function deleteItem(
     );
 
 
-  if(index === -1){
+  if(
+    index === -1
+  ){
 
     return;
 
   }
 
 
-  /*
-    着用中なら脱ぐ
-  */
+  /* 着用中なら脱ぐ */
 
   if(
     selected[category] &&
-    selected[category].id === id
+    selected[category].id ===
+    id
   ){
 
-    unequip(category);
+    unequip(
+      category
+    );
 
   }
 
@@ -2425,12 +2532,10 @@ const baseModal =
     "baseModal"
   );
 
-
 const baseFile =
   document.getElementById(
     "baseFile"
   );
-
 
 const basePreview =
   document.getElementById(
@@ -2444,7 +2549,7 @@ document
 )
 .addEventListener(
   "click",
-  () => {
+  function(){
 
     baseModal.classList.add(
       "show"
@@ -2454,13 +2559,17 @@ document
 );
 
 
+/* ==================================================
+   BASE CANCEL
+================================================== */
+
 document
 .getElementById(
   "baseCancel"
 )
 .addEventListener(
   "click",
-  () => {
+  function(){
 
     baseModal.classList.remove(
       "show"
@@ -2476,7 +2585,7 @@ document
 
 baseFile.addEventListener(
   "change",
-  event => {
+  function(event){
 
     const file =
       event.target.files[0];
@@ -2494,7 +2603,7 @@ baseFile.addEventListener(
 
 
     reader.onload =
-      e => {
+      function(e){
 
         temporaryBase =
           e.target.result;
@@ -2514,7 +2623,7 @@ baseFile.addEventListener(
 
 
 /* ==================================================
-   SAVE BASE
+   BASE SAVE
 ================================================== */
 
 document
@@ -2523,7 +2632,7 @@ document
 )
 .addEventListener(
   "click",
-  () => {
+  function(){
 
     if(!temporaryBase){
 
@@ -2549,7 +2658,6 @@ document
     layer.src =
       baseCharacter;
 
-
     layer.style.display =
       "block";
 
@@ -2568,10 +2676,8 @@ document
     temporaryBase =
       "";
 
-
     baseFile.value =
       "";
-
 
     basePreview.src =
       "";
@@ -2594,12 +2700,10 @@ const itemModal =
     "itemModal"
   );
 
-
 const itemFile =
   document.getElementById(
     "itemFile"
   );
-
 
 const itemPreview =
   document.getElementById(
@@ -2607,13 +2711,17 @@ const itemPreview =
   );
 
 
+/* ==================================================
+   OPEN ITEM MODAL
+================================================== */
+
 document
 .getElementById(
   "itemButton"
 )
 .addEventListener(
   "click",
-  () => {
+  function(){
 
     itemModal.classList.add(
       "show"
@@ -2623,13 +2731,17 @@ document
 );
 
 
+/* ==================================================
+   CANCEL ITEM
+================================================== */
+
 document
 .getElementById(
   "itemCancel"
 )
 .addEventListener(
   "click",
-  () => {
+  function(){
 
     itemModal.classList.remove(
       "show"
@@ -2645,7 +2757,7 @@ document
 
 itemFile.addEventListener(
   "change",
-  event => {
+  function(event){
 
     const file =
       event.target.files[0];
@@ -2663,7 +2775,7 @@ itemFile.addEventListener(
 
 
     reader.onload =
-      e => {
+      function(e){
 
         temporaryItem =
           e.target.result;
@@ -2692,7 +2804,7 @@ document
 )
 .addEventListener(
   "click",
-  () => {
+  function(){
 
     const name =
       document
@@ -2721,9 +2833,7 @@ document
       .value;
 
 
-    /*
-      CHECK
-    */
+    /* IMAGE CHECK */
 
     if(!temporaryItem){
 
@@ -2736,6 +2846,8 @@ document
     }
 
 
+    /* NAME CHECK */
+
     if(!name){
 
       alert(
@@ -2746,6 +2858,8 @@ document
 
     }
 
+
+    /* PRICE CHECK */
 
     if(
       isNaN(price) ||
@@ -2761,9 +2875,7 @@ document
     }
 
 
-    /*
-      ID
-    */
+    /* CREATE */
 
     const item = {
 
@@ -2791,33 +2903,25 @@ document
     };
 
 
-    /*
-      ADD
-    */
+    /* ADD */
 
     items[category].push(
       item
     );
 
 
-    /*
-      SAVE
-    */
+    /* SAVE */
 
     saveItems();
 
 
-    /*
-      登録したカテゴリーへ
-    */
+    /* CATEGORY */
 
     currentCategory =
       category;
 
 
-    /*
-      RESET
-    */
+    /* RESET */
 
     itemFile.value =
       "";
@@ -2843,18 +2947,14 @@ document
       "";
 
 
-    /*
-      UPDATE
-    */
+    /* UPDATE */
 
     renderTabs();
 
     renderItems();
 
 
-    /*
-      CLOSE
-    */
+    /* CLOSE */
 
     itemModal.classList.remove(
       "show"
@@ -2870,7 +2970,7 @@ document
 
 baseModal.addEventListener(
   "click",
-  event => {
+  function(event){
 
     if(
       event.target ===
@@ -2889,7 +2989,7 @@ baseModal.addEventListener(
 
 itemModal.addEventListener(
   "click",
-  event => {
+  function(event){
 
     if(
       event.target ===
