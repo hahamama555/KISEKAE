@@ -2,7 +2,11 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
 
 <title>ギフトで着せ替え</title>
 
@@ -11,702 +15,638 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
+  -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
   width:100%;
-  height:100%;
-  overflow:hidden;
+  min-height:100%;
+  background:#f7eefa;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
-    "Noto Sans JP",
+    "Helvetica Neue",
     "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
     sans-serif;
 }
 
 body{
-  background:linear-gradient(160deg,#24104f,#54248d,#25104b);
-  color:#fff;
-}
-
-.app{
-  width:100%;
-  height:100%;
-  max-width:600px;
-  margin:auto;
   display:flex;
-  flex-direction:column;
-  padding:10px;
+  justify-content:center;
+  overflow-x:hidden;
 }
 
 /* =========================
-   HEADER
+   メイン
+========================= */
+
+.app{
+  width:min(100vw,430px);
+  min-height:100vh;
+  background:
+    linear-gradient(
+      180deg,
+      #fff8ff 0%,
+      #f9efff 100%
+    );
+  position:relative;
+  overflow:hidden;
+}
+
+/* =========================
+   ヘッダー
 ========================= */
 
 .header{
-  flex:0 0 auto;
-  text-align:center;
-  padding:4px 0 8px;
+  height:64px;
+  padding:8px 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  background:rgba(255,255,255,.92);
+  border-bottom:1px solid #eadcf0;
+  position:relative;
+  z-index:50;
 }
 
 .title{
-  font-size:clamp(22px,6vw,34px);
-  font-weight:900;
-  letter-spacing:1px;
-  text-shadow:0 3px 8px rgba(0,0,0,.35);
-}
-
-.subtitle{
-  font-size:clamp(12px,3.3vw,17px);
-  margin-top:2px;
-  opacity:.9;
-}
-
-/* =========================
-   MAIN
-========================= */
-
-.main{
   flex:1;
-  min-height:0;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-/* =========================
-   CHARACTER
-========================= */
-
-.character-area{
-  position:relative;
-  flex:1;
-  min-height:0;
-  border-radius:22px;
-  background:
-    radial-gradient(circle at 50% 35%,#fff7 0 4%,transparent 5%),
-    linear-gradient(145deg,#fff2,#ffffff08);
-  border:2px solid rgba(255,255,255,.25);
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.3),
-    inset 0 0 30px rgba(255,255,255,.06);
-  overflow:hidden;
-}
-
-/* 背景のキラキラ */
-
-.sparkle{
-  position:absolute;
-  font-size:20px;
-  opacity:.7;
-  animation:float 3s ease-in-out infinite;
-}
-
-.s1{top:8%;left:10%;}
-.s2{top:15%;right:10%;animation-delay:.8s;}
-.s3{top:45%;left:5%;animation-delay:1.4s;}
-.s4{top:50%;right:6%;animation-delay:2s;}
-.s5{bottom:15%;left:13%;animation-delay:.5s;}
-.s6{bottom:10%;right:15%;animation-delay:1.2s;}
-
-@keyframes float{
-  0%,100%{transform:translateY(0) rotate(0deg);}
-  50%{transform:translateY(-10px) rotate(8deg);}
-}
-
-/* =========================
-   PERSON
-========================= */
-
-.person{
-  position:absolute;
-  left:50%;
-  top:50%;
-  width:min(54vw,250px);
-  height:min(78vw,360px);
-  max-height:90%;
-  transform:translate(-50%,-48%);
-}
-
-/* head */
-
-.head{
-  position:absolute;
-  width:34%;
-  aspect-ratio:1;
-  left:33%;
-  top:4%;
-  background:#f4c39e;
-  border-radius:48% 48% 45% 45%;
-  border:3px solid #b97650;
-  z-index:5;
-}
-
-.hair{
-  position:absolute;
-  width:110%;
-  height:60%;
-  left:-5%;
-  top:-10%;
-  background:#34221d;
-  border-radius:55% 55% 35% 35%;
-  z-index:6;
-}
-
-.hair:after{
-  content:"";
-  position:absolute;
-  width:35%;
-  height:85%;
-  left:25%;
-  top:5%;
-  background:#34221d;
-  border-radius:0 0 60% 60%;
-  transform:rotate(12deg);
-}
-
-.eye{
-  position:absolute;
-  width:10%;
-  aspect-ratio:1;
-  background:#33231f;
-  border-radius:50%;
-  top:50%;
-  z-index:8;
-}
-
-.eye.left{left:27%;}
-.eye.right{right:27%;}
-
-.mouth{
-  position:absolute;
-  width:24%;
-  height:10%;
-  left:38%;
-  top:68%;
-  border-bottom:3px solid #8d4a48;
-  border-radius:50%;
-  z-index:8;
-}
-
-/* body */
-
-.body{
-  position:absolute;
-  width:52%;
-  height:48%;
-  left:24%;
-  top:29%;
-  background:#d9d9df;
-  border-radius:28px 28px 12px 12px;
-  border:3px solid #888;
-  z-index:3;
-}
-
-/* arms */
-
-.arm{
-  position:absolute;
-  width:14%;
-  height:42%;
-  top:32%;
-  background:#f4c39e;
-  border:3px solid #b97650;
-  border-radius:30px;
-  z-index:2;
-}
-
-.arm.left{
-  left:12%;
-  transform:rotate(10deg);
-}
-
-.arm.right{
-  right:12%;
-  transform:rotate(-10deg);
-}
-
-/* legs */
-
-.leg{
-  position:absolute;
-  width:20%;
-  height:30%;
-  top:70%;
-  background:#26354b;
-  border:3px solid #182235;
-  border-radius:8px 8px 25px 25px;
-  z-index:1;
-}
-
-.leg.left{left:29%;}
-.leg.right{right:29%;}
-
-.shoe{
-  position:absolute;
-  width:25%;
-  height:9%;
-  background:#111;
-  border-radius:20px 25px 10px 10px;
-  top:94%;
-  z-index:2;
-}
-
-.shoe.left{left:24%;}
-.shoe.right{right:24%;}
-
-/* =========================
-   ITEM LAYERS
-========================= */
-
-.item{
-  position:absolute;
-  display:none;
-  pointer-events:none;
-}
-
-/* hat */
-
-.hat{
-  width:50%;
-  height:20%;
-  left:25%;
-  top:-2%;
-  background:#e83d75;
-  border-radius:55% 55% 10% 10%;
-  border:4px solid #a61e4f;
-  z-index:20;
-}
-
-.hat:after{
-  content:"";
-  position:absolute;
-  width:130%;
-  height:25%;
-  left:-15%;
-  bottom:-10%;
-  background:#e83d75;
-  border-radius:50%;
-  border:4px solid #a61e4f;
-}
-
-/* glasses */
-
-.glasses{
-  width:60%;
-  height:12%;
-  left:20%;
-  top:17%;
-  z-index:25;
-}
-
-.glasses:before,
-.glasses:after{
-  content:"";
-  position:absolute;
-  width:35%;
-  height:80%;
-  border:4px solid #222;
-  border-radius:50%;
-  top:0;
-}
-
-.glasses:before{left:0;}
-.glasses:after{right:0;}
-
-.glasses span{
-  position:absolute;
-  width:32%;
-  height:4px;
-  background:#222;
-  left:34%;
-  top:42%;
-}
-
-/* top */
-
-.top{
-  width:60%;
-  height:42%;
-  left:20%;
-  top:31%;
-  background:#4f8de8;
-  border-radius:25px 25px 12px 12px;
-  border:4px solid #285aa9;
-  z-index:10;
-}
-
-/* ribbon */
-
-.ribbon{
-  width:18%;
-  height:12%;
-  left:41%;
-  top:39%;
-  z-index:15;
-}
-
-.ribbon:before,
-.ribbon:after{
-  content:"";
-  position:absolute;
-  width:55%;
-  height:80%;
-  background:#f2c94c;
-  border:2px solid #b78c19;
-  top:5%;
-}
-
-.ribbon:before{
-  left:0;
-  transform:rotate(30deg);
-}
-
-.ribbon:after{
-  right:0;
-  transform:rotate(-30deg);
-}
-
-.ribbon span{
-  position:absolute;
-  width:35%;
-  height:45%;
-  left:32%;
-  top:25%;
-  background:#f5d75b;
-  border-radius:50%;
-  z-index:2;
-}
-
-/* skirt */
-
-.skirt{
-  width:62%;
-  height:25%;
-  left:19%;
-  top:58%;
-  background:#ef6ca4;
-  border:4px solid #a93869;
-  clip-path:polygon(8% 0,92% 0,100% 100%,0 100%);
-  z-index:9;
-}
-
-/* bag */
-
-.bag{
-  width:22%;
-  height:20%;
-  right:4%;
-  top:54%;
-  background:#ffd35a;
-  border:4px solid #b98b20;
-  border-radius:12px;
-  z-index:20;
-}
-
-.bag:before{
-  content:"";
-  position:absolute;
-  width:60%;
-  height:35%;
-  left:20%;
-  top:-28%;
-  border:4px solid #b98b20;
-  border-bottom:0;
-  border-radius:20px 20px 0 0;
-}
-
-/* necklace */
-
-.necklace{
-  width:38%;
-  height:20%;
-  left:31%;
-  top:27%;
-  border:4px solid #ffd84d;
-  border-top:0;
-  border-radius:0 0 50% 50%;
-  z-index:14;
-}
-
-.necklace:after{
-  content:"💎";
-  position:absolute;
-  left:42%;
-  bottom:-20%;
-  font-size:20px;
-}
-
-/* =========================
-   ITEM POPUP
-========================= */
-
-.popup{
-  position:absolute;
-  left:50%;
-  top:45%;
-  transform:translate(-50%,-50%) scale(.5);
-  opacity:0;
-  pointer-events:none;
-  background:#fff;
-  color:#4b267d;
-  padding:12px 20px;
-  border-radius:18px;
-  font-size:clamp(17px,4.5vw,25px);
-  font-weight:900;
-  white-space:nowrap;
-  box-shadow:0 8px 25px #0005;
-  z-index:100;
-}
-
-.popup.show{
-  animation:popup .9s ease forwards;
-}
-
-@keyframes popup{
-  0%{
-    opacity:0;
-    transform:translate(-50%,-50%) scale(.5) rotate(-5deg);
-  }
-  25%{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(1.08) rotate(3deg);
-  }
-  70%{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(1);
-  }
-  100%{
-    opacity:0;
-    transform:translate(-50%,-65%) scale(.9);
-  }
-}
-
-/* =========================
-   STATUS
-========================= */
-
-.status{
-  flex:0 0 auto;
-  background:rgba(0,0,0,.22);
-  border-radius:15px;
-  padding:7px 10px;
   text-align:center;
 }
 
-.status-title{
-  font-size:13px;
-  opacity:.85;
-}
-
-.progress{
-  font-size:clamp(18px,4.5vw,25px);
+.title h1{
+  font-size:20px;
   font-weight:900;
-  margin-top:2px;
-}
-
-.progress-bar{
-  width:100%;
-  height:8px;
-  background:#ffffff25;
-  border-radius:10px;
-  margin-top:5px;
-  overflow:hidden;
-}
-
-.progress-fill{
-  width:0%;
-  height:100%;
-  background:linear-gradient(90deg,#ffd54a,#ff6fb1);
-  border-radius:10px;
-  transition:.4s;
-}
-
-/* =========================
-   ITEMS PANEL
-========================= */
-
-.items-panel{
-  flex:0 0 auto;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:5px;
-}
-
-.item-card{
-  min-width:0;
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:10px;
-  padding:5px 2px;
-  text-align:center;
-  font-size:clamp(10px,2.7vw,14px);
-  opacity:.45;
-  transition:.3s;
-}
-
-.item-card .icon{
-  font-size:clamp(18px,5vw,26px);
-  display:block;
+  color:#8c3aa5;
   line-height:1.1;
 }
 
-.item-card.active{
-  opacity:1;
-  background:rgba(255,255,255,.22);
-  border-color:#ffd84d;
-  box-shadow:0 0 12px rgba(255,216,77,.35);
+.title p{
+  margin-top:2px;
+  font-size:10px;
+  color:#9b86a3;
+}
+
+.headerBtn{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 3px 10px rgba(100,60,110,.12);
+  font-size:20px;
+  cursor:pointer;
 }
 
 /* =========================
-   BUTTONS
+   キャラクターエリア
 ========================= */
 
-.buttons{
-  flex:0 0 auto;
+.characterArea{
+  height:46vh;
+  min-height:320px;
+  max-height:500px;
+  position:relative;
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      #ffffff 0,
+      #fff6ff 42%,
+      #f4e4fb 100%
+    );
+}
+
+/* キラキラ */
+
+.sparkle{
+  position:absolute;
+  color:#fff;
+  font-size:20px;
+  opacity:.9;
+  animation:float 3s infinite ease-in-out;
+}
+
+.sparkle:nth-child(1){
+  left:10%;
+  top:20%;
+}
+
+.sparkle:nth-child(2){
+  right:12%;
+  top:16%;
+  animation-delay:.7s;
+}
+
+.sparkle:nth-child(3){
+  left:18%;
+  top:65%;
+  animation-delay:1.2s;
+}
+
+.sparkle:nth-child(4){
+  right:18%;
+  top:60%;
+  animation-delay:1.7s;
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translateY(0) scale(1);
+  }
+  50%{
+    transform:translateY(-8px) scale(1.1);
+  }
+}
+
+/* キャラクター本体 */
+
+.character{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:min(88%,390px);
+  aspect-ratio:2 / 3;
+  transform:translate(-50%,-50%);
+}
+
+/*
+  全レイヤーを同じ位置・同じサイズにする
+*/
+
+.layer{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  pointer-events:none;
+}
+
+/* =========================
+   ステータス
+========================= */
+
+.status{
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:10px;
+  z-index:30;
+}
+
+.progressBox{
+  background:rgba(255,255,255,.92);
+  border-radius:16px;
+  padding:7px 10px;
+  box-shadow:0 4px 12px rgba(80,40,90,.12);
+}
+
+.progressText{
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+  color:#806587;
+  margin-bottom:5px;
+}
+
+.progressBar{
+  height:9px;
+  background:#eee1f3;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progressFill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(
+    90deg,
+    #d85be8,
+    #ff8bc6
+  );
+  border-radius:20px;
+  transition:.3s;
+}
+
+/* =========================
+   ギフトエリア
+========================= */
+
+.giftArea{
+  padding:10px 10px 6px;
+}
+
+.giftTitle{
+  font-size:13px;
+  font-weight:900;
+  color:#7f438d;
+  text-align:center;
+  margin-bottom:7px;
+}
+
+.gifts{
   display:grid;
-  grid-template-columns:2fr 1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:7px;
 }
 
-.gift-button,
-.reset-button{
-  border:0;
+.giftBtn{
+  min-height:56px;
+  border:none;
   border-radius:16px;
-  font-weight:900;
+  background:#fff;
+  box-shadow:0 3px 10px rgba(80,40,90,.12);
   cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
+  color:#66376f;
+  font-weight:900;
+  position:relative;
+  overflow:hidden;
 }
 
-.gift-button{
-  min-height:52px;
-  font-size:clamp(18px,5vw,27px);
-  color:#fff;
-  background:linear-gradient(135deg,#ff4f91,#ff7b39);
-  box-shadow:0 6px 0 #a92d59;
-}
-
-.gift-button:active{
-  transform:translateY(4px);
-  box-shadow:0 2px 0 #a92d59;
-}
-
-.reset-button{
-  background:#ffffff18;
-  color:#fff;
-  border:1px solid #ffffff40;
-  font-size:14px;
-}
-
-.reset-button:active{
+.giftBtn:active{
   transform:scale(.96);
 }
 
+.giftIcon{
+  display:block;
+  font-size:22px;
+  line-height:24px;
+}
+
+.giftName{
+  display:block;
+  font-size:11px;
+}
+
+.giftCount{
+  position:absolute;
+  top:5px;
+  right:6px;
+  min-width:19px;
+  height:19px;
+  padding:0 5px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#ff5b9d;
+  color:white;
+  border-radius:20px;
+  font-size:9px;
+}
+
 /* =========================
-   COMPLETE
+   タブ
 ========================= */
 
-.complete{
+.tabs{
+  display:flex;
+  gap:5px;
+  padding:5px 10px 8px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+.tabs::-webkit-scrollbar{
+  display:none;
+}
+
+.tab{
+  flex:none;
+  padding:8px 11px;
+  border:none;
+  border-radius:20px;
+  background:#eadff0;
+  color:#75567d;
+  font-weight:800;
+  font-size:11px;
+}
+
+.tab.active{
+  background:#9b4db2;
+  color:white;
+}
+
+/* =========================
+   アイテム
+========================= */
+
+.itemArea{
+  padding:0 10px 12px;
+}
+
+.items{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+}
+
+.item{
+  min-height:95px;
+  border:2px solid transparent;
+  border-radius:15px;
+  background:white;
+  box-shadow:0 2px 8px rgba(70,40,80,.10);
+  position:relative;
+  cursor:pointer;
+  overflow:hidden;
+}
+
+.item.selected{
+  border-color:#d653df;
+  box-shadow:
+    0 0 0 2px rgba(214,83,223,.15),
+    0 4px 12px rgba(160,60,170,.2);
+}
+
+.item.locked{
+  opacity:.42;
+  filter:grayscale(.5);
+}
+
+.item img{
+  width:100%;
+  height:70px;
+  object-fit:contain;
+}
+
+.itemName{
+  display:block;
+  width:100%;
+  padding:2px 3px 5px;
+  text-align:center;
+  font-size:9px;
+  font-weight:800;
+  color:#654d6a;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.lock{
   position:absolute;
   inset:0;
-  background:rgba(39,13,73,.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:22px;
+  background:rgba(255,255,255,.35);
+}
+
+/* =========================
+   下部操作
+========================= */
+
+.bottom{
+  position:sticky;
+  bottom:0;
+  z-index:100;
+  padding:7px 10px 10px;
+  background:rgba(255,248,255,.96);
+  backdrop-filter:blur(10px);
+  border-top:1px solid #eadcf0;
+}
+
+.bottomBtns{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:7px;
+}
+
+.actionBtn{
+  height:43px;
+  border:none;
+  border-radius:14px;
+  background:white;
+  color:#70447a;
+  font-size:12px;
+  font-weight:900;
+  box-shadow:0 3px 9px rgba(80,40,90,.12);
+}
+
+.actionBtn.primary{
+  background:#9b4db2;
+  color:white;
+}
+
+.actionBtn:active{
+  transform:scale(.97);
+}
+
+/* =========================
+   管理パネル
+========================= */
+
+.manager{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:500;
+  background:rgba(45,20,50,.55);
+  padding:20px 10px;
+}
+
+.manager.open{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.managerBox{
+  width:min(100%,410px);
+  max-height:90vh;
+  overflow:auto;
+  background:#fffaff;
+  border-radius:24px;
+  padding:18px;
+  box-shadow:0 15px 50px rgba(0,0,0,.25);
+}
+
+.managerHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.managerHeader h2{
+  font-size:18px;
+  color:#783f87;
+}
+
+.closeBtn{
+  width:36px;
+  height:36px;
+  border:none;
+  border-radius:12px;
+  background:#f0e4f3;
+  font-size:18px;
+}
+
+.uploadGroup{
+  margin-bottom:13px;
+  padding:12px;
+  border-radius:17px;
+  background:#f7effa;
+}
+
+.uploadGroup label{
+  display:block;
+  font-weight:900;
+  font-size:13px;
+  color:#70447a;
+  margin-bottom:6px;
+}
+
+.uploadGroup input{
+  width:100%;
+  font-size:11px;
+}
+
+.help{
+  font-size:10px;
+  color:#927e98;
+  line-height:1.5;
+  margin-top:4px;
+}
+
+/* =========================
+   GET演出
+========================= */
+
+.getEffect{
+  position:fixed;
+  inset:0;
+  z-index:800;
   display:none;
   align-items:center;
   justify-content:center;
-  flex-direction:column;
+  pointer-events:none;
+}
+
+.getEffect.show{
+  display:flex;
+}
+
+.getCard{
+  padding:25px 35px;
+  border-radius:25px;
+  background:rgba(255,255,255,.97);
+  box-shadow:0 15px 50px rgba(130,40,150,.25);
   text-align:center;
-  z-index:200;
-  padding:20px;
+  animation:getPop .8s ease;
+}
+
+.getCard .big{
+  font-size:50px;
+}
+
+.getCard h2{
+  color:#a23ab6;
+  font-size:25px;
+  margin-top:5px;
+}
+
+.getCard p{
+  color:#735779;
+  font-size:13px;
+  margin-top:4px;
+}
+
+@keyframes getPop{
+  0%{
+    transform:scale(.4);
+    opacity:0;
+  }
+  60%{
+    transform:scale(1.1);
+    opacity:1;
+  }
+  100%{
+    transform:scale(1);
+  }
+}
+
+/* =========================
+   完成画面
+========================= */
+
+.complete{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:900;
+  background:rgba(70,25,80,.6);
+  align-items:center;
+  justify-content:center;
 }
 
 .complete.show{
   display:flex;
-  animation:fadein .3s ease;
 }
 
-@keyframes fadein{
-  from{opacity:0;}
-  to{opacity:1;}
+.completeBox{
+  width:85%;
+  max-width:350px;
+  background:white;
+  border-radius:30px;
+  padding:30px 20px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
 }
 
-.complete-icon{
-  font-size:70px;
-  animation:bounce 1s infinite alternate;
+.completeBox .emoji{
+  font-size:60px;
 }
 
-@keyframes bounce{
-  from{transform:scale(1);}
-  to{transform:scale(1.12);}
+.completeBox h2{
+  font-size:25px;
+  color:#9b3bb0;
+  margin:10px 0;
 }
 
-.complete-title{
-  font-size:clamp(30px,8vw,48px);
+.completeBox p{
+  font-size:13px;
+  color:#765c7c;
+  line-height:1.6;
+}
+
+.completeClose{
+  margin-top:18px;
+  width:100%;
+  height:45px;
+  border:none;
+  border-radius:15px;
+  background:#9b4db2;
+  color:white;
   font-weight:900;
-  margin-top:5px;
-}
-
-.complete-text{
-  font-size:16px;
-  margin-top:8px;
-}
-
-.complete-reset{
-  margin-top:20px;
-  padding:13px 30px;
-  border:0;
-  border-radius:20px;
-  font-size:17px;
-  font-weight:900;
-  color:#54248d;
-  background:#fff;
 }
 
 /* =========================
-   SMALL SCREEN
+   小画面調整
 ========================= */
 
-@media(max-height:650px){
+@media(max-height:700px){
 
-  .app{
-    padding:5px;
+  .characterArea{
+    height:39vh;
+    min-height:270px;
   }
 
-  .header{
-    padding:1px 0 4px;
+  .item{
+    min-height:82px;
   }
 
-  .title{
-    font-size:22px;
+  .item img{
+    height:58px;
   }
 
-  .subtitle{
-    font-size:11px;
-  }
-
-  .main{
-    gap:4px;
-  }
-
-  .items-panel{
-    gap:3px;
-  }
-
-  .item-card{
-    padding:3px 1px;
-  }
-
-  .gift-button{
-    min-height:43px;
-    font-size:19px;
-  }
-
-  .status{
-    padding:4px 8px;
-  }
-
-  .progress-bar{
-    height:5px;
+  .giftBtn{
+    min-height:50px;
   }
 }
 </style>
@@ -716,362 +656,1445 @@ body{
 
 <div class="app">
 
+  <!-- HEADER -->
   <header class="header">
-    <div class="title">🎁 ギフトで着せ替え！</div>
-    <div class="subtitle">ギフトが来るたびにアイテムGET！</div>
+
+    <button
+      class="headerBtn"
+      onclick="openManager()">
+      ⚙️
+    </button>
+
+    <div class="title">
+      <h1>🎀 ギフトで着せ替え 🎀</h1>
+      <p>ギフトが飛ぶたびにアイテムGET！</p>
+    </div>
+
+    <button
+      class="headerBtn"
+      onclick="randomDress()">
+      🎲
+    </button>
+
   </header>
 
-  <main class="main">
 
-    <section class="character-area">
+  <!-- CHARACTER -->
+  <section class="characterArea">
 
-      <div class="sparkle s1">✨</div>
-      <div class="sparkle s2">⭐</div>
-      <div class="sparkle s3">💫</div>
-      <div class="sparkle s4">✨</div>
-      <div class="sparkle s5">⭐</div>
-      <div class="sparkle s6">💖</div>
+    <span class="sparkle">✦</span>
+    <span class="sparkle">✧</span>
+    <span class="sparkle">✦</span>
+    <span class="sparkle">♡</span>
 
-      <div class="person">
+    <div class="character">
 
-        <div class="head">
-          <div class="hair"></div>
-          <div class="eye left"></div>
-          <div class="eye right"></div>
-          <div class="mouth"></div>
+      <!-- 1 本体 -->
+      <img
+        id="layerBase"
+        class="layer"
+        alt="キャラクター">
+
+      <!-- 2 靴下 -->
+      <img
+        id="layerSocks"
+        class="layer"
+        alt="靴下">
+
+      <!-- 3 ボトム -->
+      <img
+        id="layerBottom"
+        class="layer"
+        alt="ボトム">
+
+      <!-- 4 ワンピース -->
+      <img
+        id="layerDress"
+        class="layer"
+        alt="ワンピース">
+
+      <!-- 5 トップス -->
+      <img
+        id="layerTop"
+        class="layer"
+        alt="トップス">
+
+      <!-- 6 アウター -->
+      <img
+        id="layerOuter"
+        class="layer"
+        alt="アウター">
+
+      <!-- 7 靴 -->
+      <img
+        id="layerShoes"
+        class="layer"
+        alt="靴">
+
+      <!-- 8 髪 -->
+      <img
+        id="layerHair"
+        class="layer"
+        alt="髪">
+
+      <!-- 9 アクセサリー -->
+      <img
+        id="layerAccessory"
+        class="layer"
+        alt="アクセサリー">
+
+    </div>
+
+
+    <div class="status">
+
+      <div class="progressBox">
+
+        <div class="progressText">
+          <span>GETしたアイテム</span>
+          <strong>
+            <span id="getCount">0</span>
+            /
+            <span id="totalCount">0</span>
+          </strong>
         </div>
 
-        <div class="arm left"></div>
-        <div class="arm right"></div>
-
-        <div class="body"></div>
-
-        <div class="leg left"></div>
-        <div class="leg right"></div>
-
-        <div class="shoe left"></div>
-        <div class="shoe right"></div>
-
-        <!-- 着せ替えアイテム -->
-
-        <div class="item hat" id="hat"></div>
-
-        <div class="item glasses" id="glasses">
-          <span></span>
+        <div class="progressBar">
+          <div
+            id="progressFill"
+            class="progressFill">
+          </div>
         </div>
 
-        <div class="item top" id="top"></div>
-
-        <div class="item ribbon" id="ribbon">
-          <span></span>
-        </div>
-
-        <div class="item skirt" id="skirt"></div>
-
-        <div class="item bag" id="bag"></div>
-
-        <div class="item necklace" id="necklace"></div>
-
       </div>
 
-      <div class="popup" id="popup"></div>
+    </div>
 
-      <!-- 完成画面 -->
+  </section>
 
-      <div class="complete" id="complete">
 
-        <div class="complete-icon">🎉</div>
+  <!-- GIFTS -->
+  <section class="giftArea">
 
-        <div class="complete-title">
-          コーデ完成！
-        </div>
+    <div class="giftTitle">
+      🎁 ギフトが飛んだらアイテムGET！
+    </div>
 
-        <div class="complete-text">
-          みんなのギフトで<br>
-          全身コーデが完成しました！
-        </div>
+    <div class="gifts">
 
-        <button class="complete-reset" onclick="resetGame()">
-          🔄 もう一度
-        </button>
+      <button
+        class="giftBtn"
+        onclick="receiveGift(0)">
 
-      </div>
+        <span class="giftIcon">💗</span>
+        <span
+          class="giftName"
+          id="giftName0">
+          ハートミー
+        </span>
 
-    </section>
+        <span
+          class="giftCount"
+          id="giftCount0">
+          0
+        </span>
 
-    <!-- 進行状況 -->
-
-    <section class="status">
-
-      <div class="status-title">
-        👗 コーデ完成まで
-      </div>
-
-      <div class="progress">
-        <span id="count">0</span> / 7 アイテム
-      </div>
-
-      <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
-
-    </section>
-
-    <!-- アイテム一覧 -->
-
-    <section class="items-panel">
-
-      <div class="item-card" id="card-hat">
-        <span class="icon">👒</span>
-        帽子
-      </div>
-
-      <div class="item-card" id="card-glasses">
-        <span class="icon">👓</span>
-        メガネ
-      </div>
-
-      <div class="item-card" id="card-top">
-        <span class="icon">👕</span>
-        トップス
-      </div>
-
-      <div class="item-card" id="card-ribbon">
-        <span class="icon">🎀</span>
-        リボン
-      </div>
-
-      <div class="item-card" id="card-skirt">
-        <span class="icon">👗</span>
-        ボトムス
-      </div>
-
-      <div class="item-card" id="card-bag">
-        <span class="icon">👜</span>
-        バッグ
-      </div>
-
-      <div class="item-card" id="card-necklace">
-        <span class="icon">💎</span>
-        アクセ
-      </div>
-
-    </section>
-
-    <!-- 操作 -->
-
-    <section class="buttons">
-
-      <button class="gift-button" onclick="giftReceived()">
-        🎁 ギフトが来た！
       </button>
 
-      <button class="reset-button" onclick="resetGame()">
+
+      <button
+        class="giftBtn"
+        onclick="receiveGift(1)">
+
+        <span class="giftIcon">🍩</span>
+
+        <span
+          class="giftName"
+          id="giftName1">
+          ドーナツ
+        </span>
+
+        <span
+          class="giftCount"
+          id="giftCount1">
+          0
+        </span>
+
+      </button>
+
+
+      <button
+        class="giftBtn"
+        onclick="receiveGift(2)">
+
+        <span class="giftIcon">🍦</span>
+
+        <span
+          class="giftName"
+          id="giftName2">
+          アイスバー
+        </span>
+
+        <span
+          class="giftCount"
+          id="giftCount2">
+          0
+        </span>
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- TABS -->
+  <div
+    id="tabs"
+    class="tabs">
+  </div>
+
+
+  <!-- ITEMS -->
+  <section class="itemArea">
+
+    <div
+      id="items"
+      class="items">
+    </div>
+
+  </section>
+
+
+  <!-- BOTTOM -->
+  <div class="bottom">
+
+    <div class="bottomBtns">
+
+      <button
+        class="actionBtn primary"
+        onclick="randomDress()">
+        🎲 おまかせ
+      </button>
+
+      <button
+        class="actionBtn"
+        onclick="removeCurrent()">
+        ✕ はずす
+      </button>
+
+      <button
+        class="actionBtn"
+        onclick="resetAll()">
         🔄 リセット
       </button>
 
-    </section>
+    </div>
 
-  </main>
+  </div>
 
 </div>
 
+
+<!-- =========================
+     管理パネル
+========================= -->
+
+<div
+  id="manager"
+  class="manager">
+
+  <div class="managerBox">
+
+    <div class="managerHeader">
+
+      <h2>🖼️ 画像を読み込む</h2>
+
+      <button
+        class="closeBtn"
+        onclick="closeManager()">
+        ✕
+      </button>
+
+    </div>
+
+
+    <!-- 本体 -->
+
+    <div class="uploadGroup">
+
+      <label>
+        👤 キャラクター本体
+      </label>
+
+      <input
+        id="uploadBase"
+        type="file"
+        accept="image/*"
+        onchange="loadBase(this)">
+
+      <div class="help">
+        キャラクター本体は1枚選択してください。
+      </div>
+
+    </div>
+
+
+    <!-- 髪 -->
+
+    <div class="uploadGroup">
+
+      <label>
+        💇 髪型
+      </label>
+
+      <input
+        id="uploadHair"
+        type="file"
+        accept="image/*"
+        multiple
+        onchange="loadItems(this,'hair')">
+
+      <div class="help">
+        複数の髪型をまとめて選択できます。
+      </div>
+
+    </div>
+
+
+    <!-- トップ -->
+
+    <div class="uploadGroup">
+
+      <label>
+        👚 トップス
+      </label>
+
+      <input
+        id="uploadTop"
+        type="file"
+        accept="image/*"
+        multiple
+        onchange="loadItems(this,'top')">
+
+    </div>
+
+
+    <!-- ワンピース -->
+
+    <div class="uploadGroup">
+
+      <label>
+        👗 ワンピース・ドレス
+      </label>
+
+      <input
+        id="uploadDress"
+        type="file"
+        accept="image/*"
+        multiple
+        onchange="loadItems(this,'dress')">
+
+    </div>
+
+
+    <!-- ボトム -->
+
+    <div class="uploadGroup">
+
+      <label>
+        👖 ボトムス
+      </label>
+
+      <input
+        id="uploadBottom"
+        type="file"
+        accept="image/*"
+        multiple
+        onchange="loadItems(this,'bottom')">
+
+    </div>
+
+
+    <!-- アウター -->
+
+    <div class="uploadGroup">
+
+      <label>
+        🧥 アウター
+      </label>
+
+      <input
+        id="uploadOuter"
+        type="file"
+        accept="image/*"
+        multiple
+        onchange="loadItems(this,'outer')">
+
+    </div>
+
+
+    <!-- 靴下 -->
+
+    <div class="uploadGroup">
+
+      <label>
+        🧦 靴下
+      </label>
+
+      <input
+        id="uploadSocks"
+        type="file"
+        accept="image/*"
+        multiple
+        onchange="loadItems(this,'socks')">
+
+    </div>
+
+
+    <!-- 靴 -->
+
+    <div class="uploadGroup">
+
+      <label>
+        👟 靴
+      </label>
+
+      <input
+        id="uploadShoes"
+        type="file"
+        accept="image/*"
+        multiple
+        onchange="loadItems(this,'shoes')">
+
+    </div>
+
+
+    <!-- アクセサリー -->
+
+    <div class="uploadGroup">
+
+      <label>
+        💎 アクセサリー
+      </label>
+
+      <input
+        id="uploadAccessory"
+        type="file"
+        accept="image/*"
+        multiple
+        onchange="loadItems(this,'accessory')">
+
+    </div>
+
+
+    <button
+      class="actionBtn primary"
+      style="width:100%;margin-top:5px"
+      onclick="closeManager()">
+
+      ✓ 完了
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- GET演出 -->
+
+<div
+  id="getEffect"
+  class="getEffect">
+
+  <div class="getCard">
+
+    <div class="big">🎁</div>
+
+    <h2>GET！</h2>
+
+    <p id="getMessage">
+      新しいアイテムをGETしました！
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- 完成 -->
+
+<div
+  id="complete"
+  class="complete">
+
+  <div class="completeBox">
+
+    <div class="emoji">
+      👑✨
+    </div>
+
+    <h2>
+      コンプリート！
+    </h2>
+
+    <p>
+      全アイテムGETしました！<br>
+      いろいろなコーディネートを楽しもう♪
+    </p>
+
+    <button
+      class="completeClose"
+      onclick="closeComplete()">
+
+      まだ着せ替える
+
+    </button>
+
+  </div>
+
+</div>
+
+
 <script>
 
-/* =========================
-   データ
-========================= */
+/* =====================================================
+   設定
+===================================================== */
 
-const items = [
+const categoryNames = {
+
+  hair:"💇 髪",
+
+  top:"👚 トップ",
+
+  dress:"👗 ドレス",
+
+  bottom:"👖 ボトム",
+
+  outer:"🧥 アウター",
+
+  socks:"🧦 靴下",
+
+  shoes:"👟 靴",
+
+  accessory:"💎 アクセ"
+
+};
+
+
+/*
+  ギフトとカテゴリーの対応
+
+  ここを変更するだけで、
+  どのギフトで何がGETされるか変更できます。
+*/
+
+const giftSettings = [
 
   {
-    id:"hat",
-    name:"帽子",
-    emoji:"👒"
+    name:"ハートミー",
+    icon:"💗",
+    categories:[
+      "hair",
+      "accessory"
+    ]
   },
 
   {
-    id:"glasses",
-    name:"メガネ",
-    emoji:"👓"
+    name:"ドーナツ",
+    icon:"🍩",
+    categories:[
+      "top",
+      "dress",
+      "outer"
+    ]
   },
 
   {
-    id:"top",
-    name:"トップス",
-    emoji:"👕"
-  },
-
-  {
-    id:"ribbon",
-    name:"リボン",
-    emoji:"🎀"
-  },
-
-  {
-    id:"skirt",
-    name:"ボトムス",
-    emoji:"👗"
-  },
-
-  {
-    id:"bag",
-    name:"バッグ",
-    emoji:"👜"
-  },
-
-  {
-    id:"necklace",
-    name:"アクセサリー",
-    emoji:"💎"
+    name:"アイスバー",
+    icon:"🍦",
+    categories:[
+      "bottom",
+      "socks",
+      "shoes"
+    ]
   }
 
 ];
 
-let unlocked = [];
+
+/* =====================================================
+   データ
+===================================================== */
+
+const data = {
+
+  base:null,
+
+  hair:[],
+
+  top:[],
+
+  dress:[],
+
+  bottom:[],
+
+  outer:[],
+
+  socks:[],
+
+  shoes:[],
+
+  accessory:[]
+
+};
 
 
-/* =========================
-   ギフト
-========================= */
+/* 現在選択中 */
 
-function giftReceived(){
+const selected = {
 
-  if(unlocked.length >= items.length){
+  hair:null,
+
+  top:null,
+
+  dress:null,
+
+  bottom:null,
+
+  outer:null,
+
+  socks:null,
+
+  shoes:null,
+
+  accessory:null
+
+};
+
+
+/* GET済み */
+
+const unlocked = new Set();
+
+
+/* 現在のタブ */
+
+let currentTab = "hair";
+
+
+/* ギフト回数 */
+
+const giftCounts = [0,0,0];
+
+
+/* =====================================================
+   初期化
+===================================================== */
+
+function init(){
+
+  createTabs();
+
+  updateUI();
+
+  /*
+    本体画像がまだない場合の表示
+  */
+
+  document.getElementById("layerBase").style.display = "none";
+
+}
+
+init();
+
+
+/* =====================================================
+   タブ作成
+===================================================== */
+
+function createTabs(){
+
+  const tabs = document.getElementById("tabs");
+
+  tabs.innerHTML = "";
+
+  Object.keys(categoryNames).forEach(category=>{
+
+    const button =
+      document.createElement("button");
+
+    button.className =
+      "tab" +
+      (category===currentTab ? " active" : "");
+
+    button.textContent =
+      categoryNames[category];
+
+    button.onclick = ()=>{
+
+      currentTab = category;
+
+      createTabs();
+
+      renderItems();
+
+    };
+
+    tabs.appendChild(button);
+
+  });
+
+}
+
+
+/* =====================================================
+   本体読み込み
+===================================================== */
+
+function loadBase(input){
+
+  const file = input.files[0];
+
+  if(!file) return;
+
+  const url =
+    URL.createObjectURL(file);
+
+  data.base = url;
+
+  const img =
+    document.getElementById("layerBase");
+
+  img.src = url;
+
+  img.style.display = "block";
+
+}
+
+
+/* =====================================================
+   アイテム読み込み
+===================================================== */
+
+function loadItems(input,category){
+
+  const files =
+    Array.from(input.files);
+
+  files.forEach((file,index)=>{
+
+    const url =
+      URL.createObjectURL(file);
+
+    data[category].push({
+
+      id:
+        category +
+        "_" +
+        Date.now() +
+        "_" +
+        index,
+
+      category:category,
+
+      name:
+        file.name
+        .replace(/\.[^/.]+$/,""),
+
+      url:url
+
+    });
+
+  });
+
+  renderItems();
+
+  updateUI();
+
+}
+
+
+/* =====================================================
+   アイテム表示
+===================================================== */
+
+function renderItems(){
+
+  const container =
+    document.getElementById("items");
+
+  container.innerHTML = "";
+
+  const list =
+    data[currentTab];
+
+  if(list.length===0){
+
+    container.innerHTML = `
+
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:25px 10px;
+        color:#9a859e;
+        font-size:12px;
+      ">
+
+        📷 まだ画像がありません<br><br>
+        ⚙️ を押して画像を読み込んでください
+
+      </div>
+
+    `;
+
     return;
+
   }
 
-  /* まだ持っていないアイテムだけから抽選 */
 
-  const remaining = items.filter(
-    item => !unlocked.includes(item.id)
-  );
+  list.forEach(item=>{
 
-  const selected =
-    remaining[Math.floor(Math.random() * remaining.length)];
+    const isUnlocked =
+      unlocked.has(item.id);
 
-  unlocked.push(selected.id);
+    const isSelected =
+      selected[currentTab] === item.id;
 
-  /* アイテム表示 */
 
-  const element =
-    document.getElementById(selected.id);
+    const card =
+      document.createElement("div");
 
-  element.style.display = "block";
+    card.className =
+      "item" +
+      (isSelected ? " selected" : "") +
+      (!isUnlocked ? " locked" : "");
 
-  /* カード表示 */
 
-  const card =
-    document.getElementById("card-" + selected.id);
+    card.innerHTML = `
 
-  card.classList.add("active");
+      <img
+        src="${item.url}"
+        alt="">
 
-  /* カウント */
+      <span class="itemName">
+        ${escapeHTML(item.name)}
+      </span>
 
-  updateProgress();
+      ${
+        !isUnlocked
+        ? `<div class="lock">🔒</div>`
+        : ""
+      }
 
-  /* ポップアップ */
+    `;
 
-  showPopup(
-    selected.emoji + " " +
-    selected.name +
-    " GET！"
-  );
 
-  /* 全部揃った */
+    card.onclick = ()=>{
 
-  if(unlocked.length === items.length){
+      if(!isUnlocked){
+
+        showMessage(
+          "このアイテムはまだGETしていません"
+        );
+
+        return;
+
+      }
+
+      wearItem(item);
+
+    };
+
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+/* =====================================================
+   アイテムを着せる
+===================================================== */
+
+function wearItem(item){
+
+  const category =
+    item.category;
+
+  selected[category] =
+    item.id;
+
+
+  const layer =
+    document.getElementById(
+      "layer" +
+      capitalize(category)
+    );
+
+
+  if(layer){
+
+    layer.src =
+      item.url;
+
+    layer.style.display =
+      "block";
+
+  }
+
+
+  /*
+    ワンピースを着た場合、
+    トップス・ボトムスを隠す
+  */
+
+  if(category === "dress"){
+
+    hideLayer("Top");
+
+    hideLayer("Bottom");
+
+  }
+
+
+  /*
+    トップまたはボトムを選んだ場合、
+    ワンピースを外す
+  */
+
+  if(
+    category === "top" ||
+    category === "bottom"
+  ){
+
+    selected.dress = null;
+
+    hideLayer("Dress");
+
+  }
+
+
+  renderItems();
+
+}
+
+
+/* =====================================================
+   レイヤーを隠す
+===================================================== */
+
+function hideLayer(name){
+
+  const layer =
+    document.getElementById(
+      "layer" + name
+    );
+
+  if(layer){
+
+    layer.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* =====================================================
+   現在のアイテムを外す
+===================================================== */
+
+function removeCurrent(){
+
+  const category =
+    currentTab;
+
+  selected[category] =
+    null;
+
+  const layer =
+    document.getElementById(
+      "layer" +
+      capitalize(category)
+    );
+
+  if(layer){
+
+    layer.removeAttribute("src");
+
+    layer.style.display =
+      "none";
+
+  }
+
+  renderItems();
+
+}
+
+
+/* =====================================================
+   ギフト受信
+===================================================== */
+
+function receiveGift(giftIndex){
+
+  giftCounts[giftIndex]++;
+
+  document.getElementById(
+    "giftCount" + giftIndex
+  ).textContent =
+    giftCounts[giftIndex];
+
+
+  const setting =
+    giftSettings[giftIndex];
+
+
+  /*
+    対象カテゴリーから
+    未GETアイテムを探す
+  */
+
+  let candidates = [];
+
+
+  setting.categories.forEach(category=>{
+
+    data[category].forEach(item=>{
+
+      if(!unlocked.has(item.id)){
+
+        candidates.push(item);
+
+      }
+
+    });
+
+  });
+
+
+  /*
+    何も残っていなければ
+    全カテゴリーから探す
+  */
+
+  if(candidates.length===0){
+
+    Object.keys(data).forEach(category=>{
+
+      if(category === "base")
+        return;
+
+      data[category].forEach(item=>{
+
+        if(!unlocked.has(item.id)){
+
+          candidates.push(item);
+
+        }
+
+      });
+
+    });
+
+  }
+
+
+  if(candidates.length===0){
+
+    showMessage(
+      "すべてのアイテムをGET済みです！"
+    );
+
+    return;
+
+  }
+
+
+  /*
+    ランダムGET
+  */
+
+  const item =
+    candidates[
+      Math.floor(
+        Math.random() *
+        candidates.length
+      )
+    ];
+
+
+  unlocked.add(item.id);
+
+
+  /*
+    GETしたら自動で装着
+  */
+
+  wearItem(item);
+
+
+  /*
+    GET演出
+  */
+
+  showGet(item);
+
+
+  updateUI();
+
+}
+
+
+/* =====================================================
+   GET演出
+===================================================== */
+
+function showGet(item){
+
+  const effect =
+    document.getElementById(
+      "getEffect"
+    );
+
+  const message =
+    document.getElementById(
+      "getMessage"
+    );
+
+  message.textContent =
+    `${categoryNames[item.category]}「${item.name}」をGET！`;
+
+  effect.classList.add("show");
+
+
+  setTimeout(()=>{
+
+    effect.classList.remove("show");
+
+  },1000);
+
+}
+
+
+/* =====================================================
+   ランダム着せ替え
+===================================================== */
+
+function randomDress(){
+
+  Object.keys(data).forEach(category=>{
+
+    if(category==="base")
+      return;
+
+    const list =
+      data[category];
+
+    const unlockedItems =
+      list.filter(item =>
+        unlocked.has(item.id)
+      );
+
+    if(unlockedItems.length===0)
+      return;
+
+    /*
+      50%程度の確率で着用
+    */
+
+    if(Math.random()<0.7){
+
+      const item =
+        unlockedItems[
+          Math.floor(
+            Math.random() *
+            unlockedItems.length
+          )
+        ];
+
+      wearItem(item);
+
+    }
+
+  });
+
+}
+
+
+/* =====================================================
+   全GET
+===================================================== */
+
+function unlockAll(){
+
+  Object.keys(data).forEach(category=>{
+
+    if(category==="base")
+      return;
+
+    data[category].forEach(item=>{
+
+      unlocked.add(item.id);
+
+    });
+
+  });
+
+  updateUI();
+
+  renderItems();
+
+}
+
+
+/* =====================================================
+   リセット
+===================================================== */
+
+function resetAll(){
+
+  if(
+    !confirm(
+      "GETしたアイテムを全部リセットしますか？"
+    )
+  ){
+
+    return;
+
+  }
+
+
+  unlocked.clear();
+
+
+  Object.keys(selected).forEach(category=>{
+
+    selected[category] =
+      null;
+
+  });
+
+
+  Object.keys(categoryNames).forEach(category=>{
+
+    const layer =
+      document.getElementById(
+        "layer" +
+        capitalize(category)
+      );
+
+    if(layer){
+
+      layer.removeAttribute("src");
+
+      layer.style.display =
+        "none";
+
+    }
+
+  });
+
+
+  /*
+    本体だけ表示
+  */
+
+  if(data.base){
+
+    const base =
+      document.getElementById(
+        "layerBase"
+      );
+
+    base.src =
+      data.base;
+
+    base.style.display =
+      "block";
+
+  }
+
+
+  giftCounts.fill(0);
+
+
+  giftCounts.forEach((count,index)=>{
+
+    document.getElementById(
+      "giftCount" + index
+    ).textContent =
+      count;
+
+  });
+
+
+  updateUI();
+
+  renderItems();
+
+}
+
+
+/* =====================================================
+   進捗
+===================================================== */
+
+function updateUI(){
+
+  let total = 0;
+
+  Object.keys(data).forEach(category=>{
+
+    if(category==="base")
+      return;
+
+    total +=
+      data[category].length;
+
+  });
+
+
+  document.getElementById(
+    "totalCount"
+  ).textContent =
+    total;
+
+
+  document.getElementById(
+    "getCount"
+  ).textContent =
+    unlocked.size;
+
+
+  const percent =
+    total === 0
+    ? 0
+    : Math.round(
+        unlocked.size /
+        total *
+        100
+      );
+
+
+  document.getElementById(
+    "progressFill"
+  ).style.width =
+    percent + "%";
+
+
+  /*
+    全部GET
+  */
+
+  if(
+    total > 0 &&
+    unlocked.size >= total
+  ){
 
     setTimeout(()=>{
+
       document
         .getElementById("complete")
         .classList.add("show");
-    },1000);
+
+    },300);
 
   }
 
 }
 
 
-/* =========================
-   進行状況
-========================= */
+/* =====================================================
+   完成画面
+===================================================== */
 
-function updateProgress(){
-
-  const count =
-    document.getElementById("count");
-
-  const fill =
-    document.getElementById("progressFill");
-
-  count.textContent =
-    unlocked.length;
-
-  fill.style.width =
-    (unlocked.length / items.length * 100) + "%";
-
-}
-
-
-/* =========================
-   ポップアップ
-========================= */
-
-function showPopup(text){
-
-  const popup =
-    document.getElementById("popup");
-
-  popup.textContent = text;
-
-  popup.classList.remove("show");
-
-  /* アニメーション再スタート */
-
-  void popup.offsetWidth;
-
-  popup.classList.add("show");
-
-}
-
-
-/* =========================
-   リセット
-========================= */
-
-function resetGame(){
-
-  unlocked = [];
-
-  items.forEach(item => {
-
-    const element =
-      document.getElementById(item.id);
-
-    element.style.display = "none";
-
-    const card =
-      document.getElementById("card-" + item.id);
-
-    card.classList.remove("active");
-
-  });
+function closeComplete(){
 
   document
     .getElementById("complete")
     .classList.remove("show");
 
-  updateProgress();
+}
+
+
+/* =====================================================
+   管理パネル
+===================================================== */
+
+function openManager(){
+
+  document
+    .getElementById("manager")
+    .classList.add("open");
+
+}
+
+function closeManager(){
+
+  document
+    .getElementById("manager")
+    .classList.remove("open");
 
 }
 
 
-/* =========================
-   初期化
-========================= */
+/* =====================================================
+   メッセージ
+===================================================== */
 
-updateProgress();
+function showMessage(text){
+
+  const effect =
+    document.getElementById(
+      "getEffect"
+    );
+
+  const message =
+    document.getElementById(
+      "getMessage"
+    );
+
+  message.textContent =
+    text;
+
+  effect.classList.add("show");
+
+  setTimeout(()=>{
+
+    effect.classList.remove("show");
+
+  },900);
+
+}
+
+
+/* =====================================================
+   文字処理
+===================================================== */
+
+function capitalize(str){
+
+  return str.charAt(0).toUpperCase()
+       + str.slice(1);
+
+}
+
+
+function escapeHTML(str){
+
+  return str
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
 
 </script>
 
