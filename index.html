@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,
-initial-scale=1.0,
-maximum-scale=1.0,
-user-scalable=no">
+      content="width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0,
+      user-scalable=no">
 
 <title>ギフトで着せ替え</title>
 
 <style>
 
-/* ==================================================
+/* =========================================
    RESET
-================================================== */
+========================================= */
 
 *{
   box-sizing:border-box;
@@ -41,9 +39,9 @@ body{
 }
 
 
-/* ==================================================
-   9:16 APP
-================================================== */
+/* =========================================
+   BODY
+========================================= */
 
 body{
   display:flex;
@@ -51,13 +49,19 @@ body{
   justify-content:center;
 }
 
-.app{
 
+/* =========================================
+   9:16 APP
+========================================= */
+
+.app{
   position:relative;
 
   width:min(100vw,56.25vh);
-
   height:min(100vh,177.777vw);
+
+  max-width:600px;
+  max-height:1066px;
 
   aspect-ratio:9 / 16;
 
@@ -75,37 +79,30 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    HEADER
-================================================== */
+========================================= */
 
 .header{
-
   flex:0 0 6%;
 
   min-height:42px;
 
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
-  padding:
-    0 4%;
+  padding:0 4%;
 
   background:#fff;
 
-  border-bottom:
-    1px solid #eadbe7;
+  border-bottom:1px solid #eadbe7;
 
   z-index:50;
 }
 
 .title{
-
-  font-size:
-    clamp(13px,3vw,18px);
+  font-size:clamp(13px,3vw,18px);
 
   font-weight:900;
 
@@ -113,22 +110,17 @@ body{
 }
 
 .coinBox{
-
   display:flex;
-
   align-items:center;
-
   gap:4px;
 
-  padding:
-    5px 10px;
+  padding:5px 10px;
 
   border-radius:20px;
 
   background:#fff0a8;
 
-  font-size:
-    clamp(11px,2.7vw,15px);
+  font-size:clamp(11px,2.7vw,15px);
 
   font-weight:900;
 
@@ -136,12 +128,11 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    CHARACTER AREA
-================================================== */
+========================================= */
 
 .characterArea{
-
   flex:1 1 auto;
 
   min-height:0;
@@ -149,28 +140,23 @@ body{
   position:relative;
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
   overflow:hidden;
 
-  padding:
-    0 2%;
+  padding:0 2%;
 }
 
 
-/* ==================================================
+/* =========================================
    CHARACTER STAGE
-================================================== */
+========================================= */
 
 .stage{
-
   position:relative;
 
   width:100%;
-
   height:100%;
 
   max-width:520px;
@@ -183,27 +169,23 @@ body{
 }
 
 
-/* ==================================================
-   LAYERS
-================================================== */
+/* =========================================
+   CHARACTER LAYERS
+========================================= */
 
 .layer{
-
   position:absolute;
 
   left:50%;
-
   top:50%;
 
   width:100%;
-
   height:100%;
 
   transform:
     translate(-50%,-50%);
 
   object-fit:contain;
-
   object-position:center;
 
   pointer-events:none;
@@ -212,9 +194,9 @@ body{
 }
 
 
-/* ==================================================
-   レイヤー順
-================================================== */
+/* =========================================
+   LAYER ORDER
+========================================= */
 
 #baseLayer{
   z-index:1;
@@ -253,9 +235,9 @@ body{
 }
 
 
-/* ==================================================
-   ワンピース
-================================================== */
+/* =========================================
+   ONE PIECE
+========================================= */
 
 .onepieceOn #topLayer,
 .onepieceOn #bottomLayer{
@@ -263,9 +245,9 @@ body{
 }
 
 
-/* ==================================================
-   ドレス
-================================================== */
+/* =========================================
+   DRESS
+========================================= */
 
 .dressOn #topLayer,
 .dressOn #bottomLayer{
@@ -273,25 +255,23 @@ body{
 }
 
 
-/* ==================================================
-   アウター
-================================================== */
+/* =========================================
+   OUTER
+========================================= */
 
 .outerOn #topLayer{
   display:none!important;
 }
 
 
-/* ==================================================
-   ベース未設定
-================================================== */
+/* =========================================
+   EMPTY CHARACTER
+========================================= */
 
 .emptyCharacter{
-
   position:absolute;
 
   left:50%;
-
   top:50%;
 
   transform:
@@ -303,8 +283,7 @@ body{
 
   color:#ad9dac;
 
-  font-size:
-    clamp(12px,3vw,16px);
+  font-size:clamp(12px,3vw,16px);
 
   font-weight:800;
 
@@ -314,44 +293,39 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    CONTROL AREA
-================================================== */
+========================================= */
 
 .controlArea{
-
-  flex:0 0 34%;
+  flex:0 0 38%;
 
   min-height:0;
 
   display:flex;
-
   flex-direction:column;
 
   background:#fff;
 
-  border-top:
-    1px solid #eadbe7;
+  border-top:1px solid #eadbe7;
 
   padding:
-    1.5% 1.8% 1.2%;
+    1.3% 1.8% 1%;
 
   z-index:40;
 }
 
 
-/* ==================================================
+/* =========================================
    MAIN BUTTONS
-================================================== */
+========================================= */
 
 .mainButtons{
-
   flex:0 0 9%;
 
   display:grid;
 
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns:1fr 1fr;
 
   gap:6px;
 
@@ -359,7 +333,6 @@ body{
 }
 
 .mainBtn{
-
   min-height:27px;
 
   border:none;
@@ -370,8 +343,7 @@ body{
 
   color:#654e60;
 
-  font-size:
-    clamp(9px,2.3vw,13px);
+  font-size:clamp(9px,2.3vw,13px);
 
   font-weight:900;
 
@@ -383,12 +355,11 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    COIN BUTTONS
-================================================== */
+========================================= */
 
 .coinButtons{
-
   flex:0 0 9%;
 
   display:grid;
@@ -402,7 +373,6 @@ body{
 }
 
 .coinBtn{
-
   min-height:25px;
 
   border:none;
@@ -413,8 +383,7 @@ body{
 
   color:#705d00;
 
-  font-size:
-    clamp(8px,2.2vw,12px);
+  font-size:clamp(8px,2.2vw,12px);
 
   font-weight:900;
 
@@ -426,13 +395,12 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    CATEGORY TABS
-================================================== */
+========================================= */
 
 .tabs{
-
-  flex:0 0 19%;
+  flex:0 0 18%;
 
   display:grid;
 
@@ -448,7 +416,6 @@ body{
 }
 
 .tab{
-
   min-height:23px;
 
   border:none;
@@ -459,8 +426,7 @@ body{
 
   color:#665663;
 
-  font-size:
-    clamp(8px,2.1vw,12px);
+  font-size:clamp(8px,2.1vw,12px);
 
   font-weight:900;
 
@@ -474,19 +440,16 @@ body{
 }
 
 .tab.active{
-
   background:#d85cae;
-
   color:#fff;
 }
 
 
-/* ==================================================
-   ITEM AREA
-================================================== */
+/* =========================================
+   ITEM LIST
+========================================= */
 
 .items{
-
   flex:1 1 auto;
 
   min-height:0;
@@ -497,10 +460,9 @@ body{
 
   align-items:stretch;
 
-  gap:8px;
+  gap:9px;
 
   overflow-x:auto;
-
   overflow-y:hidden;
 
   padding:
@@ -516,28 +478,25 @@ body{
 }
 
 
-/* ==================================================
-   ITEM CARD
-   ★ 大きく変更
-================================================== */
+/* =========================================
+   LARGE ITEM CARD
+   ★ 140px
+========================================= */
 
 .itemCard{
-
   position:relative;
 
-  flex:
-    0 0 105px;
+  flex:0 0 140px;
 
-  width:105px;
+  width:140px;
 
   height:100%;
 
-  min-height:105px;
+  min-height:120px;
 
-  border:
-    3px solid transparent;
+  border:3px solid transparent;
 
-  border-radius:13px;
+  border-radius:15px;
 
   background:#faf7fa;
 
@@ -548,19 +507,17 @@ body{
   touch-action:manipulation;
 
   user-select:none;
-
   -webkit-user-select:none;
 
   -webkit-tap-highlight-color:transparent;
 }
 
 
-/* ==================================================
-   SELECTED
-================================================== */
+/* =========================================
+   SELECTED ITEM
+========================================= */
 
 .itemCard.selected{
-
   border-color:#d85cae;
 
   background:#fff0fa;
@@ -571,20 +528,19 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    ITEM IMAGE
-================================================== */
+========================================= */
 
 .itemImage{
-
   display:block;
 
   width:100%;
 
   height:
-    calc(100% - 44px);
+    calc(100% - 48px);
 
-  min-height:60px;
+  min-height:75px;
 
   object-fit:contain;
 
@@ -598,26 +554,24 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    ITEM NAME
-================================================== */
+========================================= */
 
 .itemName{
-
   width:100%;
 
-  height:21px;
+  height:24px;
 
-  padding:
-    2px 4px;
+  padding:2px 4px;
 
   text-align:center;
 
-  font-size:11px;
+  font-size:13px;
 
   font-weight:900;
 
-  line-height:17px;
+  line-height:20px;
 
   overflow:hidden;
 
@@ -629,45 +583,41 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    ITEM PRICE
-================================================== */
+========================================= */
 
 .itemPrice{
-
   width:100%;
 
-  height:21px;
+  height:24px;
 
   text-align:center;
 
-  font-size:10px;
+  font-size:12px;
 
   font-weight:900;
 
   color:#806700;
 
-  line-height:21px;
+  line-height:24px;
 
   pointer-events:none;
 }
 
 
-/* ==================================================
+/* =========================================
    DELETE BUTTON
-================================================== */
+========================================= */
 
 .removeItem{
-
   position:absolute;
 
-  top:4px;
+  top:5px;
+  right:5px;
 
-  right:4px;
-
-  width:24px;
-
-  height:24px;
+  width:28px;
+  height:28px;
 
   padding:0;
 
@@ -680,11 +630,11 @@ body{
 
   color:#fff;
 
-  font-size:14px;
+  font-size:17px;
 
   font-weight:900;
 
-  line-height:24px;
+  line-height:28px;
 
   z-index:20;
 
@@ -694,20 +644,17 @@ body{
 }
 
 
-/* ==================================================
-   EMPTY
-================================================== */
+/* =========================================
+   NO ITEMS
+========================================= */
 
 .noItems{
-
   width:100%;
-
   height:100%;
 
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   text-align:center;
@@ -723,12 +670,11 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    MODAL
-================================================== */
+========================================= */
 
 .modal{
-
   position:fixed;
 
   inset:0;
@@ -736,7 +682,6 @@ body{
   display:none;
 
   align-items:center;
-
   justify-content:center;
 
   padding:15px;
@@ -752,12 +697,11 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    MODAL BOX
-================================================== */
+========================================= */
 
 .modalBox{
-
   width:min(92vw,420px);
 
   max-height:90vh;
@@ -776,7 +720,6 @@ body{
 }
 
 .modalTitle{
-
   margin-bottom:14px;
 
   font-size:18px;
@@ -785,12 +728,11 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    INFO
-================================================== */
+========================================= */
 
 .info{
-
   margin-bottom:11px;
 
   padding:9px;
@@ -807,20 +749,17 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    PREVIEW
-================================================== */
+========================================= */
 
 .preview{
-
   width:100%;
-
   height:140px;
 
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   margin-bottom:11px;
@@ -836,26 +775,22 @@ body{
 }
 
 .preview img{
-
   width:100%;
-
   height:100%;
 
   object-fit:contain;
 }
 
 
-/* ==================================================
+/* =========================================
    FORM
-================================================== */
+========================================= */
 
 .formGroup{
-
   margin-bottom:12px;
 }
 
 .formGroup label{
-
   display:block;
 
   margin-bottom:5px;
@@ -867,13 +802,11 @@ body{
 
 .formGroup input,
 .formGroup select{
-
   width:100%;
 
   height:42px;
 
-  padding:
-    0 10px;
+  padding:0 10px;
 
   border:
     1px solid #ddd;
@@ -886,12 +819,11 @@ body{
 }
 
 
-/* ==================================================
+/* =========================================
    MODAL BUTTONS
-================================================== */
+========================================= */
 
 .modalButtons{
-
   display:grid;
 
   grid-template-columns:
@@ -903,7 +835,6 @@ body{
 }
 
 .modalBtn{
-
   height:42px;
 
   border:none;
@@ -918,89 +849,71 @@ body{
 }
 
 .cancelBtn{
-
   background:#eee;
-
   color:#555;
 }
 
 .saveBtn{
-
   background:#d85cae;
-
   color:#fff;
 }
 
 
-/* ==================================================
-   SMALL SCREEN
-================================================== */
+/* =========================================
+   SHORT SCREEN
+========================================= */
 
 @media(max-height:650px){
 
   .controlArea{
-    flex-basis:35%;
+    flex-basis:39%;
   }
 
   .itemCard{
-
-    flex-basis:92px;
-
-    width:92px;
-
-  }
-
-  .itemImage{
-    min-height:50px;
+    flex-basis:125px;
+    width:125px;
   }
 
   .itemName{
-    font-size:9px;
+    font-size:11px;
   }
 
   .itemPrice{
-    font-size:9px;
+    font-size:10px;
   }
 
 }
 
 
-/* ==================================================
+/* =========================================
    NARROW SCREEN
-================================================== */
+========================================= */
 
 @media(max-width:360px){
 
   .itemCard{
-
-    flex-basis:90px;
-
-    width:90px;
-
+    flex-basis:120px;
+    width:120px;
   }
 
   .tab{
-
     font-size:8px;
-
   }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-
 <div class="app">
 
 
-<!-- =================================================
+<!-- =========================================
      HEADER
-================================================= -->
+========================================= -->
 
 <div class="header">
 
@@ -1009,22 +922,16 @@ body{
   </div>
 
   <div class="coinBox">
-
     🪙
-
-    <span id="coinCount">
-      1000
-    </span>
-
+    <span id="coinCount">1000</span>
   </div>
 
 </div>
 
 
-
-<!-- =================================================
+<!-- =========================================
      CHARACTER
-================================================= -->
+========================================= -->
 
 <div class="characterArea">
 
@@ -1043,16 +950,11 @@ body{
     </div>
 
 
-    <!-- 本体 -->
-
     <img
       id="baseLayer"
       class="layer"
       alt=""
     >
-
-
-    <!-- ボトムス -->
 
     <img
       id="bottomLayer"
@@ -1060,17 +962,11 @@ body{
       alt=""
     >
 
-
-    <!-- ワンピース -->
-
     <img
       id="onepieceLayer"
       class="layer"
       alt=""
     >
-
-
-    <!-- ドレス -->
 
     <img
       id="dressLayer"
@@ -1078,17 +974,11 @@ body{
       alt=""
     >
 
-
-    <!-- トップス -->
-
     <img
       id="topLayer"
       class="layer"
       alt=""
     >
-
-
-    <!-- アウター -->
 
     <img
       id="outerLayer"
@@ -1096,26 +986,17 @@ body{
       alt=""
     >
 
-
-    <!-- 髪 -->
-
     <img
       id="hairLayer"
       class="layer"
       alt=""
     >
 
-
-    <!-- アクセサリー -->
-
     <img
       id="accessoryLayer"
       class="layer"
       alt=""
     >
-
-
-    <!-- 靴 -->
 
     <img
       id="shoesLayer"
@@ -1128,15 +1009,14 @@ body{
 </div>
 
 
-
-<!-- =================================================
+<!-- =========================================
      CONTROL
-================================================= -->
+========================================= -->
 
 <div class="controlArea">
 
 
-  <!-- ベース・設定 -->
+  <!-- ベース・アイテム設定 -->
 
   <div class="mainButtons">
 
@@ -1206,23 +1086,21 @@ body{
   ></div>
 
 
-  <!-- アイテム -->
+  <!-- アイテム一覧 -->
 
   <div
     id="items"
     class="items"
   ></div>
 
-
 </div>
 
 </div>
 
 
-
-<!-- =================================================
+<!-- =========================================
      BASE MODAL
-================================================= -->
+========================================= -->
 
 <div
   id="baseModal"
@@ -1287,10 +1165,9 @@ body{
 </div>
 
 
-
-<!-- =================================================
+<!-- =========================================
      ITEM MODAL
-================================================= -->
+========================================= -->
 
 <div
   id="itemModal"
@@ -1429,30 +1306,29 @@ body{
 </div>
 
 
-
 <script>
 
-/* ==================================================
+/* =========================================
    STORAGE
-================================================== */
+========================================= */
 
 const ITEM_STORAGE =
-  "giftDressupItems_9x16_v2";
+  "giftDressupItems_9x16_large";
 
 const BASE_STORAGE =
-  "giftDressupBase_9x16_v2";
+  "giftDressupBase_9x16_large";
 
 
-/* ==================================================
+/* =========================================
    COINS
-================================================== */
+========================================= */
 
 let coins = 1000;
 
 
-/* ==================================================
+/* =========================================
    ITEMS
-================================================== */
+========================================= */
 
 let items = {
 
@@ -1475,9 +1351,9 @@ let items = {
 };
 
 
-/* ==================================================
+/* =========================================
    SELECTED
-================================================== */
+========================================= */
 
 let selected = {
 
@@ -1500,36 +1376,32 @@ let selected = {
 };
 
 
-/* ==================================================
+/* =========================================
    CURRENT CATEGORY
-================================================== */
+========================================= */
 
-let currentCategory =
-  "top";
+let currentCategory = "top";
 
 
-/* ==================================================
+/* =========================================
    BASE
-================================================== */
+========================================= */
 
-let baseCharacter =
-  null;
-
-
-/* ==================================================
-   TEMP
-================================================== */
-
-let temporaryBase =
-  "";
-
-let temporaryItem =
-  "";
+let baseCharacter = null;
 
 
-/* ==================================================
-   CATEGORY NAME
-================================================== */
+/* =========================================
+   TEMPORARY DATA
+========================================= */
+
+let temporaryBase = "";
+
+let temporaryItem = "";
+
+
+/* =========================================
+   CATEGORY NAMES
+========================================= */
 
 const categoryNames = {
 
@@ -1552,34 +1424,26 @@ const categoryNames = {
 };
 
 
-/* ==================================================
+/* =========================================
    DOM
-================================================== */
+========================================= */
 
 const stage =
-  document.getElementById(
-    "stage"
-  );
+  document.getElementById("stage");
 
 const tabs =
-  document.getElementById(
-    "tabs"
-  );
+  document.getElementById("tabs");
 
 const itemsBox =
-  document.getElementById(
-    "items"
-  );
+  document.getElementById("items");
 
 const coinCount =
-  document.getElementById(
-    "coinCount"
-  );
+  document.getElementById("coinCount");
 
 
-/* ==================================================
-   COIN UPDATE
-================================================== */
+/* =========================================
+   COINS UPDATE
+========================================= */
 
 function updateCoins(){
 
@@ -1589,9 +1453,9 @@ function updateCoins(){
 }
 
 
-/* ==================================================
-   COIN BUTTON
-================================================== */
+/* =========================================
+   COIN BUTTONS
+========================================= */
 
 document
 .querySelectorAll(".coinBtn")
@@ -1616,9 +1480,9 @@ document
 });
 
 
-/* ==================================================
+/* =========================================
    SAVE ITEMS
-================================================== */
+========================================= */
 
 function saveItems(){
 
@@ -1638,9 +1502,9 @@ function saveItems(){
 }
 
 
-/* ==================================================
+/* =========================================
    LOAD ITEMS
-================================================== */
+========================================= */
 
 function loadItems(){
 
@@ -1652,18 +1516,14 @@ function loadItems(){
       );
 
     if(!saved){
-
       return;
-
     }
 
     const data =
       JSON.parse(saved);
 
     if(!data){
-
       return;
-
     }
 
     Object.keys(items)
@@ -1691,16 +1551,14 @@ function loadItems(){
 }
 
 
-/* ==================================================
+/* =========================================
    SAVE BASE
-================================================== */
+========================================= */
 
 function saveBase(){
 
   if(!baseCharacter){
-
     return;
-
   }
 
   try{
@@ -1719,9 +1577,9 @@ function saveBase(){
 }
 
 
-/* ==================================================
+/* =========================================
    LOAD BASE
-================================================== */
+========================================= */
 
 function loadBase(){
 
@@ -1733,9 +1591,7 @@ function loadBase(){
       );
 
     if(!saved){
-
       return;
-
     }
 
     baseCharacter =
@@ -1768,34 +1624,26 @@ function loadBase(){
 }
 
 
-/* ==================================================
+/* =========================================
    RENDER TABS
-================================================== */
+========================================= */
 
 function renderTabs(){
 
-  tabs.innerHTML =
-    "";
+  tabs.innerHTML = "";
 
-  Object.keys(
-    categoryNames
-  )
+  Object.keys(categoryNames)
   .forEach(category => {
 
     const button =
-      document.createElement(
-        "button"
-      );
+      document.createElement("button");
 
-    button.type =
-      "button";
+    button.type = "button";
 
-    button.className =
-      "tab";
+    button.className = "tab";
 
     if(
-      category ===
-      currentCategory
+      category === currentCategory
     ){
 
       button.classList.add(
@@ -1821,23 +1669,20 @@ function renderTabs(){
       }
     );
 
-    tabs.appendChild(
-      button
-    );
+    tabs.appendChild(button);
 
   });
 
 }
 
 
-/* ==================================================
+/* =========================================
    RENDER ITEMS
-================================================== */
+========================================= */
 
 function renderItems(){
 
-  itemsBox.innerHTML =
-    "";
+  itemsBox.innerHTML = "";
 
   const list =
     items[currentCategory];
@@ -1849,9 +1694,7 @@ function renderItems(){
   ){
 
     const empty =
-      document.createElement(
-        "div"
-      );
+      document.createElement("div");
 
     empty.className =
       "noItems";
@@ -1860,189 +1703,165 @@ function renderItems(){
       "このカテゴリーには<br>" +
       "まだアイテムがありません";
 
-    itemsBox.appendChild(
-      empty
-    );
+    itemsBox.appendChild(empty);
 
     return;
 
   }
 
 
-  list.forEach(
-    item => {
+  list.forEach(item => {
 
-      const card =
-        document.createElement(
-          "div"
-        );
+    const card =
+      document.createElement("div");
 
-      card.className =
-        "itemCard";
+    card.className =
+      "itemCard";
 
 
-      /* 選択中 */
+    /* 選択中 */
 
-      if(
-        selected[currentCategory] &&
-        selected[currentCategory].id ===
-        item.id
-      ){
+    if(
+      selected[currentCategory] &&
+      selected[currentCategory].id ===
+      item.id
+    ){
 
-        card.classList.add(
-          "selected"
-        );
-
-      }
-
-
-      /* 画像 */
-
-      const image =
-        document.createElement(
-          "img"
-        );
-
-      image.className =
-        "itemImage";
-
-      image.src =
-        item.src;
-
-      image.alt =
-        item.name;
-
-      image.draggable =
-        false;
-
-
-      /* 名前 */
-
-      const name =
-        document.createElement(
-          "div"
-        );
-
-      name.className =
-        "itemName";
-
-      name.textContent =
-        item.name;
-
-
-      /* コイン */
-
-      const price =
-        document.createElement(
-          "div"
-        );
-
-      price.className =
-        "itemPrice";
-
-      price.textContent =
-        "🪙 " +
-        Number(
-          item.price
-        ).toLocaleString();
-
-
-      /* 削除 */
-
-      const remove =
-        document.createElement(
-          "button"
-        );
-
-      remove.type =
-        "button";
-
-      remove.className =
-        "removeItem";
-
-      remove.textContent =
-        "×";
-
-
-      remove.addEventListener(
-        "click",
-        function(event){
-
-          event.preventDefault();
-
-          event.stopPropagation();
-
-          deleteItem(
-            currentCategory,
-            item.id
-          );
-
-        }
-      );
-
-
-      /* カード */
-
-      card.appendChild(
-        image
-      );
-
-      card.appendChild(
-        name
-      );
-
-      card.appendChild(
-        price
-      );
-
-      card.appendChild(
-        remove
-      );
-
-
-      /* ==================================================
-         ★ カード全体をタップ
-      ================================================== */
-
-      card.addEventListener(
-        "click",
-        function(event){
-
-          event.preventDefault();
-
-          event.stopPropagation();
-
-          wearItem(
-            currentCategory,
-            item
-          );
-
-        }
-      );
-
-
-      itemsBox.appendChild(
-        card
+      card.classList.add(
+        "selected"
       );
 
     }
-  );
+
+
+    /* IMAGE */
+
+    const image =
+      document.createElement("img");
+
+    image.className =
+      "itemImage";
+
+    image.src =
+      item.src;
+
+    image.alt =
+      item.name;
+
+    image.draggable = false;
+
+
+    /* NAME */
+
+    const name =
+      document.createElement("div");
+
+    name.className =
+      "itemName";
+
+    name.textContent =
+      item.name;
+
+
+    /* PRICE */
+
+    const price =
+      document.createElement("div");
+
+    price.className =
+      "itemPrice";
+
+    price.textContent =
+      "🪙 " +
+      Number(
+        item.price
+      ).toLocaleString();
+
+
+    /* DELETE */
+
+    const remove =
+      document.createElement("button");
+
+    remove.type =
+      "button";
+
+    remove.className =
+      "removeItem";
+
+    remove.textContent =
+      "×";
+
+
+    remove.addEventListener(
+      "click",
+      function(event){
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        deleteItem(
+          currentCategory,
+          item.id
+        );
+
+      }
+    );
+
+
+    /* CARD */
+
+    card.appendChild(image);
+
+    card.appendChild(name);
+
+    card.appendChild(price);
+
+    card.appendChild(remove);
+
+
+    /* =====================================
+       CARD TAP
+    ===================================== */
+
+    card.addEventListener(
+      "click",
+      function(event){
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        wearItem(
+          currentCategory,
+          item
+        );
+
+      }
+    );
+
+
+    itemsBox.appendChild(card);
+
+  });
 
 }
 
 
-/* ==================================================
+/* =========================================
    WEAR ITEM
-================================================== */
+========================================= */
 
 function wearItem(
   category,
   item
 ){
 
-  /* ==============================================
-     ★ 同じアイテムをもう一度押すと脱ぐ
-  ============================================== */
+  /* ---------------------------------------
+     同じものをもう一度押す
+     → 脱ぐ
+  --------------------------------------- */
 
   if(
     selected[category] &&
@@ -2059,23 +1878,19 @@ function wearItem(
   }
 
 
-  /* ==============================================
+  /* ---------------------------------------
      PRICE
-  ============================================== */
+  --------------------------------------- */
 
   const price =
-    Number(
-      item.price
-    ) || 0;
+    Number(item.price) || 0;
 
 
-  /* ==============================================
+  /* ---------------------------------------
      COIN CHECK
-  ============================================== */
+  --------------------------------------- */
 
-  if(
-    coins < price
-  ){
+  if(coins < price){
 
     alert(
       "コインが足りません。\n\n" +
@@ -2092,26 +1907,26 @@ function wearItem(
   }
 
 
-  /* ==============================================
-     支払い
-  ============================================== */
+  /* ---------------------------------------
+     PAY
+  --------------------------------------- */
 
   coins -= price;
 
   updateCoins();
 
 
-  /* ==============================================
-     選択
-  ============================================== */
+  /* ---------------------------------------
+     SELECT
+  --------------------------------------- */
 
   selected[category] =
     item;
 
 
-  /* ==============================================
-     表示
-  ============================================== */
+  /* ---------------------------------------
+     LAYER
+  --------------------------------------- */
 
   const layer =
     getLayer(category);
@@ -2128,26 +1943,19 @@ function wearItem(
   }
 
 
-  /* ==============================================
-     ワンピース
-  ============================================== */
+  /* ---------------------------------------
+     ONE PIECE
+  --------------------------------------- */
 
   if(
-    category ===
-    "onepiece"
+    category === "onepiece"
   ){
 
-    clearCategory(
-      "top"
-    );
+    clearCategory("top");
 
-    clearCategory(
-      "bottom"
-    );
+    clearCategory("bottom");
 
-    clearCategory(
-      "dress"
-    );
+    clearCategory("dress");
 
     stage.classList.remove(
       "dressOn"
@@ -2160,26 +1968,19 @@ function wearItem(
   }
 
 
-  /* ==============================================
-     ドレス
-  ============================================== */
+  /* ---------------------------------------
+     DRESS
+  --------------------------------------- */
 
   if(
-    category ===
-    "dress"
+    category === "dress"
   ){
 
-    clearCategory(
-      "top"
-    );
+    clearCategory("top");
 
-    clearCategory(
-      "bottom"
-    );
+    clearCategory("bottom");
 
-    clearCategory(
-      "onepiece"
-    );
+    clearCategory("onepiece");
 
     stage.classList.remove(
       "onepieceOn"
@@ -2192,22 +1993,17 @@ function wearItem(
   }
 
 
-  /* ==============================================
-     トップス
-  ============================================== */
+  /* ---------------------------------------
+     TOP
+  --------------------------------------- */
 
   if(
-    category ===
-    "top"
+    category === "top"
   ){
 
-    clearCategory(
-      "onepiece"
-    );
+    clearCategory("onepiece");
 
-    clearCategory(
-      "dress"
-    );
+    clearCategory("dress");
 
     stage.classList.remove(
       "onepieceOn"
@@ -2218,14 +2014,7 @@ function wearItem(
     );
 
 
-    /*
-      アウターがある場合は
-      トップスを表示しない
-    */
-
-    if(
-      selected.outer
-    ){
+    if(selected.outer){
 
       layer.style.display =
         "none";
@@ -2235,22 +2024,17 @@ function wearItem(
   }
 
 
-  /* ==============================================
-     ボトムス
-  ============================================== */
+  /* ---------------------------------------
+     BOTTOM
+  --------------------------------------- */
 
   if(
-    category ===
-    "bottom"
+    category === "bottom"
   ){
 
-    clearCategory(
-      "onepiece"
-    );
+    clearCategory("onepiece");
 
-    clearCategory(
-      "dress"
-    );
+    clearCategory("dress");
 
     stage.classList.remove(
       "onepieceOn"
@@ -2263,13 +2047,12 @@ function wearItem(
   }
 
 
-  /* ==============================================
-     アウター
-  ============================================== */
+  /* ---------------------------------------
+     OUTER
+  --------------------------------------- */
 
   if(
-    category ===
-    "outer"
+    category === "outer"
   ){
 
     stage.classList.add(
@@ -2282,34 +2065,22 @@ function wearItem(
         "topLayer"
       );
 
-
-    /*
-      トップスがアウターから
-      はみ出さないように隠す
-    */
-
     topLayer.style.display =
       "none";
 
   }
 
 
-  /* ==============================================
-     再描画
-  ============================================== */
-
   renderItems();
 
 }
 
 
-/* ==================================================
+/* =========================================
    UNEQUIP
-================================================== */
+========================================= */
 
-function unequip(
-  category
-){
+function unequip(category){
 
   selected[category] =
     null;
@@ -2321,8 +2092,7 @@ function unequip(
 
   if(layer){
 
-    layer.src =
-      "";
+    layer.src = "";
 
     layer.style.display =
       "none";
@@ -2330,11 +2100,10 @@ function unequip(
   }
 
 
-  /* ワンピース */
+  /* ONE PIECE */
 
   if(
-    category ===
-    "onepiece"
+    category === "onepiece"
   ){
 
     stage.classList.remove(
@@ -2344,11 +2113,10 @@ function unequip(
   }
 
 
-  /* ドレス */
+  /* DRESS */
 
   if(
-    category ===
-    "dress"
+    category === "dress"
   ){
 
     stage.classList.remove(
@@ -2358,11 +2126,10 @@ function unequip(
   }
 
 
-  /* アウター */
+  /* OUTER */
 
   if(
-    category ===
-    "outer"
+    category === "outer"
   ){
 
     stage.classList.remove(
@@ -2370,14 +2137,7 @@ function unequip(
     );
 
 
-    /*
-      アウターを脱いだら
-      トップスを再表示
-    */
-
-    if(
-      selected.top
-    ){
+    if(selected.top){
 
       const topLayer =
         document.getElementById(
@@ -2397,13 +2157,11 @@ function unequip(
 }
 
 
-/* ==================================================
+/* =========================================
    CLEAR CATEGORY
-================================================== */
+========================================= */
 
-function clearCategory(
-  category
-){
+function clearCategory(category){
 
   selected[category] =
     null;
@@ -2415,8 +2173,7 @@ function clearCategory(
 
   if(layer){
 
-    layer.src =
-      "";
+    layer.src = "";
 
     layer.style.display =
       "none";
@@ -2426,39 +2183,29 @@ function clearCategory(
 }
 
 
-/* ==================================================
+/* =========================================
    GET LAYER
-================================================== */
+========================================= */
 
-function getLayer(
-  category
-){
+function getLayer(category){
 
   const map = {
 
-    top:
-      "topLayer",
+    top:"topLayer",
 
-    onepiece:
-      "onepieceLayer",
+    onepiece:"onepieceLayer",
 
-    dress:
-      "dressLayer",
+    dress:"dressLayer",
 
-    bottom:
-      "bottomLayer",
+    bottom:"bottomLayer",
 
-    outer:
-      "outerLayer",
+    outer:"outerLayer",
 
-    hair:
-      "hairLayer",
+    hair:"hairLayer",
 
-    accessory:
-      "accessoryLayer",
+    accessory:"accessoryLayer",
 
-    shoes:
-      "shoesLayer"
+    shoes:"shoesLayer"
 
   };
 
@@ -2470,9 +2217,9 @@ function getLayer(
 }
 
 
-/* ==================================================
+/* =========================================
    DELETE ITEM
-================================================== */
+========================================= */
 
 function deleteItem(
   category,
@@ -2486,26 +2233,17 @@ function deleteItem(
     );
 
 
-  if(
-    index === -1
-  ){
-
+  if(index === -1){
     return;
-
   }
 
 
-  /* 着用中なら脱ぐ */
-
   if(
     selected[category] &&
-    selected[category].id ===
-    id
+    selected[category].id === id
   ){
 
-    unequip(
-      category
-    );
+    unequip(category);
 
   }
 
@@ -2523,9 +2261,9 @@ function deleteItem(
 }
 
 
-/* ==================================================
+/* =========================================
    BASE MODAL
-================================================== */
+========================================= */
 
 const baseModal =
   document.getElementById(
@@ -2544,9 +2282,7 @@ const basePreview =
 
 
 document
-.getElementById(
-  "baseButton"
-)
+.getElementById("baseButton")
 .addEventListener(
   "click",
   function(){
@@ -2559,14 +2295,12 @@ document
 );
 
 
-/* ==================================================
+/* =========================================
    BASE CANCEL
-================================================== */
+========================================= */
 
 document
-.getElementById(
-  "baseCancel"
-)
+.getElementById("baseCancel")
 .addEventListener(
   "click",
   function(){
@@ -2579,9 +2313,9 @@ document
 );
 
 
-/* ==================================================
+/* =========================================
    BASE FILE
-================================================== */
+========================================= */
 
 baseFile.addEventListener(
   "change",
@@ -2590,17 +2324,12 @@ baseFile.addEventListener(
     const file =
       event.target.files[0];
 
-
     if(!file){
-
       return;
-
     }
-
 
     const reader =
       new FileReader();
-
 
     reader.onload =
       function(e){
@@ -2613,23 +2342,18 @@ baseFile.addEventListener(
 
       };
 
-
-    reader.readAsDataURL(
-      file
-    );
+    reader.readAsDataURL(file);
 
   }
 );
 
 
-/* ==================================================
+/* =========================================
    BASE SAVE
-================================================== */
+========================================= */
 
 document
-.getElementById(
-  "baseSave"
-)
+.getElementById("baseSave")
 .addEventListener(
   "click",
   function(){
@@ -2673,14 +2397,11 @@ document
     saveBase();
 
 
-    temporaryBase =
-      "";
+    temporaryBase = "";
 
-    baseFile.value =
-      "";
+    baseFile.value = "";
 
-    basePreview.src =
-      "";
+    basePreview.src = "";
 
 
     baseModal.classList.remove(
@@ -2691,9 +2412,9 @@ document
 );
 
 
-/* ==================================================
+/* =========================================
    ITEM MODAL
-================================================== */
+========================================= */
 
 const itemModal =
   document.getElementById(
@@ -2711,14 +2432,12 @@ const itemPreview =
   );
 
 
-/* ==================================================
+/* =========================================
    OPEN ITEM MODAL
-================================================== */
+========================================= */
 
 document
-.getElementById(
-  "itemButton"
-)
+.getElementById("itemButton")
 .addEventListener(
   "click",
   function(){
@@ -2731,14 +2450,12 @@ document
 );
 
 
-/* ==================================================
-   CANCEL ITEM
-================================================== */
+/* =========================================
+   ITEM CANCEL
+========================================= */
 
 document
-.getElementById(
-  "itemCancel"
-)
+.getElementById("itemCancel")
 .addEventListener(
   "click",
   function(){
@@ -2751,9 +2468,9 @@ document
 );
 
 
-/* ==================================================
+/* =========================================
    ITEM FILE
-================================================== */
+========================================= */
 
 itemFile.addEventListener(
   "change",
@@ -2762,17 +2479,12 @@ itemFile.addEventListener(
     const file =
       event.target.files[0];
 
-
     if(!file){
-
       return;
-
     }
-
 
     const reader =
       new FileReader();
-
 
     reader.onload =
       function(e){
@@ -2785,23 +2497,18 @@ itemFile.addEventListener(
 
       };
 
-
-    reader.readAsDataURL(
-      file
-    );
+    reader.readAsDataURL(file);
 
   }
 );
 
 
-/* ==================================================
-   SAVE ITEM
-================================================== */
+/* =========================================
+   ITEM SAVE
+========================================= */
 
 document
-.getElementById(
-  "itemSave"
-)
+.getElementById("itemSave")
 .addEventListener(
   "click",
   function(){
@@ -2833,8 +2540,6 @@ document
       .value;
 
 
-    /* IMAGE CHECK */
-
     if(!temporaryItem){
 
       alert(
@@ -2846,8 +2551,6 @@ document
     }
 
 
-    /* NAME CHECK */
-
     if(!name){
 
       alert(
@@ -2858,8 +2561,6 @@ document
 
     }
 
-
-    /* PRICE CHECK */
 
     if(
       isNaN(price) ||
@@ -2875,8 +2576,6 @@ document
     }
 
 
-    /* CREATE */
-
     const item = {
 
       id:
@@ -2888,73 +2587,50 @@ document
         .toString(36)
         .substring(2),
 
-      name:
-        name,
+      name:name,
 
-      price:
-        price,
+      price:price,
 
-      category:
-        category,
+      category:category,
 
-      src:
-        temporaryItem
+      src:temporaryItem
 
     };
 
 
-    /* ADD */
+    items[category].push(item);
 
-    items[category].push(
-      item
-    );
-
-
-    /* SAVE */
 
     saveItems();
 
-
-    /* CATEGORY */
 
     currentCategory =
       category;
 
 
-    /* RESET */
-
-    itemFile.value =
-      "";
+    itemFile.value = "";
 
     document
     .getElementById(
       "itemName"
     )
-    .value =
-      "";
+    .value = "";
 
     document
     .getElementById(
       "itemPrice"
     )
-    .value =
-      "100";
+    .value = "100";
 
-    itemPreview.src =
-      "";
+    itemPreview.src = "";
 
-    temporaryItem =
-      "";
+    temporaryItem = "";
 
-
-    /* UPDATE */
 
     renderTabs();
 
     renderItems();
 
-
-    /* CLOSE */
 
     itemModal.classList.remove(
       "show"
@@ -2964,9 +2640,9 @@ document
 );
 
 
-/* ==================================================
-   MODAL OUTSIDE
-================================================== */
+/* =========================================
+   MODAL OUTSIDE CLICK
+========================================= */
 
 baseModal.addEventListener(
   "click",
@@ -3006,9 +2682,9 @@ itemModal.addEventListener(
 );
 
 
-/* ==================================================
+/* =========================================
    START
-================================================== */
+========================================= */
 
 loadItems();
 
