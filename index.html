@@ -2,11 +2,19 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
+>
 
 <title>ギフトで着せ替え</title>
 
 <style>
+
+/* ==================================================
+   RESET
+================================================== */
 
 *{
   box-sizing:border-box;
@@ -19,12 +27,14 @@ body{
   width:100%;
   height:100%;
   overflow:hidden;
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
     "Helvetica Neue",
     "Noto Sans JP",
     sans-serif;
+
   background:#f7f3ff;
 }
 
@@ -39,6 +49,7 @@ select{
   -webkit-tap-highlight-color:transparent;
 }
 
+
 /* ==================================================
    APP
 ================================================== */
@@ -46,10 +57,15 @@ select{
 #app{
   width:100%;
   height:100%;
+
   max-width:600px;
+
   margin:0 auto;
+
   position:relative;
+
   overflow:hidden;
+
   background:
     linear-gradient(
       180deg,
@@ -58,24 +74,27 @@ select{
     );
 }
 
+
 /* ==================================================
    HEADER
 ================================================== */
 
 .header{
   height:58px;
+
   flex-shrink:0;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
+  position:relative;
+
+  z-index:50;
+
   background:rgba(255,255,255,.98);
 
   border-bottom:1px solid #eadff5;
-
-  position:relative;
-  z-index:50;
 
   pointer-events:auto;
 }
@@ -83,8 +102,10 @@ select{
 .headerTitle{
   font-size:19px;
   font-weight:900;
+
   color:#6a3fa0;
 }
+
 
 /* ==================================================
    MAIN
@@ -99,21 +120,26 @@ select{
   overflow:hidden;
 
   position:relative;
+
   z-index:1;
 }
 
+
 /* ==================================================
-   CHARACTER
+   CHARACTER AREA
 ================================================== */
 
 .characterArea{
   flex:1;
+
   min-height:0;
 
   position:relative;
+
   z-index:1;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -131,6 +157,7 @@ select{
   position:relative;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -138,10 +165,15 @@ select{
 
   /*
     キャラクター画像が
-    ボタンのタップを邪魔しない
+    下のボタン操作を邪魔しない
   */
   pointer-events:none;
 }
+
+
+/* ==================================================
+   CHARACTER LAYERS
+================================================== */
 
 .layer{
   position:absolute;
@@ -161,13 +193,15 @@ select{
   object-fit:contain;
 
   pointer-events:none;
+
   user-select:none;
 
   -webkit-user-drag:none;
 }
 
+
 /* ==================================================
-   レイヤー順
+   LAYER ORDER
 ================================================== */
 
 #baseLayer{
@@ -206,15 +240,18 @@ select{
   z-index:9;
 }
 
+
 /* ==================================================
-   CATEGORY
+   CATEGORY AREA
 ================================================== */
 
 .categoryArea{
   height:128px;
+
   flex-shrink:0;
 
   position:relative;
+
   z-index:20;
 
   padding:7px 8px 8px;
@@ -245,6 +282,7 @@ select{
   min-width:0;
 
   position:relative;
+
   z-index:30;
 
   border:0;
@@ -256,6 +294,7 @@ select{
   color:#633895;
 
   font-weight:900;
+
   font-size:13px;
 
   box-shadow:
@@ -280,15 +319,18 @@ select{
   color:#fff;
 }
 
+
 /* ==================================================
    BOTTOM MENU
 ================================================== */
 
 .bottomMenu{
   height:58px;
+
   flex-shrink:0;
 
   position:relative;
+
   z-index:50;
 
   display:grid;
@@ -311,6 +353,7 @@ select{
   min-width:0;
 
   position:relative;
+
   z-index:60;
 
   border:0;
@@ -322,6 +365,7 @@ select{
   color:#613b88;
 
   font-size:13px;
+
   font-weight:900;
 
   cursor:pointer;
@@ -341,6 +385,7 @@ select{
   outline:none;
 }
 
+
 /* ==================================================
    MODAL
 ================================================== */
@@ -352,12 +397,12 @@ select{
 
   z-index:1000;
 
-  background:
-    rgba(34,20,45,.48);
-
   display:none;
 
   align-items:flex-end;
+
+  background:
+    rgba(34,20,45,.48);
 
   pointer-events:none;
 }
@@ -370,23 +415,26 @@ select{
 
 .modalBox{
   width:100%;
+
   max-height:92%;
+
+  position:relative;
+
+  z-index:1001;
+
+  display:flex;
+  flex-direction:column;
+
+  overflow:hidden;
 
   background:#fff;
 
   border-radius:
     22px 22px 0 0;
 
-  overflow:hidden;
-
-  display:flex;
-  flex-direction:column;
-
-  position:relative;
-  z-index:1001;
-
   pointer-events:auto;
 }
+
 
 /* ==================================================
    MODAL TITLE
@@ -394,17 +442,22 @@ select{
 
 .modalTitle{
   height:58px;
+
   flex-shrink:0;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
   position:relative;
 
+  z-index:1002;
+
   border-bottom:1px solid #eee;
 
   font-size:18px;
+
   font-weight:900;
 
   color:#573174;
@@ -421,7 +474,10 @@ select{
   width:38px;
   height:38px;
 
+  z-index:1010;
+
   border:0;
+
   border-radius:50%;
 
   background:#f1eafa;
@@ -429,16 +485,16 @@ select{
   color:#62398b;
 
   font-size:22px;
+
   font-weight:900;
 
   cursor:pointer;
-
-  z-index:1010;
 
   pointer-events:auto;
 
   touch-action:manipulation;
 }
+
 
 /* ==================================================
    ITEM HEADER
@@ -446,13 +502,16 @@ select{
 
 .itemHeader{
   height:58px;
+
   flex-shrink:0;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
   position:relative;
+
   z-index:1002;
 
   border-bottom:1px solid #eee;
@@ -464,6 +523,7 @@ select{
 
 .itemHeaderTitle{
   font-size:17px;
+
   font-weight:900;
 
   color:#573174;
@@ -479,7 +539,10 @@ select{
 
   padding:0 13px;
 
+  z-index:1010;
+
   border:0;
+
   border-radius:12px;
 
   background:#eee6fa;
@@ -490,19 +553,19 @@ select{
 
   cursor:pointer;
 
-  z-index:1010;
-
   pointer-events:auto;
 
   touch-action:manipulation;
 }
 
+
 /* ==================================================
-   ITEM GRID
+   ITEM LIST
 ================================================== */
 
 .itemList{
   flex:1;
+
   min-height:0;
 
   overflow-y:auto;
@@ -525,18 +588,23 @@ select{
   pointer-events:auto;
 }
 
+
+/* ==================================================
+   ITEM CARD
+================================================== */
+
 .itemCard{
   min-width:0;
+
+  position:relative;
+
+  padding:7px;
 
   border:2px solid #eee5f6;
 
   border-radius:16px;
 
   background:#fff;
-
-  padding:7px;
-
-  position:relative;
 
   box-shadow:
     0 2px 8px
@@ -563,20 +631,26 @@ select{
     rgba(154,98,221,.15);
 }
 
+
+/* ==================================================
+   ITEM IMAGE
+================================================== */
+
 .itemImageBox{
   width:100%;
 
   aspect-ratio:1/1;
 
-  border-radius:12px;
-
-  background:#faf8fc;
-
   display:flex;
+
   align-items:center;
   justify-content:center;
 
   overflow:hidden;
+
+  border-radius:12px;
+
+  background:#faf8fc;
 
   pointer-events:none;
 }
@@ -585,17 +659,23 @@ select{
   width:100%;
   height:100%;
 
-  object-fit:contain;
-
   display:block;
+
+  object-fit:contain;
 
   pointer-events:none;
 }
+
+
+/* ==================================================
+   ITEM NAME
+================================================== */
 
 .itemName{
   margin-top:5px;
 
   font-size:13px;
+
   font-weight:900;
 
   color:#4d385a;
@@ -611,18 +691,29 @@ select{
   pointer-events:none;
 }
 
+
+/* ==================================================
+   ITEM PRICE
+================================================== */
+
 .itemPrice{
   margin-top:3px;
 
   text-align:center;
 
   font-size:12px;
+
   font-weight:900;
 
   color:#8a5aaf;
 
   pointer-events:none;
 }
+
+
+/* ==================================================
+   DELETE
+================================================== */
 
 .itemDelete{
   position:absolute;
@@ -633,7 +724,10 @@ select{
   width:29px;
   height:29px;
 
+  z-index:5;
+
   border:0;
+
   border-radius:50%;
 
   background:
@@ -642,13 +736,12 @@ select{
   color:#c45b72;
 
   font-size:15px;
+
   font-weight:900;
 
   box-shadow:
     0 2px 5px
     rgba(0,0,0,.12);
-
-  z-index:5;
 
   cursor:pointer;
 
@@ -656,6 +749,11 @@ select{
 
   touch-action:manipulation;
 }
+
+
+/* ==================================================
+   EMPTY
+================================================== */
 
 .empty{
   grid-column:1/-1;
@@ -667,8 +765,10 @@ select{
   color:#987fa8;
 
   font-size:14px;
+
   font-weight:700;
 }
+
 
 /* ==================================================
    FORM
@@ -690,6 +790,7 @@ select{
   margin-bottom:6px;
 
   font-size:13px;
+
   font-weight:900;
 
   color:#573174;
@@ -698,21 +799,22 @@ select{
 .formInput,
 .formSelect{
   width:100%;
+
   height:45px;
+
+  margin-bottom:14px;
+
+  padding:0 11px;
 
   border:1px solid #ded2e8;
 
   border-radius:11px;
 
-  padding:0 11px;
-
-  margin-bottom:14px;
-
-  font-size:15px;
-
   outline:none;
 
   background:#fff;
+
+  font-size:15px;
 
   pointer-events:auto;
 }
@@ -732,6 +834,7 @@ select{
 
 .saveBtn{
   width:100%;
+
   height:48px;
 
   border:0;
@@ -743,6 +846,7 @@ select{
   color:#fff;
 
   font-size:15px;
+
   font-weight:900;
 
   cursor:pointer;
@@ -755,6 +859,7 @@ select{
 .saveBtn:active{
   transform:scale(.98);
 }
+
 
 /* ==================================================
    SMALL SCREEN
@@ -776,6 +881,7 @@ select{
 
 }
 
+
 /* ==================================================
    DESKTOP
 ================================================== */
@@ -795,9 +901,11 @@ select{
 </style>
 </head>
 
+
 <body>
 
 <div id="app">
+
 
 <!-- ==================================================
      HEADER
@@ -1050,7 +1158,8 @@ select{
         type="file"
         id="baseFile"
         class="fileInput"
-        accept="image/*">
+        accept="image/*"
+      >
 
       <button
         type="button"
@@ -1099,7 +1208,8 @@ select{
         type="text"
         id="itemName"
         class="formInput"
-        placeholder="例：プリンセスドレス">
+        placeholder="例：プリンセスドレス"
+      >
 
 
       <label class="formLabel">
@@ -1154,7 +1264,8 @@ select{
         id="itemPrice"
         class="formInput"
         min="0"
-        value="100">
+        value="100"
+      >
 
 
       <label class="formLabel">
@@ -1165,7 +1276,8 @@ select{
         type="file"
         id="itemFile"
         class="fileInput"
-        accept="image/*">
+        accept="image/*"
+      >
 
 
       <button
@@ -1307,7 +1419,8 @@ function createEmptyEquipped(){
 
 
 /* ==================================================
-   LOCAL STORAGE
+   SAVE
+   ※容量オーバーでも警告しない
 ================================================== */
 
 function saveData(){
@@ -1331,19 +1444,26 @@ function saveData(){
 
   }catch(error){
 
-    console.warn(
-      "保存できませんでした",
-      error
-    );
+    /*
+      保存容量を超えた場合も
+      alertは一切表示しない。
 
-    alert(
-      "画像データが大きすぎて保存できない可能性があります。"
+      現在の画面上の着せ替えは
+      そのまま動作する。
+    */
+
+    console.warn(
+      "localStorageへの保存に失敗しました"
     );
 
   }
 
 }
 
+
+/* ==================================================
+   LOAD
+================================================== */
 
 function loadData(){
 
@@ -1375,15 +1495,25 @@ function loadData(){
 
     if(savedItems){
 
-      const parsed =
-        JSON.parse(
-          savedItems
-        );
+      try{
 
-      if(Array.isArray(parsed)){
+        const parsed =
+          JSON.parse(
+            savedItems
+          );
 
-        items =
-          parsed;
+        if(
+          Array.isArray(parsed)
+        ){
+
+          items =
+            parsed;
+
+        }
+
+      }catch(error){
+
+        items = [];
 
       }
 
@@ -1392,20 +1522,33 @@ function loadData(){
 
     if(savedEquipped){
 
-      const parsed =
-        JSON.parse(
-          savedEquipped
-        );
+      try{
 
-      if(
-        parsed &&
-        typeof parsed === "object"
-      ){
+        const parsed =
+          JSON.parse(
+            savedEquipped
+          );
 
-        equipped = {
-          ...createEmptyEquipped(),
-          ...parsed
-        };
+        if(
+          parsed &&
+          typeof parsed ===
+            "object"
+        ){
+
+          equipped = {
+
+            ...createEmptyEquipped(),
+
+            ...parsed
+
+          };
+
+        }
+
+      }catch(error){
+
+        equipped =
+          createEmptyEquipped();
 
       }
 
@@ -1413,9 +1556,13 @@ function loadData(){
 
   }catch(error){
 
+    /*
+      読み込みエラーも
+      ユーザーには表示しない
+    */
+
     console.warn(
-      "データ読み込みエラー",
-      error
+      "データ読み込みに失敗しました"
     );
 
   }
@@ -1424,7 +1571,7 @@ function loadData(){
 
 
 /* ==================================================
-   BASE
+   BASE RENDER
 ================================================== */
 
 function renderBase(){
@@ -1452,10 +1599,12 @@ function renderBase(){
 
 
 /* ==================================================
-   LAYER
+   LAYER RENDER
 ================================================== */
 
-function renderLayer(category){
+function renderLayer(
+  category
+){
 
   const layer =
     document.getElementById(
@@ -1463,7 +1612,9 @@ function renderLayer(category){
     );
 
   if(!layer){
+
     return;
+
   }
 
 
@@ -1518,6 +1669,7 @@ function renderAll(){
 
   renderBase();
 
+
   Object.keys(
     CATEGORIES
   ).forEach(
@@ -1534,7 +1686,7 @@ function renderAll(){
 
 
 /* ==================================================
-   PNG TRANSPARENT CROP
+   TRANSPARENT IMAGE CROP
 ================================================== */
 
 function trimTransparentImage(
@@ -1555,6 +1707,7 @@ function trimTransparentImage(
           document.createElement(
             "canvas"
           );
+
 
         const ctx =
           canvas.getContext(
@@ -1673,17 +1826,21 @@ function trimTransparentImage(
 
 
         cropCtx.drawImage(
+
           img,
 
           minX,
           minY,
+
           width,
           height,
 
           0,
           0,
+
           width,
           height
+
         );
 
 
@@ -1718,7 +1875,7 @@ function trimTransparentImage(
 
 
 /* ==================================================
-   CATEGORY BUTTON
+   CATEGORY BUTTONS
 ================================================== */
 
 document
@@ -1733,6 +1890,7 @@ document
         function(event){
 
           event.preventDefault();
+
           event.stopPropagation();
 
 
@@ -1772,7 +1930,7 @@ document
 
 
 /* ==================================================
-   ITEM MODAL
+   OPEN ITEM MODAL
 ================================================== */
 
 function openItemModal(
@@ -1798,6 +1956,10 @@ function openItemModal(
 }
 
 
+/* ==================================================
+   CLOSE ITEM MODAL
+================================================== */
+
 function closeItemModal(){
 
   itemModal.classList.remove(
@@ -1816,6 +1978,7 @@ document
     function(event){
 
       event.preventDefault();
+
       event.stopPropagation();
 
       closeItemModal();
@@ -1847,10 +2010,15 @@ function renderItemList(){
   ){
 
     itemList.innerHTML = `
+
       <div class="empty">
+
         このカテゴリーには<br>
+
         まだアイテムがありません
+
       </div>
+
     `;
 
     return;
@@ -1984,8 +2152,6 @@ function renderItemList(){
       );
 
 
-      /* CARD */
-
       card.appendChild(
         imageBox
       );
@@ -2003,11 +2169,14 @@ function renderItemList(){
       );
 
 
+      /* 着用 */
+
       card.addEventListener(
         "click",
         function(event){
 
           event.preventDefault();
+
           event.stopPropagation();
 
           wearItem(
@@ -2039,7 +2208,8 @@ function wearItem(item){
 
 
   /*
-    同じアイテムをタップ
+    同じアイテムを
+    もう一度タップ
     → 脱ぐ
   */
 
@@ -2064,7 +2234,7 @@ function wearItem(item){
 
 
   /* ==================================================
-     ワンピース
+     ONEPIECE
   ================================================== */
 
   if(
@@ -2087,7 +2257,7 @@ function wearItem(item){
 
 
   /* ==================================================
-     ドレス
+     DRESS
   ================================================== */
 
   else if(
@@ -2110,7 +2280,7 @@ function wearItem(item){
 
 
   /* ==================================================
-     トップス
+     TOP
   ================================================== */
 
   else if(
@@ -2130,7 +2300,7 @@ function wearItem(item){
 
 
   /* ==================================================
-     ボトムス
+     BOTTOM
   ================================================== */
 
   else if(
@@ -2150,7 +2320,7 @@ function wearItem(item){
 
 
   /* ==================================================
-     その他
+     OTHER
   ================================================== */
 
   else{
@@ -2183,7 +2353,9 @@ function deleteItem(id){
 
 
   if(!item){
+
     return;
+
   }
 
 
@@ -2194,7 +2366,9 @@ function deleteItem(id){
 
 
   if(!ok){
+
     return;
+
   }
 
 
@@ -2234,7 +2408,6 @@ function deleteItem(id){
 
 /* ==================================================
    ITEM SETTING OPEN
-   ★ タップ修正版
 ================================================== */
 
 document
@@ -2246,6 +2419,7 @@ document
     function(event){
 
       event.preventDefault();
+
       event.stopPropagation();
 
       settingModal.classList.add(
@@ -2269,6 +2443,7 @@ document
     function(event){
 
       event.preventDefault();
+
       event.stopPropagation();
 
 
@@ -2366,6 +2541,10 @@ document
             category:
               category,
 
+            /*
+              価格は表示用のみ
+            */
+
             price:
               price,
 
@@ -2380,10 +2559,15 @@ document
           );
 
 
+          /*
+            保存できなくても
+            警告は表示しない
+          */
+
           saveData();
 
 
-          /* 入力リセット */
+          /* リセット */
 
           document
             .getElementById(
@@ -2411,7 +2595,7 @@ document
           );
 
 
-          /* 追加したカテゴリーへ */
+          /* 追加したカテゴリーを表示 */
 
           currentCategory =
             category;
@@ -2425,9 +2609,12 @@ document
               btn => {
 
                 btn.classList.toggle(
+
                   "active",
+
                   btn.dataset.category ===
                   category
+
                 );
 
               }
@@ -2451,7 +2638,6 @@ document
 
 /* ==================================================
    BASE SETTING OPEN
-   ★ タップ修正版
 ================================================== */
 
 document
@@ -2463,6 +2649,7 @@ document
     function(event){
 
       event.preventDefault();
+
       event.stopPropagation();
 
       baseModal.classList.add(
@@ -2486,6 +2673,7 @@ document
     function(event){
 
       event.preventDefault();
+
       event.stopPropagation();
 
 
@@ -2519,7 +2707,17 @@ document
             e.target.result;
 
 
+          /*
+            保存できなくても
+            警告を出さない
+          */
+
           saveData();
+
+
+          /*
+            画面にはすぐ反映
+          */
 
           renderBase();
 
@@ -2562,6 +2760,7 @@ document
         function(event){
 
           event.preventDefault();
+
           event.stopPropagation();
 
 
@@ -2632,13 +2831,14 @@ renderAll();
 
 
 /* ==================================================
-   初期カテゴリー
+   INITIAL CATEGORY
 ================================================== */
 
 const firstCategory =
   document.querySelector(
     '.categoryBtn[data-category="top"]'
   );
+
 
 if(firstCategory){
 
